@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-09T16:42:12+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
+In the past, I had a personal website, hosted on a paid hosting. I pied for the hosting services about 40$ / year + about 35$ / year for a personal domain.&lt;/p&gt;
+
+&lt;p&gt;Now, with GitHub pages, it is much easier and cheaper(actually it cost you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;h3 id=&quot;what-is-github-pages&quot;&gt;What is GitHub Pages?&lt;/h3&gt;
+
+&lt;p&gt;GitHub Pages is a platform/feature provided by GitHub where users can host websites based on their GitHub repositories.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-jekyll-&quot;&gt;What is Jekyll ?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a static sites generator tools, written in Ruby and it is the engine behind GitHub Pages platform.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation-and-configuration&quot;&gt;Installation and Configuration&lt;/h2&gt;
+
+&lt;h3 id=&quot;github-repository&quot;&gt;GitHub repository&lt;/h3&gt;
+&lt;p&gt;In order to create a personal site/blog, first of all, you have to create a repository using this format: &lt;strong&gt;your_github_username&lt;/strong&gt;.github.io
+! It’s enough to add in this repository a single &lt;strong&gt;index.html&lt;/strong&gt; file, with some content, in order to see that the site up at https://&lt;strong&gt;your_github_username&lt;/strong&gt;.github.io
+That’s all 🙃&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyll-install&quot;&gt;Jekyll install&lt;/h3&gt;
+&lt;p&gt;The windows installation details can be found &lt;a href=&quot;https://jekyllrb.com/docs/windows/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I use a macOS system and here is how the installation process can be done:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~ gem install jekyll bundler
+~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new my-awesome-site
+~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;my-awesome-site
+~/my-awesome-site &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;span class=&quot;c&quot;&gt;# =&amp;gt; Now browse to http://localhost:4000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you have a running Jekyll site, which has a predefined theme, which name is Minima (see how it looks -&amp;gt; &lt;a href=&quot;https://jekyll.github.io/minima/&quot;&gt;https://jekyll.github.io/minima/)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you don’t have in mind to build your own theme, you can select one from this list of official supported themes: &lt;a href=&quot;https://pages.github.com/themes/&quot;&gt;https://pages.github.com/themes/&lt;/a&gt;, or, from this unofficial themes list: &lt;a href=&quot;https://github.com/topics/jekyll-theme&quot;&gt;https://github.com/topics/jekyll-theme&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;general-configuration&quot;&gt;General configuration&lt;/h3&gt;
+&lt;p&gt;When you generate a new Jekyll project, you should find a &lt;strong&gt;_config.yml&lt;/strong&gt; file in the project directory. It looks in this way:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;awesome&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;author: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GitHub&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;email: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;your&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# this means to ignore newlines until &quot;baseurl:&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Write&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;awesome&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;You&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;can&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;yml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;It&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;appear&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Google&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;search&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xml&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;twitter_username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jekyllrb&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;github_username:  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;
+    
+&lt;span class=&quot;c1&quot;&gt;# Minima date format&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;minima:
+ date_format: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;%b %-d, %Y&quot;&lt;/span&gt;
+    
+&lt;span class=&quot;c1&quot;&gt;# If you want to link only specific pages in your header, uncomment&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# this and add the path to the pages in order as they should show up&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#header_pages:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - about.html&lt;/span&gt;
+   
+&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;markdown: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kramdown&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;theme: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minima&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;exclude:
+ &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gemfile&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Gemfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lock&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The configuration options are quite clear.
+Here, in this configuration file, you can specify a theme. If you choose one from an officially supported theme, only you have to do is to modify the theme name in the theme variable. For example, if we choose &lt;a href=&quot;https://pages-themes.github.io/hacker/&quot;&gt;Hacker&lt;/a&gt; theme:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;theme: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hacker&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see theme &lt;a href=&quot;https://github.com/pages-themes/hacker&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want to install an unofficial theme - follow the steps described &lt;a href=&quot;https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;That’s all.&lt;/p&gt;
+
+&lt;h3 id=&quot;disquss-integration&quot;&gt;Disquss integration&lt;/h3&gt;
+&lt;h2 id=&quot;content-delivery-process&quot;&gt;Content delivery process&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;using-vscode&quot;&gt;Using VSCode&lt;/h3&gt;
+&lt;p&gt;Waiting…&lt;/p&gt;
+&lt;h3 id=&quot;using-ai-writer-&quot;&gt;Using AI Writer 😻&lt;/h3&gt;
+&lt;p&gt;Waiting..&lt;/p&gt;
+&lt;h3 id=&quot;sadasdasd&quot;&gt;sadasdasd&lt;/h3&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. In the past, I had a personal website, hosted on a paid hosting. I pied for the hosting services about 40$ / year + about 35$ / year for a personal domain.</summary></entry></feed>
