@@ -26,7 +26,9 @@ Jekyll is a static sites generator tools, written in Ruby and it is the engine b
 In order to create a personal site/blog, first of all, you have to create a repository using this format: **your_github_username**.github.io
 ! It's enough to add in this repository a single **index.html** file, with some content, in order to see that the site up at https://**your_github_username**.github.io
 That's all 🙃
- 
+
+Next, you will need to install Jekyll locally, if you want to do some changes regarding the theme layout.
+
 ### Jekyll install
 The windows installation details can be found [here](https://jekyllrb.com/docs/windows/).
  
@@ -86,14 +88,28 @@ You can see theme [documentation](https://github.com/pages-themes/hacker).
  
 If you want to install an unofficial theme - follow the steps described [here](https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site/).
 
+
+ That's all. What is remaining, is to commit the changes and push them to your GitHub repository.
  
- That's all.
- 
-### Disquss integration     
 ## Content delivery process
 -----
 ### Using VSCode
-Waiting...
+#### About Markdown 
+In order to write posts, you have to take a look at how Markdown [syntax](https://guides.github.com/features/mastering-markdown/) looks like.
+
+"**Markdown** is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name.[8] Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. As the initial description of Markdown contained ambiguities and unanswered questions, many implementations and extensions of Markdown appeared over the years to answer these issues."
+
+At these step, you should agree that you need a markdown editor.
+
+The [Visual Studio Code](https://code.visualstudio.com/download) is one of them.
+You will need to install [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin.
+
+This is how it looks:
+
+![](https://www.dropbox.com/s/shqwe3dyxot8bxp/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png?raw=1)
+
+
 ### Using AI Writer 😻
-Waiting..
-### sadasdasd
+Recently, I discovered [AI writer](https://ia.net/writer/). It is available only on MacOS and iOS, but...it's awesome. It costs some money, but it definitely worth the money.
+
+
