@@ -110,6 +110,6 @@ This is how it looks:
 
 
 ### Using AI Writer 😻
-Recently, I discovered [AI writer](https://ia.net/writer/). It is available only on MacOS and iOS, but...it's awesome. It costs some money, but it definitely worth the money.
+Recently, I discovered [AI writer](https://ia.net/writer/). It is available only on MacOS and iOS, but...it's awesome. It costs some money, but it definitely worth them.
 
 
