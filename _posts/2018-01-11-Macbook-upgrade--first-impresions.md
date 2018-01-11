@@ -32,11 +32,11 @@ I own the described new computer for 4 days. I did not expect to experience so m
 
 So, the things I love:
 
-1. The performance.\
+1. **The performance.**
     The performance is really great. I should do some proven experiments in order to write words, but I saw the improvements when I build/rebuild iOS applications. It takes considerably less time.
-2. The keyboard. \
+2. **The keyboard.**
     I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using [QWERTY](http://www.typingstudy.com/lesson/1/part/1) writing style, without looking at keyboard)
-3. The cooling system. \
+3. **The cooling system.**
     With a new version of the processor and two cooling fans system, and also with some improvements in this part - the experience is awesome. At the building process, and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
     
     On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and it even is not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
@@ -45,10 +45,10 @@ So, the things I love:
     
     I really enjoy this improvement. I may say that I have some allergy on fans sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).
 
-4. The battery
+4. **The battery**
     Because of the cooling system, I think(of course and other stuff) the battery has the power now for about - 7 hours. And this is normal usages (builds and others). It really is enough for an entire workday.
     
-5. Touch bar
+5. **Touch bar**
     This is simple. I do not hate or love it. But, the Touch ID -  I found it very useful. 
     
 # Conclusion
