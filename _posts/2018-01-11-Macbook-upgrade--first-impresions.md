@@ -12,18 +12,21 @@ Back, in 2013, when I was in the second year at the university, I was involved i
 I loved using whit system, and a few days ago, after the internship was started, I installed on my [Asus](https://www.asus.com/Laptops/N53SV/) notebook a Hackintosh version of Mavericks in order to use it at home, and practice more iOS development. The Hackintosh system was running very well. The single problem which I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy that I'm learning iOS development without paying money for an expensive Mac computer. 
 After the internship, I continued to use Hackintosh in order to do some projects at the university. So, the experience and the motivation to buy an Apple computer was growing. 
 
-# About old MacBook 
+## About old MacBook 
+-----
 About 3 years later, in December 2016, I bought the first Apple computer.
 It was a MacBook Pro 2015 version, 13-inch display, i7 3.1 GHz CPU, 16 Gb of ram, 256 Gb of SSD space. (To be honest, it's a second computer, bought a few days later than the first one. [Read](https://www.quora.com/Should-a-computer-science-student-get-a-13-or-15-inch-MacBook-Pro/answer/Alexandru-Ilie%C8%99?srid=SKYq) why. 
 
 It was and it is a powerful computer, and it helped me to be more organized, more efficient in what I'm doing, and, why not - happier.
 
-# About new MacBook 
+## About new MacBook
+----- 
 I did not have big reasons to upgrade my computer. It was not a burning desire, however, I created and advertise on a local advertising site 2 weeks ago. So, after two weeks, someone wanted to buy my toy. I was: brrrr...aaaa...I'm not ready... I need another MacBook to buy. I searched for a second hand, newer MacBook Pro, and found nothing interesting...
 For some moments I decided to keep my old computer, but...I found an interesting advertising a few hours ago. I was not a selling advertising, this is why it didn't catch my attention when I searched for the first time. It was a "changing" advertising. The guy who owns that computer (MacBook Pro 2016 with touch bar, 13", 16 Gb of ram, i7 3.3, 512 Gb SSD space) wished to change it with the same configuration of MacBook Pro 15" display. I got in touch with them, and we after a negotiation, he agreed to sell the computer. To be honest, with few hundred dollars more, I could buy the 15" inch MacBook Pro, which is more powerful because of the quad-core processor, and discrete GPU but it is not what I want. The 13" inch screen fits perfectly with my requirements. 
 Yes, the performance is lower than his 15" brother, but I do not do any rendering or video gaming. 
 
-# What makes the difference
+## What makes the difference
+-----
 I sow more opinions regarding the new MacBook Pro computers.
 Someones are saying that the upgrade is not worth if you own a 2015 model. Others are saying that it worth but they hate some things, like touch bar, keyboard, performance(because of 32 GB of ram) and so one.
 I will write here my 50 cents regarding the difference which I'm experiencing right now.
@@ -51,7 +54,8 @@ So, the things I love:
 5. **Touch bar**
     This is simple. I do not hate or love it. But, the Touch ID -  I found it very useful. 
     
-# Conclusion
+## Conclusion
+-----
 
 I think, in general, the upgrade worth. This is my own opinion,     and yes, for me it really worth. (I think again about cooling system)
 
