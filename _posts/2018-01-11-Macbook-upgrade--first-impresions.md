@@ -40,6 +40,7 @@ The performance is really great. I should do some proven experiments in order to
 ### The keyboard.
 I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using [QWERTY](http://www.typingstudy.com/lesson/1/part/1) writing style, without looking at keyboard)
 ### The cooling system.
+
 With a new version of the processor and two cooling fan system, and also with some improvements in this part - the experience is awesome. At the building (iOS apps)), and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
     
 On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
