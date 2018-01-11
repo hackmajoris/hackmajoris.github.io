@@ -1,15 +1,15 @@
 ---
 layout: post
-title: MacBook Upgrade. First Impresions 
+title: MacBook Upgrade. First Impressions 
 author: Alexandru Ilies
 ---
 
 
-First of all, I will tell how I started to use Apple ecosystem.
+In the beginning I will tell how I started to use Apple ecosystem.
 
 
-Back, in 2013, when I was in the second year at the university, I was involved in an iOS internship.I can say, it was the first time when I touched a macOS(it was OSX system at that time)) system, running on a Mac mini computer. 
-I loved using whit system, and a few days ago, after the internship was started, I installed on my [Asus](https://www.asus.com/Laptops/N53SV/) notebook a Hackintosh version of Mavericks in order to use it at home, and practice more iOS development. The Hackintosh system was running very well. The single problem which I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy that I'm learning iOS development without paying money for an expensive Mac computer. 
+Back, in 2013, when I was in the second year at the university, I was involved in an iOS internship.I can say, it was the first time when I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
+I enjoyed using whit system, and a few days ago, after the internship was started, I installed on my [Asus](https://www.asus.com/Laptops/N53SV/) notebook a Hackintosh version of Mavericks in order to use it at home, and practice more iOS development. The Hackintosh system was running very well. The single problem which I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy that I learning iOS development without paying money for an expensive Mac computer. 
 After the internship, I continued to use Hackintosh in order to do some projects at the university. So, the experience and the motivation to buy an Apple computer was growing. 
 
 ## About old MacBook 
@@ -36,7 +36,7 @@ I own the described new computer for 4 days. I did not expect to experience so m
 So, the things I love:
 
 ### The performance.
-The performance is really great. I should do some proven experiments in order to write words, but I saw the improvements when I build/rebuild iOS applications. It takes considerably less time.
+The performance is really great. I should do some proven experiments in order to write words, but I sow the improvements when I build/rebuild iOS applications. It takes considerably less time.
 ### The keyboard.
 I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using [QWERTY](http://www.typingstudy.com/lesson/1/part/1) writing style, without looking at keyboard)
 ### The cooling system.

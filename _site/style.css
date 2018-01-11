@@ -42,7 +42,8 @@ html {
 
 body {
   background: #fff;
-  font: 18px/1.4 Helvetica, Arial, sans-serif;
+  font: 20px/1.4 Helvetica, Arial, sans-serif;
+  line-height: 140%;
   color: #333; }
 
 .container {
@@ -237,11 +238,28 @@ nav a:hover, nav a:active {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: #eee; }
+  background-color: #00639926; }
 
 footer {
   padding: 20px 0;
   text-align: center; }
+
+img {
+  border-radius: 14px; }
+
+.share-page {
+  text-align: center;
+  background: white;
+  color: red;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 1.5; }
+.share-page a {
+  font-weight: 700;
+  color: #fff;
+  margin-left: 10px; }
+.share-page a:hover {
+  border-bottom: 1px dashed #fff; }
 
 /****************************/
 /* JEKYLL-mono-color */

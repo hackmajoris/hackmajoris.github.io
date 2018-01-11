@@ -281,12 +281,33 @@ nav {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  background-color: #00639926;
 }
 
 footer {
   padding: 20px 0;
   text-align: center;
+}
+img {
+  border-radius: 14px;  
+}
+.share-page {
+  text-align: center;
+  background: white;
+  color: red;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 1.5;
+
+  a {
+      font-weight: 700;
+      color: #fff;
+      margin-left: 10px;
+
+      &:hover {
+          border-bottom: 1px dashed #fff;
+      }
+  }
 }
 
 @import "jekyll-mono";

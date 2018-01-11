@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-09T21:06:24+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-11T17:43:40+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">MacBook Upgrade. First Impressions</title><link href="http://localhost:4000/Macbook-upgrade-first-impresions/" rel="alternate" type="text/html" title="MacBook Upgrade. First Impressions" /><published>2018-01-11T00:00:00+02:00</published><updated>2018-01-11T00:00:00+02:00</updated><id>http://localhost:4000/Macbook-upgrade--first-impresions</id><content type="html" xml:base="http://localhost:4000/Macbook-upgrade-first-impresions/">&lt;p&gt;In the beginning I will tell how I started to use Apple ecosystem.&lt;/p&gt;
+
+&lt;p&gt;Back, in 2013, when I was in the second year at the university, I was involved in an iOS internship.I can say, it was the first time when I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
+I enjoyed using whit system, and a few days ago, after the internship was started, I installed on my &lt;a href=&quot;https://www.asus.com/Laptops/N53SV/&quot;&gt;Asus&lt;/a&gt; notebook a Hackintosh version of Mavericks in order to use it at home, and practice more iOS development. The Hackintosh system was running very well. The single problem which I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy that I learning iOS development without paying money for an expensive Mac computer. 
+After the internship, I continued to use Hackintosh in order to do some projects at the university. So, the experience and the motivation to buy an Apple computer was growing.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-old-macbook&quot;&gt;About old MacBook&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;About 3 years later, in December 2016, I bought the first Apple computer.
+It was a MacBook Pro 2015 version, 13-inch display, i7 3.1 GHz CPU, 16 Gb of ram, 256 Gb of SSD space. (To be honest, it’s a second computer, bought a few days later than the first one. &lt;a href=&quot;https://www.quora.com/Should-a-computer-science-student-get-a-13-or-15-inch-MacBook-Pro/answer/Alexandru-Ilie%C8%99?srid=SKYq&quot;&gt;Read&lt;/a&gt; why.&lt;/p&gt;
+
+&lt;p&gt;It was and it is a powerful computer, and it helped me to be more organized, more efficient in what I’m doing, and, why not - happier.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-new-macbook&quot;&gt;About new MacBook&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;I did not have big reasons to upgrade my computer. It was not a burning desire, however, I created and advertise on a local advertising site 2 weeks ago. So, after two weeks, someone wanted to buy my toy. I was: brrrr…aaaa…I’m not ready… I need another MacBook to buy. I searched for a second hand, newer MacBook Pro, and found nothing interesting…
+For some moments I decided to keep my old computer, but…I found an interesting advertising a few hours ago. I was not a selling advertising, this is why it didn’t catch my attention when I searched for the first time. It was a “changing” advertising. The guy who owns that computer (MacBook Pro 2016 with touch bar, 13”, 16 Gb of ram, i7 3.3, 512 Gb SSD space) wished to change it with the same configuration of MacBook Pro 15” display. I got in touch with them, and we after a negotiation, he agreed to sell the computer. To be honest, with few hundred dollars more, I could buy the 15” inch MacBook Pro, which is more powerful because of the quad-core processor, and discrete GPU but it is not what I want. The 13” inch screen fits perfectly with my requirements. 
+Yes, the performance is lower than his 15” brother, but I do not do any rendering or video gaming.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-makes-the-difference&quot;&gt;What makes the difference&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;I sow more opinions regarding the new MacBook Pro computers.
+Someones are saying that the upgrade is not worth it if you own a 2015 model. Others are saying that it worth but they hate some things, like touch bar, keyboard, performance(because of 32 GB of ram) and so one.
+I will write here my 50 cents regarding the difference which I’m experiencing right now.&lt;/p&gt;
+
+&lt;p&gt;I own the described new computer for 4 days. I did not expect to experience so many changes, but I am.&lt;/p&gt;
+
+&lt;p&gt;So, the things I love:&lt;/p&gt;
+
+&lt;h3 id=&quot;the-performance&quot;&gt;The performance.&lt;/h3&gt;
+&lt;p&gt;The performance is really great. I should do some proven experiments in order to write words, but I sow the improvements when I build/rebuild iOS applications. It takes considerably less time.&lt;/p&gt;
+&lt;h3 id=&quot;the-keyboard&quot;&gt;The keyboard.&lt;/h3&gt;
+&lt;p&gt;I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using &lt;a href=&quot;http://www.typingstudy.com/lesson/1/part/1&quot;&gt;QWERTY&lt;/a&gt; writing style, without looking at keyboard)&lt;/p&gt;
+&lt;h3 id=&quot;the-cooling-system&quot;&gt;The cooling system.&lt;/h3&gt;
+&lt;p&gt;With a new version of the processor and two cooling fan system, and also with some improvements in this part - the experience is awesome. At the building (iOS apps)), and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute.&lt;/p&gt;
+
+&lt;p&gt;On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/tzk14frcpxg0qpv/Screen%20Shot%202018-01-11%20at%2011.09.31.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I really enjoy this improvement. I may say that I have some allergy on fan sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).&lt;/p&gt;
+
+&lt;h3 id=&quot;the-battery&quot;&gt;The battery&lt;/h3&gt;
+&lt;p&gt;Because of the cooling system, I think(of course and other stuff) the battery has the power now for about - 7 hours. And this is at normal usages (builds and others). It is really enough for an entire workday.&lt;/p&gt;
+
+&lt;h3 id=&quot;touch-bar&quot;&gt;Touch bar&lt;/h3&gt;
+&lt;p&gt;Here is simple. I do not hate or love it. But, the Touch ID -  I found it very useful.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;I think, in general, the upgrade worth. This is my own opinion,     and yes, for me it really worth. (I think again about cooling system)&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In the beginning I will tell how I started to use Apple ecosystem.</summary></entry><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
 In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.&lt;/p&gt;
 
 &lt;p&gt;Now, with GitHub pages, it is much easier and cheaper(actually it costs you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process.&lt;/p&gt;
@@ -98,4 +148,7 @@ You will need to install &lt;a href=&quot;https://marketplace.visualstudio.com/i
 &lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/shqwe3dyxot8bxp/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;using-ai-writer-&quot;&gt;Using AI Writer 😻&lt;/h3&gt;
-&lt;p&gt;Recently, I discovered &lt;a href=&quot;https://ia.net/writer/&quot;&gt;AI writer&lt;/a&gt;. It is available only on MacOS and iOS, but…it’s awesome. It costs some money, but it definitely worth them.&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.</summary></entry></feed>
+&lt;p&gt;Recently, I discovered &lt;a href=&quot;https://ia.net/writer/&quot;&gt;AI writer&lt;/a&gt;. It is available only on MacOS and iOS, but…it’s awesome. It costs some money, but it definitely worth them.&lt;/p&gt;
+
+&lt;h3 id=&quot;grammarly&quot;&gt;&lt;a href=&quot;https://app.grammarly.com&quot;&gt;Grammarly&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I am terrible at English.&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.</summary></entry></feed>
