@@ -28,7 +28,7 @@ Yes, the performance is lower than his 15" brother, but I do not do any renderin
 ## What makes the difference
 -----
 I sow more opinions regarding the new MacBook Pro computers.
-Someones are saying that the upgrade is not worth if you own a 2015 model. Others are saying that it worth but they hate some things, like touch bar, keyboard, performance(because of 32 GB of ram) and so one.
+Someones are saying that the upgrade is not worth it if you own a 2015 model. Others are saying that it worth but they hate some things, like touch bar, keyboard, performance(because of 32 GB of ram) and so one.
 I will write here my 50 cents regarding the difference which I'm experiencing right now.
 
 I own the described new computer for 4 days. I did not expect to experience so many changes, but I am. 
@@ -40,19 +40,19 @@ The performance is really great. I should do some proven experiments in order to
 ### The keyboard.
 I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using [QWERTY](http://www.typingstudy.com/lesson/1/part/1) writing style, without looking at keyboard)
 ### The cooling system.
-With a new version of the processor and two cooling fans system, and also with some improvements in this part - the experience is awesome. At the building process, and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
+With a new version of the processor and two cooling fan system, and also with some improvements in this part - the experience is awesome. At the building (iOS apps)), and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
     
 On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
     
 ![](https://www.dropbox.com/s/tzk14frcpxg0qpv/Screen%20Shot%202018-01-11%20at%2011.09.31.png?raw=1)
     
-I really enjoy this improvement. I may say that I have some allergy on fans sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).
+I really enjoy this improvement. I may say that I have some allergy on fan sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).
 
 ### The battery
-Because of the cooling system, I think(of course and other stuff) the battery has the power now for about - 7 hours. And this is normal usages (builds and others). It really is enough for an entire workday.
+Because of the cooling system, I think(of course and other stuff) the battery has the power now for about - 7 hours. And this is at normal usages (builds and others). It is really enough for an entire workday.
     
 ### Touch bar
-This is simple. I do not hate or love it. But, the Touch ID -  I found it very useful. 
+Here is simple. I do not hate or love it. But, the Touch ID -  I found it very useful. 
     
 ## Conclusion
 -----
