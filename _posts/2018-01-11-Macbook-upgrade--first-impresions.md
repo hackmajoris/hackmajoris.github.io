@@ -39,7 +39,7 @@ So, the things I love:
 3. **The cooling system.**
     With a new version of the processor and two cooling fans system, and also with some improvements in this part - the experience is awesome. At the building process, and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
     
-    On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and it even is not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
+    On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
     
     ![](https://www.dropbox.com/s/tzk14frcpxg0qpv/Screen%20Shot%202018-01-11%20at%2011.09.31.png?raw=1)
     
