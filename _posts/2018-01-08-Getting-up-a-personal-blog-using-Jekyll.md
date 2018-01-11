@@ -5,9 +5,9 @@ author: Alexandru Ilies
 ---
 
 In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
-In the past, I had a personal website, hosted on a paid hosting. I pied for the hosting services about 40$ / year + about 35$ / year for a personal domain.
+In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.
 
-Now, with GitHub pages, it is much easier and cheaper(actually it cost you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process. 
+Now, with GitHub pages, it is much easier and cheaper(actually it costs you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process. 
  
  
 ## Introduction 
@@ -107,7 +107,6 @@ You will need to install [Markdown Preview Enhanced](https://marketplace.visuals
 This is how it looks:
 
 ![](https://www.dropbox.com/s/shqwe3dyxot8bxp/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png?raw=1)
-
 
 ### Using AI Writer 😻
 Recently, I discovered [AI writer](https://ia.net/writer/). It is available only on MacOS and iOS, but...it's awesome. It costs some money, but it definitely worth them.

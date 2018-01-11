@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-09T16:42:12+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
-In the past, I had a personal website, hosted on a paid hosting. I pied for the hosting services about 40$ / year + about 35$ / year for a personal domain.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-09T21:06:24+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
+In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.&lt;/p&gt;
 
-&lt;p&gt;Now, with GitHub pages, it is much easier and cheaper(actually it cost you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process.&lt;/p&gt;
+&lt;p&gt;Now, with GitHub pages, it is much easier and cheaper(actually it costs you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process.&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -19,6 +19,8 @@ In the past, I had a personal website, hosted on a paid hosting. I pied for the 
 &lt;p&gt;In order to create a personal site/blog, first of all, you have to create a repository using this format: &lt;strong&gt;your_github_username&lt;/strong&gt;.github.io
 ! It’s enough to add in this repository a single &lt;strong&gt;index.html&lt;/strong&gt; file, with some content, in order to see that the site up at https://&lt;strong&gt;your_github_username&lt;/strong&gt;.github.io
 That’s all 🙃&lt;/p&gt;
+
+&lt;p&gt;Next, you will need to install Jekyll locally, if you want to do some changes regarding the theme layout.&lt;/p&gt;
 
 &lt;h3 id=&quot;jekyll-install&quot;&gt;Jekyll install&lt;/h3&gt;
 &lt;p&gt;The windows installation details can be found &lt;a href=&quot;https://jekyllrb.com/docs/windows/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -76,13 +78,24 @@ Here, in this configuration file, you can specify a theme. If you choose one fro
 
 &lt;p&gt;If you want to install an unofficial theme - follow the steps described &lt;a href=&quot;https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;That’s all.&lt;/p&gt;
+&lt;p&gt;That’s all. What is remaining, is to commit the changes and push them to your GitHub repository.&lt;/p&gt;
 
-&lt;h3 id=&quot;disquss-integration&quot;&gt;Disquss integration&lt;/h3&gt;
 &lt;h2 id=&quot;content-delivery-process&quot;&gt;Content delivery process&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;h3 id=&quot;using-vscode&quot;&gt;Using VSCode&lt;/h3&gt;
-&lt;p&gt;Waiting…&lt;/p&gt;
+&lt;h4 id=&quot;about-markdown&quot;&gt;About Markdown&lt;/h4&gt;
+&lt;p&gt;In order to write posts, you have to take a look at how Markdown &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;syntax&lt;/a&gt; looks like.&lt;/p&gt;
+
+&lt;p&gt;“&lt;strong&gt;Markdown&lt;/strong&gt; is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name.[8] Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. As the initial description of Markdown contained ambiguities and unanswered questions, many implementations and extensions of Markdown appeared over the years to answer these issues.”&lt;/p&gt;
+
+&lt;p&gt;At these step, you should agree that you need a markdown editor.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;Visual Studio Code&lt;/a&gt; is one of them.
+You will need to install &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced&quot;&gt;Markdown Preview Enhanced&lt;/a&gt; plugin.&lt;/p&gt;
+
+&lt;p&gt;This is how it looks:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/shqwe3dyxot8bxp/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;using-ai-writer-&quot;&gt;Using AI Writer 😻&lt;/h3&gt;
-&lt;p&gt;Waiting..&lt;/p&gt;
-&lt;h3 id=&quot;sadasdasd&quot;&gt;sadasdasd&lt;/h3&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. In the past, I had a personal website, hosted on a paid hosting. I pied for the hosting services about 40$ / year + about 35$ / year for a personal domain.</summary></entry></feed>
+&lt;p&gt;Recently, I discovered &lt;a href=&quot;https://ia.net/writer/&quot;&gt;AI writer&lt;/a&gt;. It is available only on MacOS and iOS, but…it’s awesome. It costs some money, but it definitely worth them.&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.</summary></entry></feed>
