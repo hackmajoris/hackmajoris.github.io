@@ -43,9 +43,9 @@ I really love the new keyboard. It is so lovely to touch and write on it. I am m
 
 With a new version of the processor and two cooling fan system, and also with some improvements in this part - the experience is awesome. At the building (iOS apps)), and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute. 
     
-On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.
+On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 rpm/minutes.
     
-![](https://www.dropbox.com/s/tzk14frcpxg0qpv/Screen%20Shot%202018-01-11%20at%2011.09.31.png?raw=1)
+![](https://www.dropbox.com/s/fgb567y720jijft/Screen%20Shot%202018-01-14%20at%2014.53.11.png?raw=1)
     
 I really enjoy this improvement. I may say that I have some allergy on fan sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).
 
