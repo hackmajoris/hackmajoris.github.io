@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Despre Lighting Network
+title: Despre Lightning Network
 author: Alexandru Ilies
 ---
 
