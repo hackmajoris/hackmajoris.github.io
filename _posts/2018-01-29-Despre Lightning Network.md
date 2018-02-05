@@ -76,7 +76,8 @@ Să numim aceste probleme corespunzător:
 - problema persoanei terțe
 
 
-## 2. Smart-contracts
+## 2. Smart-contractsz`~~aqwa`=-[p0o9az`~ZA;./"|
+>≤
 Bitcoin are suport pentru un limbaj simplu al smart-contractelor - Script. În fiecare tranzacție Bitcoin există un câmp special, care conține un script scris în acest limbaj. Acest script verifică, după aplicarea a căror reguli, ieșirea tranzacției poate fi folosită.
 ”Folosirea ieșirei tranzacției A” - este un mod mult mai corect tehnic spus ”folosirea banilor din adresa/portofelul K, unde aceștia au fost depuși cu ajutorul tranzacției A”
 
