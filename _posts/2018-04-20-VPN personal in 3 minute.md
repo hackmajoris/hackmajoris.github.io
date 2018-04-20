@@ -1,6 +1,6 @@
 ---
 layout: post
-title: VPN Personal în 3 minute
+title: VPN Personal în 3 minute 😱
 author: Alexandru Ilies
 ---
 ## De ce?
