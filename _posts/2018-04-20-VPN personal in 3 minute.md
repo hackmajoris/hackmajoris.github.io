@@ -70,7 +70,7 @@ Mai departe....
 
 9. După ce am schimbat parola de accesare a Droplet-ului, scrim  următoarea comandă:
 
-CID=$(docker run -d --restart=always --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn)
+  CID=$(docker run -d --restart=always --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn)
 
 Va trebui să așteptați pentru a se descărca toate dependențele.
 
@@ -79,7 +79,7 @@ Consola o să arate undeva așa:
 
 10. După, scriem în consolă comanda
 
-docker run -t -i -p 8080:8080 --volumes-from $CID jpetazzo/dockvpn serveconfig
+  docker run -t -i -p 8080:8080 --volumes-from $CID jpetazzo/dockvpn serveconfig
 
 După executare, în consolă vom vedea o adresă, de genul: 0.0.0.0:8080 (La fiecare va fi diferită)
 
