@@ -18,7 +18,7 @@ Pe lângă partea de securitate și anonimitate pe Internet, VPN-ul îți oferă
 Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentru alte platforme. Cele mai evidente probleme pe care le oferă sunt: prețul, anonimitatea, lipsa controlului asupra propriului trafic. Singurul serviciu de acest gen, în care am încredere este [TunellBear](https://www.tunnelbear.com/pricing).  Sugerez să-l folosiți în cazul în care aveți nevoie de un VPN și nu vă aranjeză soluția propusă mai jos. Acest serviciu oferă 500MB gratis, lunar iar pentru un trafic nelimitat - prețul este de 10 USD. Mai jost o să vedem cum putem obține așa ceva cu resurse mai puține.
 
 
-! Soluția de mai jos este pentru utilizatorii de rând. Nu necesită cunoștințe în nici un domeniu. Necesită doar dorința de a te proja pe Internet.
+! Soluția de mai jos este pentru utilizatorii de rând. Nu necesită cunoștințe în nici un domeniu. Necesită doar dorința de a te proteja atunci când folosești Internet.
 
 ### De ce avem nevoie:
 
@@ -94,7 +94,7 @@ Accesând resursa, în mod normal, Browserul se va plânge din cauza securităț
 După descărcare, redenumim fișierul în așa fel încât acesta să aibă extensia .ovpn
 ![](https://www.dropbox.com/s/4p1xny119pbs5je/12.png?raw=1)
 
-12. Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Eu folosesc [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html). Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură
+12. Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Vom folosi [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html). Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură
 13. [Descărcăm](https://openvpn.net/index.php/open-source/downloads.html) clientul dacă nu am făcut-o și îi dăm fișierul de .ovpn descărcat anterior, după care ne conectăm.
 ![](https://www.dropbox.com/s/yeoivmd8ldxdtki/13.png?raw=1)
 
@@ -116,7 +116,7 @@ După descărcare, redenumim fișierul în așa fel încât acesta să aibă ext
 
 
 ## Important
-După ce am configurat toate device-urile, ne întoarce la consola Dropletului de pe Digital Ocean, și dăm un Ctrl/cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai pute a descărca fișierul descărcat mai sus daca va accesa IP-ul Droplet-ului. 
+După ce am configurat toate device-urile, ne întoarce la consola Dropletului de pe Digital Ocean, și dăm un Ctrl/cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai putea descărca fișierul descărcat mai sus dacă va accesa IP-ul Droplet-ului. 
 
 ## Cat te costă?
 Soluția dată poate fi hostată și pe un server local, dacă acesta există. Dacă nu - metoda descrisă mai sus te va costa 5 USD/lună(nu uita - primele 2 luni le ai gratuit dacă te-ai înregistrat folosind link-ul menționat mai sus).  
