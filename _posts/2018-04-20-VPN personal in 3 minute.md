@@ -98,7 +98,7 @@ După descărcare, redenumim fișierul în așa fel încât acesta să aibă ext
 13. [Descărcăm](https://openvpn.net/index.php/open-source/downloads.html) clientul dacă nu am făcut-o și îi dăm fișierul de .ovpn descărcat anterior, după care ne conectăm.
 ![](https://www.dropbox.com/s/yeoivmd8ldxdtki/13.png?raw=1)
 
-14. După o conexiune reușită, navigăm pe [whatismyipaddress.com](https://whatismyipaddress.com) și convingem că VPN-ul în face treaba. 😊
+14. După o conexiune reușită, navigăm pe [whatismyipaddress.com](https://whatismyipaddress.com) și convingem că VPN-ul își face treaba. 😊
 
 
 ### Configurare VPN client - iOS
