@@ -4,7 +4,7 @@ title: VPN Personal în 3 minute 😱
 author: Alexandru Ilies
 ---
 ## De ce?
-Dacă ai ajuns să cauți informații depsre VPN, cel mai probabil dorești să îți securitezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
+Dacă ai ajuns să cauți informații depsre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
 
 De câte ori ai folosit o rețea de Wireless, publică, fără nici o mică bănuială legată de riscuri sau consecințe? 
 
