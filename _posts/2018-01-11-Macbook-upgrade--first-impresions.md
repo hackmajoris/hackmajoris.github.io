@@ -5,7 +5,7 @@ author: Alexandru Ilies
 ---
 
 
-In the beginning I will tell how I started using Apple ecosystem.
+First of all, I will tell how I started using Apple ecosystem.
 
 
 Back in 2013, when I was in the second year at the university, I was involved in an iOS internship. I can say, it was the first time I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
