@@ -4,18 +4,18 @@ title: VPN Personal în 3 minute 😱
 author: Alexandru Ilies
 ---
 ## De ce?
-Dacă ai ajuns să cauți informații depsre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
+Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
 
 De câte ori ai folosit o rețea de Wireless, publică, fără nici o mică bănuială legată de riscuri sau consecințe? 
 
 Răspuns: de fiecare dată(cel mai probabil).
 Cât de mici sau cât de mari pot fi riscurile folosirii unui Wireless public, depinde de acțiunile tale care le-ai făcut pe Internet, în timp ce foloseai acea rețea. Astfel de rețele sunt cele mai des vulnerabile. Sunt zeci, sau sute de utilizatori care au acces direct la acea rețea iar cafeneaua, ca proprietar al rețelei, de regulă, nu este interesată de securitate. De aceea, nu îți dorești să te trezești fără bani pe card, în cazul în care ai făcut o cumpărătură online în timp ce erai conectat la acea rețea. 
 
-Pe lângă partea de securitate și anonimitate pe Internet, VPN-ul îți oferă acces la site-uri cenzurate pe teritoriul în care te afli(de exemplu Spotify, până acum 2 luni), access la magazinele de aplicații (AppStore, GooglePlay) din alte regiuni și alte posibile facilități de acest gen. 
+Pe lângă partea de securitate și anonimitate pe Internet, VPN-ul îți oferă acces la site-uri cenzurate pe teritoriul în care te afli(de exemplu Spotify, până acum 2 luni - Romania), access la magazinele de aplicații (AppStore, GooglePlay) din alte regiuni și alte posibile facilități de acest gen. 
 
 ## Cum?
 
-Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentru alte platforme. Cele mai evidente probleme pe care le oferă sunt: prețul, anonimitatea, lipsa controlului asupra propriului trafic. Singurul serviciu de acest gen, în care am încredere este [TunellBear](https://www.tunnelbear.com/pricing).  Sugerez să-l folosiți în cazul în care aveți nevoie de un VPN și nu vă aranjeză soluția propusă mai jos. Acest serviciu oferă 500MB gratis, lunar iar pentru un trafic nelimitat - prețul este de 10 USD. Mai jost o să vedem cum putem obține așa ceva cu resurse mai puține.
+Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentru alte platforme. Cele mai evidente probleme pe care le oferă sunt: prețul, anonimitatea, lipsa controlului asupra propriului trafic. Singurul serviciu de acest gen, în care am încredere este [TunellBear](https://www.tunnelbear.com/pricing).  Sugerez să-l folosiți în cazul în care aveți nevoie de un VPN și nu vă aranjeză soluția propusă mai jos. Acest serviciu oferă 500MB gratis, lunar, iar pentru un trafic nelimitat - prețul este de 10 USD. Mai jost o să vedem cum putem obține așa ceva cu resurse mai puține.
 
 
 ! Soluția de mai jos este pentru utilizatorii de rând. Nu necesită cunoștințe în nici un domeniu. Necesită doar dorința de a te proteja atunci când folosești Internet.
@@ -24,7 +24,7 @@ Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentr
 
 - Un cont pe [DigitalOcean](https://www.digitalocean.com)
 - Să pornim un Droplet pe [DigitalOcean](https://www.digitalocean.com)
-- Să configurăm VPN-ul pe acel droplet.
+- Să configurăm VPN-ul pe acel Droplet.
 - Să configurăm device-urile pentru a folosi acel VPN.
 
 Să începem.
@@ -94,7 +94,7 @@ Accesând resursa, în mod normal, Browserul se va plânge din cauza securităț
 După descărcare, redenumim fișierul în așa fel încât acesta să aibă extensia .ovpn
 ![](https://www.dropbox.com/s/4p1xny119pbs5je/12.png?raw=1)
 
-12. Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Vom folosi [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html). Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură
+12. Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Vom folosi [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html). Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură.
 13. [Descărcăm](https://openvpn.net/index.php/open-source/downloads.html) clientul dacă nu am făcut-o și îi dăm fișierul de .ovpn descărcat anterior, după care ne conectăm.
 ![](https://www.dropbox.com/s/yeoivmd8ldxdtki/13.png?raw=1)
 
@@ -116,7 +116,7 @@ După descărcare, redenumim fișierul în așa fel încât acesta să aibă ext
 
 
 ## Important
-După ce am configurat toate device-urile, ne întoarce la consola Dropletului de pe Digital Ocean, și dăm un Ctrl/cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai putea descărca fișierul descărcat mai sus dacă va accesa IP-ul Droplet-ului. 
+După ce am configurat toate device-urile, ne întoarcem la consola Dropletului de pe DigitalOcean, și dăm un Ctrl/Cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai putea descărca fișierul(.ovpn) descărcat mai sus dacă va accesa IP-ul Droplet-ului. 
 
 ## Cat te costă?
 Soluția dată poate fi hostată și pe un server local, dacă acesta există. Dacă nu - metoda descrisă mai sus te va costa 5 USD/lună(nu uita - primele 2 luni le ai gratuit dacă te-ai înregistrat folosind link-ul menționat mai sus).  
