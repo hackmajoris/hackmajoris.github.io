@@ -10,9 +10,14 @@ author: Alexandru Ilies
 
 * Navigate terminal to the project root folder.
 
-* Run command `mvn install`
-
-* Run command `mvn spring-boot:run` 
+* Run command 
+ ```bash
+  mvn install
+ ```
+* Run command 
+ ```bash
+ mvn spring-boot:run
+ ```
 
 
 # Description
@@ -33,6 +38,7 @@ Here is how we can achieve this using ModelMapping...
 
 Here we have a simple User class with some attributes.
 
+ ```java
 public class User {
 
 private int id;
@@ -85,12 +91,13 @@ return "User{" +
 }
 }
 
+ ```
 
 ## User service
 
 Here is a simple User service implementation. The database connection and data persistance is not the goal at this point.
 
-
+ ```java
 @Service
 public class UserService {
 
@@ -123,11 +130,13 @@ return new DtoUtils().convertToDto(user, new UserUpdateDTO());
 }
 }
 
+ ```
 
 ## TDO Utils 
 
 The important part here is this utility class: 
 
+ ```java
 public class DtoUtils {
 
 public DTOEntity convertToDto(Object obj, DTOEntity mapper) {
@@ -140,12 +149,15 @@ return new ModelMapper().map(mapper, obj.getClass());
 
 }
 
+ ```
+
 As you can see, here we have two methods for in/out mapping. I tried to create them as generic is possible in order to user them for all entities.
 
 Now, the DTO's entities.
 
 ## UserRead DTO
 
+ ```java
 public class UserReadDTO implements DTOEntity {
 
 private String name;
@@ -169,10 +181,13 @@ public void setEmail(String email) {
 this.email = email;
 }
 }
+ ```
 
 Here we implemented DTOEntity interface: 
 
+ ```java
 public interface DTOEntity {}
+ ```
 
 in order to have a generic mapping. So all our DTO's will implement this interface.
 
@@ -180,11 +195,10 @@ in order to have a generic mapping. So all our DTO's will implement this interfa
 !In this entity we excluded the password field.
 
 
-
 ## The User Controller
 
 Now, that we have all needed models and helpers, our controller looks in this way:
-
+ ```java
 @RestController
 @RequestMapping("api/")
 public class UserController {
@@ -213,11 +227,11 @@ return updateService.updateUser(userUpdateDTO);
 }
 
 }
-
+ ```
 
 ## See also the test cases:
 
-
+ ```java
 public class UserDtoUnitTest {
 
 @Test
@@ -258,33 +272,36 @@ assertEquals(user.getPassword(), userCreateDTO.getPassword());
 }
 
 }
-
+ ```
+ 
 ## Testing
 
 ### User creation
 
+ ```bash
 curl -X POST \
 http://localhost:8080/api/create \
 -H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json' \
 -H 'Postman-Token: 76ac6fa4-41d1-481b-aa45-69b05096ebfb' \
 -d '{"name":"User number 1","email":"Email number 2", "password": "userPassword"}'
-
+ ```
 ### User update
-
+ ```bash
 curl -X PATCH \
 http://localhost:8080/api/update \
 -H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json' \
 -H 'Postman-Token: 460a1683-d6b4-4544-9f5e-80dd6a645749' \
 -d '{"name":"User number 1","email":"Email number 2", "password": "pass"}'
-
+ ```
 
 ### User read
-
+ ```bash
 curl -X GET \
 http://localhost:8080/api/list \
 -H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json' \
 -H 'Postman-Token: 24ff8d32-5357-411f-81f5-64dabcb2e4d1' \
 -d '{"name":"User number 1","email":"Email number 2", "password": "pass"}'
+ ```
