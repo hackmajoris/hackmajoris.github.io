@@ -3,8 +3,7 @@ layout: post
 title: A Java DTO mapping exmaple ☕️
 author: Alexandru Ilies
 ---
-
-# How to test
+## How to test
 
 * Download [repository](https://github.com/hackmajoris/java-dto-mapping)
 
@@ -22,7 +21,7 @@ author: Alexandru Ilies
  ```
 
 
-# Description
+## Description
 
 Sometime you may need to use DTO's(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST'full API. For instance: You have a User entity which has some fields: username, email, password, ID.
 You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed.
@@ -31,12 +30,12 @@ and it is nice if you'll do this automatically without mapping the attributes ma
 
 Here is how we can achieve this using ModelMapping...
 
-## Project structure.
+### Project structure.
 
 ![](https://www.dropbox.com/s/apjbmgaqnziyeh2/Screen%20Shot%202018-05-21%20at%2014.55.50.png?raw=1)
 
 
-## User model
+### User model
 
 Here we have a simple User class with some attributes.
 
@@ -95,7 +94,7 @@ public class User {
 
  ```
 
-## User service
+### User service
 
 Here is a simple User service implementation. The database connection and data persistance is not the goal at this point.
 
@@ -133,7 +132,7 @@ public class UserService {
 }
 
  ```
-## TDO Utils 
+### TDO Utils 
 
 The important part here is this utility class: 
 
@@ -154,7 +153,7 @@ As you can see, here we have two methods for in/out mapping. I tried to create t
 
 Now, the DTO's entities.
 
-## UserRead DTO
+### UserRead DTO
 
  ```java
 public class UserReadDTO implements DTOEntity {
@@ -194,7 +193,7 @@ in order to have a generic mapping. So all our DTO's will implement this interfa
 !In this entity we excluded the password field.
 
 
-## The User Controller
+### The User Controller
 
 Now, that we have all needed models and helpers, our controller looks in this way:
  ```java
@@ -226,7 +225,7 @@ public class UserController {
 }
  ```
 
-## See also the test cases:
+### See also the test cases:
 
  ```java
 public class UserDtoUnitTest {
@@ -269,9 +268,9 @@ public void userEntityToUserDto() {
 }
  ```
  
-## Testing
+### Testing
 
-### User creation
+#### User creation
 
  ```bash
  curl -X POST \
@@ -280,7 +279,7 @@ public void userEntityToUserDto() {
  -H 'Content-Type: application/json' \
  -d '{"name":"User number 1","email":"Email number 2", "password": "userPassword"}'
  ```
-### User update
+#### User update
  ```bash
  curl -X PATCH \
  http://localhost:8080/api/update \
