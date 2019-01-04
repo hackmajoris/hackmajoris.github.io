@@ -12,19 +12,6 @@ and it is nice if you'll do this automatically without mapping the attributes ma
 
 Here is how we can achieve this using ModelMapping...
 
-
-# How to test
-
-* Download [repository](https://github.com/hackmajoris/java-dto-mapping)
-
-* Navigate terminal to the project root folder.
-
-* Run command `mvn install`
-
-* Run command `mvn spring-boot:run` 
-
-
-
 ## How to test
 
 * Download [repository](https://github.com/hackmajoris/java-dto-mapping)

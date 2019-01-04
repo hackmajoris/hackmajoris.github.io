@@ -1,8 +1,11 @@
 ---
 layout: page
-title: 
+title: ""
 permalink: /projects/
 ---
+
+
+
 
 ### Personal Projects
 
