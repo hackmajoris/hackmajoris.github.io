@@ -1,54 +1,739 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-11T17:43:40+02:00</updated><id>http://localhost:4000/</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">MacBook Upgrade. First Impressions</title><link href="http://localhost:4000/Macbook-upgrade-first-impresions/" rel="alternate" type="text/html" title="MacBook Upgrade. First Impressions" /><published>2018-01-11T00:00:00+02:00</published><updated>2018-01-11T00:00:00+02:00</updated><id>http://localhost:4000/Macbook-upgrade--first-impresions</id><content type="html" xml:base="http://localhost:4000/Macbook-upgrade-first-impresions/">&lt;p&gt;In the beginning I will tell how I started to use Apple ecosystem.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-04T17:46:06+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hackmajoris</title><subtitle>Programmer</subtitle><entry><title type="html">A Java DTO mapping exmaple ☕️</title><link href="http://localhost:4000/A-Java-DTO-mapping-example/" rel="alternate" type="text/html" title="A Java DTO mapping exmaple ☕️" /><published>2018-05-22T00:00:00+03:00</published><updated>2018-05-22T00:00:00+03:00</updated><id>http://localhost:4000/%20A%20Java%20DTO%20mapping%20example</id><content type="html" xml:base="http://localhost:4000/A-Java-DTO-mapping-example/">&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+&lt;p&gt;Sometime you may need to use DTO’s(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST’full API. For instance: You have a User entity which has some fields: username, email, password, ID.
+You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed.
+For such a feature you need to have a DTO Entity where you exclude the password field from the base Entity. You need somehow to map all the attributes from base entity to DTO entity end vice-versa
+and it is nice if you’ll do this automatically without mapping the attributes manually.&lt;/p&gt;
 
-&lt;p&gt;Back, in 2013, when I was in the second year at the university, I was involved in an iOS internship.I can say, it was the first time when I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
-I enjoyed using whit system, and a few days ago, after the internship was started, I installed on my &lt;a href=&quot;https://www.asus.com/Laptops/N53SV/&quot;&gt;Asus&lt;/a&gt; notebook a Hackintosh version of Mavericks in order to use it at home, and practice more iOS development. The Hackintosh system was running very well. The single problem which I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy that I learning iOS development without paying money for an expensive Mac computer. 
+&lt;p&gt;Here is how we can achieve this using ModelMapping…&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-test&quot;&gt;How to test&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download &lt;a href=&quot;https://github.com/hackmajoris/java-dto-mapping&quot;&gt;repository&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Navigate terminal to the project root folder.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run command &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn install&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run command &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn spring-boot:run&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;project-structure&quot;&gt;Project structure.&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/apjbmgaqnziyeh2/Screen%20Shot%202018-05-21%20at%2014.55.50.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;user-model&quot;&gt;User model&lt;/h2&gt;
+
+&lt;p&gt;Here we have a simple User class with some attributes.&lt;/p&gt;
+
+&lt;p&gt;public class User {&lt;/p&gt;
+
+&lt;p&gt;private int id;
+private String name;
+private String email;
+private String password;&lt;/p&gt;
+
+&lt;p&gt;public User() {}&lt;/p&gt;
+
+&lt;p&gt;public int getId() {
+return id;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setId(int id) {
+this.id = id;
+}&lt;/p&gt;
+
+&lt;p&gt;public String getName() {
+return name;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setName(String name) {
+this.name = name;
+}&lt;/p&gt;
+
+&lt;p&gt;public String getEmail() {
+return email;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setEmail(String email) {
+this.email = email;
+}&lt;/p&gt;
+
+&lt;p&gt;public String getPassword() {
+return password;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setPassword(String password) {
+this.password = password;
+}&lt;/p&gt;
+
+&lt;p&gt;@Override
+public String toString() {
+return “User{“ +
+“id=” + id +
+“, name=’” + name + ‘'’ +
+“, email=’” + email + ‘'’ +
+“, password=’” + password + ‘'’ +
+‘}’;
+}
+}&lt;/p&gt;
+
+&lt;h2 id=&quot;user-service&quot;&gt;User service&lt;/h2&gt;
+
+&lt;p&gt;Here is a simple User service implementation. The database connection and data persistance is not the goal at this point.&lt;/p&gt;
+
+&lt;p&gt;@Service
+public class UserService {&lt;/p&gt;
+
+&lt;p&gt;public DTOEntity createUser(){
+User user = new User();
+user.setId(1);
+user.setName(“User number 1”);
+user.setEmail(“Email number 1”);
+user.setPassword(“Password number 1”);&lt;/p&gt;
+
+&lt;p&gt;return new DtoUtils().convertToDto(user, new UserCreateDTO());
+}&lt;/p&gt;
+
+&lt;p&gt;public DTOEntity readUser(){
+User user = new User();
+user.setId(1);
+user.setName(“User number 1”);
+user.setEmail(“Email number 1”);
+user.setPassword(“Password number 1”);&lt;/p&gt;
+
+&lt;p&gt;return new DtoUtils().convertToDto(user, new UserReadDTO());
+}&lt;/p&gt;
+
+&lt;p&gt;public DTOEntity updateUser(DTOEntity userDTO) {
+User user = (User) new DtoUtils().convertToEntity(new User(), userDTO);&lt;/p&gt;
+
+&lt;p&gt;System.out.println(user.toString());&lt;/p&gt;
+
+&lt;p&gt;return new DtoUtils().convertToDto(user, new UserUpdateDTO());
+}
+}&lt;/p&gt;
+
+&lt;h2 id=&quot;tdo-utils&quot;&gt;TDO Utils&lt;/h2&gt;
+
+&lt;p&gt;The important part here is this utility class:&lt;/p&gt;
+
+&lt;p&gt;public class DtoUtils {&lt;/p&gt;
+
+&lt;p&gt;public DTOEntity convertToDto(Object obj, DTOEntity mapper) {
+return new ModelMapper().map(obj, mapper.getClass());
+}&lt;/p&gt;
+
+&lt;p&gt;public Object convertToEntity(Object obj, DTOEntity mapper) {
+return new ModelMapper().map(mapper, obj.getClass());
+}&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;As you can see, here we have two methods for in/out mapping. I tried to create them as generic is possible in order to user them for all entities.&lt;/p&gt;
+
+&lt;p&gt;Now, the DTO’s entities.&lt;/p&gt;
+
+&lt;h2 id=&quot;userread-dto&quot;&gt;UserRead DTO&lt;/h2&gt;
+
+&lt;p&gt;public class UserReadDTO implements DTOEntity {&lt;/p&gt;
+
+&lt;p&gt;private String name;
+private String email;&lt;/p&gt;
+
+&lt;p&gt;public UserReadDTO(){}&lt;/p&gt;
+
+&lt;p&gt;public String getName() {
+return name;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setName(String name) {
+this.name = name;
+}&lt;/p&gt;
+
+&lt;p&gt;public String getEmail() {
+return email;
+}&lt;/p&gt;
+
+&lt;p&gt;public void setEmail(String email) {
+this.email = email;
+}
+}&lt;/p&gt;
+
+&lt;p&gt;Here we implemented DTOEntity interface:&lt;/p&gt;
+
+&lt;p&gt;public interface DTOEntity {}&lt;/p&gt;
+
+&lt;p&gt;in order to have a generic mapping. So all our DTO’s will implement this interface.&lt;/p&gt;
+
+&lt;p&gt;!In this entity we excluded the password field.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-user-controller&quot;&gt;The User Controller&lt;/h2&gt;
+
+&lt;p&gt;Now, that we have all needed models and helpers, our controller looks in this way:&lt;/p&gt;
+
+&lt;p&gt;@RestController
+@RequestMapping(“api/”)
+public class UserController {&lt;/p&gt;
+
+&lt;p&gt;private UserService updateService;&lt;/p&gt;
+
+&lt;p&gt;@Autowired
+public UserController(UserService updateService){
+this.updateService = updateService;
+}&lt;/p&gt;
+
+&lt;p&gt;@RequestMapping(value = “/create”, method = RequestMethod.POST)
+public DTOEntity createPost(@RequestBody UserCreateDTO userCreateDTO) {&lt;br /&gt;
+return updateService.createUser();
+}&lt;/p&gt;
+
+&lt;p&gt;@RequestMapping(value = “/list”, method = RequestMethod.GET)
+public DTOEntity readUser() {
+return updateService.readUser();
+}&lt;/p&gt;
+
+&lt;p&gt;@RequestMapping(value = “/update”, method = RequestMethod.PATCH)
+public DTOEntity updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {&lt;/p&gt;
+
+&lt;p&gt;return updateService.updateUser(userUpdateDTO);
+}&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also-the-test-cases&quot;&gt;See also the test cases:&lt;/h2&gt;
+
+&lt;p&gt;public class UserDtoUnitTest {&lt;/p&gt;
+
+&lt;p&gt;@Test
+public void userEntityToUserDto() {&lt;/p&gt;
+
+&lt;p&gt;// Given
+User user = new User();
+user.setId(1);
+user.setEmail(“user1@example.com”);
+user.setName(“user1”);
+user.setPassword(“user1Password”);&lt;/p&gt;
+
+&lt;p&gt;// When
+UserCreateDTO userCreateDTO =  (UserCreateDTO) new DtoUtils().convertToDto(user, new UserCreateDTO());&lt;/p&gt;
+
+&lt;p&gt;// Then
+assertEquals(user.getEmail(), userCreateDTO.getEmail());
+assertEquals(user.getName(), userCreateDTO.getName());
+assertEquals(user.getPassword(), userCreateDTO.getPassword());
+}&lt;/p&gt;
+
+&lt;p&gt;@Test
+public void userDtoToUserEntity() {&lt;/p&gt;
+
+&lt;p&gt;// Given
+UserCreateDTO userCreateDTO = new UserCreateDTO();
+userCreateDTO.setEmail(“user1@example.com”);
+userCreateDTO.setName(“user1”);
+userCreateDTO.setPassword(“user1Password”);&lt;/p&gt;
+
+&lt;p&gt;// When
+User user =  (User) new DtoUtils().convertToEntity(new User(), userCreateDTO);&lt;/p&gt;
+
+&lt;p&gt;// Then
+assertEquals(user.getEmail(), userCreateDTO.getEmail());
+assertEquals(user.getName(), userCreateDTO.getName());
+assertEquals(user.getPassword(), userCreateDTO.getPassword());
+}&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;h2 id=&quot;testing&quot;&gt;Testing&lt;/h2&gt;
+
+&lt;h3 id=&quot;user-creation&quot;&gt;User creation&lt;/h3&gt;
+
+&lt;p&gt;curl -X POST \
+http://localhost:8080/api/create \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 76ac6fa4-41d1-481b-aa45-69b05096ebfb’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “userPassword”}’&lt;/p&gt;
+
+&lt;h3 id=&quot;user-update&quot;&gt;User update&lt;/h3&gt;
+
+&lt;p&gt;curl -X PATCH \
+http://localhost:8080/api/update \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 460a1683-d6b4-4544-9f5e-80dd6a645749’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’&lt;/p&gt;
+
+&lt;h3 id=&quot;user-read&quot;&gt;User read&lt;/h3&gt;
+
+&lt;p&gt;curl -X GET \
+http://localhost:8080/api/list \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 24ff8d32-5357-411f-81f5-64dabcb2e4d1’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">Description Sometime you may need to use DTO’s(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST’full API. For instance: You have a User entity which has some fields: username, email, password, ID. You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed. For such a feature you need to have a DTO Entity where you exclude the password field from the base Entity. You need somehow to map all the attributes from base entity to DTO entity end vice-versa and it is nice if you’ll do this automatically without mapping the attributes manually.</summary></entry><entry><title type="html">VPN Personal în 3 minute 😱</title><link href="http://localhost:4000/VPN-personal-in-3-minute/" rel="alternate" type="text/html" title="VPN Personal în 3 minute 😱" /><published>2018-04-20T00:00:00+03:00</published><updated>2018-04-20T00:00:00+03:00</updated><id>http://localhost:4000/VPN%20personal%20in%203%20minute</id><content type="html" xml:base="http://localhost:4000/VPN-personal-in-3-minute/">&lt;h2 id=&quot;de-ce&quot;&gt;De ce?&lt;/h2&gt;
+&lt;p&gt;Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.&lt;/p&gt;
+
+&lt;p&gt;De câte ori ai folosit o rețea de Wireless, publică, fără nici o mică bănuială legată de riscuri sau consecințe?&lt;/p&gt;
+
+&lt;p&gt;Răspuns: de fiecare dată(cel mai probabil).
+Cât de mici sau cât de mari pot fi riscurile folosirii unui Wireless public, depinde de acțiunile tale care le-ai făcut pe Internet, în timp ce foloseai acea rețea. Astfel de rețele sunt cele mai des vulnerabile. Sunt zeci, sau sute de utilizatori care au acces direct la acea rețea iar cafeneaua, ca proprietar al rețelei, de regulă, nu este interesată de securitate. De aceea, nu îți dorești să te trezești fără bani pe card, în cazul în care ai făcut o cumpărătură online în timp ce erai conectat la acea rețea.&lt;/p&gt;
+
+&lt;p&gt;Pe lângă partea de securitate și anonimitate pe Internet, VPN-ul îți oferă acces la site-uri cenzurate pe teritoriul în care te afli(de exemplu Spotify, până acum 2 luni - Romania), access la magazinele de aplicații (AppStore, GooglePlay) din alte regiuni și alte posibile facilități de acest gen.&lt;/p&gt;
+
+&lt;h2 id=&quot;cum&quot;&gt;Cum?&lt;/h2&gt;
+
+&lt;p&gt;Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentru alte platforme. Cele mai evidente probleme pe care le oferă sunt: prețul, anonimitatea, lipsa controlului asupra propriului trafic. Singurul serviciu de acest gen, în care am încredere este &lt;a href=&quot;https://www.tunnelbear.com/pricing&quot;&gt;TunellBear&lt;/a&gt;.  Sugerez să-l folosiți în cazul în care aveți nevoie de un VPN și nu vă aranjeză soluția propusă mai jos. Acest serviciu oferă 500MB gratis, lunar, iar pentru un trafic nelimitat - prețul este de 10 USD. Mai jost o să vedem cum putem obține așa ceva cu resurse mai puține.&lt;/p&gt;
+
+&lt;p&gt;! Soluția de mai jos este pentru utilizatorii de rând. Nu necesită cunoștințe în nici un domeniu. Necesită doar dorința de a te proteja atunci când folosești Internet.&lt;/p&gt;
+
+&lt;h3 id=&quot;de-ce-avem-nevoie&quot;&gt;De ce avem nevoie:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Un cont pe &lt;a href=&quot;https://www.digitalocean.com&quot;&gt;DigitalOcean&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Să pornim un Droplet pe &lt;a href=&quot;https://www.digitalocean.com&quot;&gt;DigitalOcean&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Să configurăm VPN-ul pe acel Droplet.&lt;/li&gt;
+  &lt;li&gt;Să configurăm device-urile pentru a folosi acel VPN.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Să începem.&lt;/p&gt;
+
+&lt;h3 id=&quot;creare-cont-pe-digitalocean&quot;&gt;Creare cont pe DigitalOcean.&lt;/h3&gt;
+
+&lt;p&gt;Cel mai basic Droplet pe DigitalOcean - ne costă 5 USD/lună. Acesta are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Memorie RAM: 1GB&lt;/li&gt;
+  &lt;li&gt;Disk: 25GB SSD&lt;/li&gt;
+  &lt;li&gt;Transfer: 1TB&lt;/li&gt;
+  &lt;li&gt;CPU: 1 Core&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ce ne interesează aici este capacitatea de transfer - 1 TB / lună este de cele mai multe ori îndeajuns pentru un utilizator mediu.&lt;/p&gt;
+
+&lt;p&gt;Pentru a primi 10 USD credit la înregistrare, da-ți click &lt;a href=&quot;https://m.do.co/c/6f4b7837cd02&quot;&gt;aici&lt;/a&gt;. Acesta vă va oferi 2 luni de acces gratuit, în cazul în care nu aveți încă cont.&lt;/p&gt;
+
+&lt;p&gt;Mai departe….&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Apăsăm butonul - Create
+&lt;img src=&quot;https://www.dropbox.com/s/89pf6jpt80qegem/1.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Alegem creare Droplet nou
+&lt;img src=&quot;https://www.dropbox.com/s/1s8oxsfx5iaq1ck/2.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Selectăm One-click apps 
+&lt;img src=&quot;https://www.dropbox.com/s/tuz4apyy2dnum62/3.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Selectăm tipul
+&lt;img src=&quot;https://www.dropbox.com/s/83ul7cctr7bjcw8/4.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Selectăm resursele
+&lt;img src=&quot;https://www.dropbox.com/s/wxxc48xm0itv55z/5.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Selectăm locația&lt;br /&gt;
+&lt;img src=&quot;https://www.dropbox.com/s/q9jkwo36osl2jze/6.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dăm un nume la host
+&lt;img src=&quot;https://www.dropbox.com/s/xjoeztg9lf2gip4/7.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Accesăm consola
+&lt;img src=&quot;https://www.dropbox.com/s/o72r5v9dwxyb5nl/8.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;După ce am schimbat parola de accesare a Droplet-ului, scrim  următoarea comandă:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;CID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;docker run -d --restart&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;always --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;    &lt;/div&gt;
+    &lt;p&gt;Va trebui să așteptați pentru a se descărca toate dependențele.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Consola o să arate undeva așa:
+&lt;img src=&quot;https://www.dropbox.com/s/ftl6co5y5wjg3rx/9.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;După, scriem în consolă comanda
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; docker run -t -i -p 8080:8080 --volumes-from &lt;span class=&quot;nv&quot;&gt;$CID&lt;/span&gt; jpetazzo/dockvpn serveconfig
+&lt;/code&gt;&lt;/pre&gt;    &lt;/div&gt;
+    &lt;p&gt;După executare, în consolă vom vedea o adresă, de genul: 0.0.0.0:8080 (La fiecare va fi diferită)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mergem în Browser, și accesăm acea adresă.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Accesând resursa, în mod normal, Browserul se va plânge din cauza securității. Ignorăm acea plângere, în așa se va descărca un fisier pe care-l vom folosi mai departe.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/vsxw4ur59qsqe90/10.png?raw=1&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://www.dropbox.com/s/nokabrhe7q0sjh9/11.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;După descărcare, redenumim fișierul în așa fel încât acesta să aibă extensia .ovpn
+&lt;img src=&quot;https://www.dropbox.com/s/4p1xny119pbs5je/12.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Vom folosi &lt;a href=&quot;https://openvpn.net/index.php/open-source/downloads.html&quot;&gt;OpenVPN&lt;/a&gt;. Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://openvpn.net/index.php/open-source/downloads.html&quot;&gt;Descărcăm&lt;/a&gt; clientul dacă nu am făcut-o și îi dăm fișierul de .ovpn descărcat anterior, după care ne conectăm.
+&lt;img src=&quot;https://www.dropbox.com/s/yeoivmd8ldxdtki/13.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;După o conexiune reușită, navigăm pe &lt;a href=&quot;https://whatismyipaddress.com&quot;&gt;whatismyipaddress.com&lt;/a&gt; și convingem că VPN-ul își face treaba. 😊&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;configurare-vpn-client---ios&quot;&gt;Configurare VPN client - iOS&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instalăm &lt;a href=&quot;https://itunes.apple.com/us/app/openvpn-connect/id590379981?mt=8&quot;&gt;OpenVPN Connect&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Deschidem aplicația, și introducem același adresă de IP:
+&lt;img src=&quot;https://www.dropbox.com/s/wjb0akzuha2t3id/14.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Deschidem fișierul cu applicația OpenVPN
+&lt;img src=&quot;https://www.dropbox.com/s/gwqfmzj8j3sz6x6/15.jpg?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Instalăm certificatul 
+&lt;img src=&quot;https://www.dropbox.com/s/0knsibq6cajhsfc/16.jpg?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Ne conectăm
+&lt;img src=&quot;https://www.dropbox.com/s/z5ckietmjora1pg/17.jpg?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Verificăm pe &lt;a href=&quot;https://whatismyipaddress.com&quot;&gt;whatismyipaddress.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;important&quot;&gt;Important&lt;/h2&gt;
+&lt;p&gt;După ce am configurat toate device-urile, ne întoarcem la consola Dropletului de pe DigitalOcean, și dăm un Ctrl/Cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai putea descărca fișierul(.ovpn) descărcat mai sus dacă va accesa IP-ul Droplet-ului.&lt;/p&gt;
+
+&lt;h2 id=&quot;cat-te-costă&quot;&gt;Cat te costă?&lt;/h2&gt;
+&lt;p&gt;Soluția dată poate fi hostată și pe un server local, dacă acesta există. Dacă nu - metoda descrisă mai sus te va costa 5 USD/lună(nu uita - primele 2 luni le ai gratuit dacă te-ai înregistrat folosind link-ul menționat mai sus).&lt;/p&gt;
+
+&lt;p&gt;Cam asta este tot,&lt;/p&gt;
+
+&lt;p&gt;May the security be with you. 😋&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">De ce? Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.</summary></entry><entry><title type="html">Despre Lightning Network</title><link href="http://localhost:4000/Despre-Lightning-Network/" rel="alternate" type="text/html" title="Despre Lightning Network" /><published>2018-01-29T00:00:00+02:00</published><updated>2018-01-29T00:00:00+02:00</updated><id>http://localhost:4000/Despre%20Lightning%20Network</id><content type="html" xml:base="http://localhost:4000/Despre-Lightning-Network/">&lt;p&gt;Articol tradus. Sursa &lt;a href=&quot;https://medium.com/@x0100/%EF%B8%8Flightning-network-7c618c9cd68&quot;&gt;originală&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lighting Network = LN&lt;/p&gt;
+
+&lt;p&gt;În partea 0 vom vedea, de ce este nevoie de așa ceva. 
+În partea 1 vom explica cum se desfășoară toate plățile în rețeaua Bitcoin, Lightning Network și problemele care se regăsesc. În partea 2 vom introduce componentele de bază din care e construit LN. În partea 3, în sfârșit vom descrie în detaliu cum sunt procesate plățile în protocolul LN. În a 4 parte, în mod rapid vom vorbi despre criticile care se regăsesc și comisionale existente. În partea 5, vom face un mic sumar.&lt;/p&gt;
+
+&lt;p&gt;! În mod conștient renunț/simplific unele momente tehnice. Încă nu sunt expert și pot să mă înșel în unele afirmări.&lt;/p&gt;
+
+&lt;h2 id=&quot;0-de-ce&quot;&gt;0. De ce?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bitcoin Blockchain&lt;/strong&gt; - are la bază o bază date descentralizată, în care se salvează toate tranzacțiile din rețeaua Bitcoin. Pâna aici, ”toate tranzacțiile” este o parte destul de fundamentală la acest protocol. Ca întreg sistem să fie întradevăr descentralizat, și totodată funcționeze fără vreo oarecare eroare, trebuie, ca toate miile de noduri din rețea să re-verifice și să salveze toate tranzacțiile. Acest lucru, în mod clar, nu duce la o scalare: Blockchain ocupă zeci de Gigabytes pe disk, minerii folosesc mai mult curent decât are nevoie unele țări, blocurile sunt suprasolicitate, comisioanele cresc, oamenii înjură și fac fork la Bitcoin. Din aceaste cauze, la moment, în mod activ se construiesc soluții alternative. Una dintre aceste soluții este Lightning Network.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Q: When will the Lightning Network be rolled out?&lt;br /&gt;A: The rollout has already begun. This is an iterative distributed learning process; it&amp;#39;s unlikely there will be a single point in time at which we say LN is &amp;quot;deployed&amp;quot; because it will grow organically. Software is never finished.&lt;/p&gt;&amp;mdash; Jameson Lopp (@lopp) &lt;a href=&quot;https://twitter.com/lopp/status/947808940255006726?ref_src=twsrc%5Etfw&quot;&gt;January 1, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;1-ideea&quot;&gt;1. Ideea&lt;/h3&gt;
+&lt;p&gt;Idea de soluționare a problemei de la nivelului doi (second layer solution), la care se referă LN, sună foarte simplu:&lt;/p&gt;
+&lt;blockquote&gt;
+În loc să se salveze și să se verifice toate tranzacțiile în Blokchain, vom realiza o mare parte din plăți în afara rețelei Blockchain, iar în Blockchain vom sincroniza din timp în timp balanțele și vom rezolva conflictele. De funționat toate acestea vor funcționa, ca deobicei cu ajutorul criptomagiei.
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sună bine, însă nu știm cum toate acestea funcționează.&lt;/p&gt;
+&lt;h3 id=&quot;11-canalul-de-plată&quot;&gt;1.1. Canalul de plată&lt;/h3&gt;
+&lt;p&gt;Să începem prin a simplifica viața a două persoane, Alisa și Bob, care foarte des se plătesc între ei. Se oferă următoarea schema:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Alisa și Bob trimit depozituri la adresa o adresă comună care se administrează cu ajutorul a două chei private.&lt;/li&gt;
+  &lt;li&gt;Fiecare din ei, crează o tranzacție specială - Smart Contract(da, Bitcoin dispune de Smart-Contracts, despre asta în partea următoare). Această tranzacție este corectă, dar încă nu este scrisă în Blochain.&lt;/li&gt;
+  &lt;li&gt;De la început, tranzacția conține informație conform căreia, Alisa și Bob pot lua înapoi depozitele lor.&lt;/li&gt;
+  &lt;li&gt;Cand Alisa se achită cu Bob, printr-o înțelegere comună -updatează informația din aceste tranzacții. Alisa acceptă să primească mai puțină valoare din propriul depozit, iar Bob - mai multă. Defapt, aceste tranzacții reprezintă niste obligațiuni(IOU, I owe you)&lt;/li&gt;
+  &lt;li&gt;În așa mod, ei pot schimba între ei sume nu foarte mari(în limitele depozitelor lor), măcar până la nesfârșit.&lt;/li&gt;
+  &lt;li&gt;La un anumit moment, oricare din părți, poate să ceară să se achite pentru totdeauna. Atunci Lisa(sau Bob) pur și simplu înscriu tranzacția finală în Blockchain-ul principal și primesc suma depozitului împreună cu suma provenită din plățile care au fost făcute către acest depozit.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Punctele 1-3 din această schemă se numesc deschiderea canalului de plătă/plăți(payment channel). Punctele 4 și 5 - folosirea canalului. Punctul 6 - închiderea canalului de plată/plăți.&lt;/p&gt;
+
+&lt;blockquote&gt;
+👍 În blockchain se înscriu doar două tranzacții: tranzacția de depozitare, în care are loc deschiderea canalului de plată și tranzacția finală(închiderea canalului). Toate tranzacțiile interemediare dintre aceste două tranzacții nu se folosesc de Blockchain și nu sunt salvate în acesta, de aceea acestea sunt făcute fără nici un cost(comision) și sunt momentane.
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;12-rețeaua-de-canale-de-plată&quot;&gt;1.2. Rețeaua de canale de plată&lt;/h3&gt;
+
+&lt;p&gt;Canalele de plăți între două persoane - nu este ceva foarte util. La urma urmei, cu marea majoritate a oamenilor noi nu facem tranzacții regulare. Dar…&lt;/p&gt;
+&lt;blockquote&gt;
+💡 Cand canalele de plată formează o rețea, se ivește posibilitatea de a face plăți între fiecare utilizator al rețelei, către care există o legătură în graful acestei rețele(chiar dacă ei nu au legătură directă unul cu altul). Aceasta și este ideea de bază a Lighting Network.
+&lt;/blockquote&gt;
+
+&lt;p&gt;Așa arată graful canalelor de plată, în momentul 22.01.2018: (https://lnmainnet.gaben.win).
+&lt;img src=&quot;https://cdn-images-1.medium.com/max/1600/1*vYgP4rEOttWssox5l-LGig.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;În principiu, analog protocolului TCP, unui om simplu îi este îndeajuns să aibă doar un singur canal deschis, ca acesta să poată să utilizeze tranzacții cu oricine. Desigur, este nevoie să se caute și segmentul cel mai optim între doi utilizatori, și mai trebuie cumva să se motiveze participanții rețelei ca aceștia să verifice tranzacțiile străine. Dar, sa începem cu problema de bază: problema încrederii.&lt;/p&gt;
+
+&lt;h3 id=&quot;13-problema-încrederii&quot;&gt;1.3. Problema încrederii&lt;/h3&gt;
+&lt;p&gt;Cum se întâmplă des în criptografie, sistema canalelor de plată este foarte simplu de imaginat, dacă toate parțile au încredere între ele. Nu este nevoie să îngrădim grădina cu depozite, chei private, tranzacții speciale. Se poate simplu de scris doar cui și cu cât este cineva dator.
+Următorul lucru de înțeles: cum putem realiza un canal de plăți fără a avea încredere între parți?
+Problemele de bază for fi trei.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ambele depozite, ale Alisei și Bob se află întrun portofel virtual comun. Dacă Bob nu va fi deacord să semneze tranzacția, cum Alisa își va întoarce depozitul ei?&lt;/li&gt;
+  &lt;li&gt;În procesul de calculare, sunt create multiple versiuni ale oblicațiunilor. Să presupunem că, practic, Alisa îl plătește pe Bob. Atunci, în versiunea finală a tranzacției, Bob va primi un depozit mai mare decât depozitul lui inițial iar Alisa - mai puțin. Dar Alisa poate înșela și poate înscrie singură în Blockchain prima versiune validă a tranzacției, ca și cum Bob niciodată nu a primit bani. Cu ce va rămâne Bob?&lt;/li&gt;
+  &lt;li&gt;Dacă Alisa și Bob, transferă banii prin rețea folosind o a treia persoană - Victor, atunci cum ei pot fi siguri că Victor întradevăr va transmite banii și nu îi va lua lui?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Să numim aceste probleme corespunzător:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;problema depozitului comun&lt;/li&gt;
+  &lt;li&gt;problema ultimei tranzacții&lt;/li&gt;
+  &lt;li&gt;problema persoanei terțe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-smart-contractszaqwa-p0o9azza&quot;&gt;2. Smart-contractsz&lt;code class=&quot;highlighter-rouge&quot;&gt;~~aqwa&lt;/code&gt;=-[p0o9az`~ZA;./”|&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;≤
+Bitcoin are suport pentru un limbaj simplu al smart-contractelor - Script. În fiecare tranzacție Bitcoin există un câmp special, care conține un script scris în acest limbaj. Acest script verifică, după aplicarea a căror reguli, ieșirea tranzacției poate fi folosită.
+”Folosirea ieșirei tranzacției A” - este un mod mult mai corect tehnic spus ”folosirea banilor din adresa/portofelul K, unde aceștia au fost depuși cu ajutorul tranzacției A”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+☝ În comparație, de exemplu, cu Ethereum, posibilitățile smart-contractelor Bitcoin sunt cu mult mai limitate. Este legat acest lucru de Script, și anume că acesta nu este destul pentru Turing. De exemplu, în acesta nu se poate folosi cicluri/recursivitate și nu se poate crea variabile(lipsa memoriei).
+&lt;/blockquote&gt;
+
+&lt;p&gt;Să vedem cele mai importante operații ale acestui limbaj.&lt;/p&gt;
+
+&lt;h3 id=&quot;21-autorizația&quot;&gt;2.1 Autorizația&lt;/h3&gt;
+&lt;p&gt;Probail, partea cea mai standard a oricărei tranzacții - este verificarea semnăturii. Să presupunem că tranzacția A, transferă resurse la o oarecare adresă K. Ca să fie cheltuite resursele din K, trebuie să se demonstreze deținerea cheii(cheia privată). De acest lucru răspunde operația &lt;strong&gt;OP_CheckSig&lt;/strong&gt;. Dar, după dorință, se poate verifica și ceva adaugător. De exemplu, se poate verifica, că persoana deține un număr secret, iar hash-ul este egal cu acel număr. Pentru aceasta, este nevoie de două operațiuni: &lt;strong&gt;OP_SHA256&lt;/strong&gt;(citește hash-ul) și &lt;strong&gt;OP_EqualVerify&lt;/strong&gt;(verifică egalitatea). De ce avem nevoie de toate acestea, va fi clar în partea 4.&lt;/p&gt;
+
+&lt;h3 id=&quot;22-cooperarea&quot;&gt;2.2. Cooperarea&lt;/h3&gt;
+&lt;p&gt;Un alt exemplu simplu de smart-contract la Bitcoin se bazează pe operația &lt;strong&gt;OP_CheckMultiSig&lt;/strong&gt;. Aceasta permite să se folosească resursele doar prin semnarea câtorva chei predefinite. Pe acest principiu funționează așa spusele ”multiple signature wallets”. La fel ca și celula unei bănci, care este încuiată cu două chei, una aflându-se la angajatorul băncii iar alta la client.&lt;/p&gt;
+&lt;h3 id=&quot;23-perioadele&quot;&gt;2.3. Perioadele&lt;/h3&gt;
+&lt;p&gt;Bitcoin are suport și pentru operația &lt;strong&gt;OP_CheckSequesnceVerify&lt;/strong&gt;, care permite folosirea resurselor doar peste un număr fix de blocuri. De exemplu, aceasta permite educarea oamenilor, care nu pot salva resursele. Blockchain este mai eficient decât oricare cont de economii: dacă utilizatorul a decis să înghețe suma acumulată pe o anumită perioadă, această sumă va fi înghețată garantat. Dar, pe lângă acest scenariu, &lt;strong&gt;OP_CheckSequenceVerify&lt;/strong&gt;, și alte componente, în mod activ se folosesc pentru realizarea canalelor de plăți.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-realizarea-canalului&quot;&gt;3. Realizarea canalului&lt;/h2&gt;
+&lt;p&gt;Acum, când toate blocurile de control sunt la locul lor, se poate descrie unele detalii ale funcționării canalului de plată.  Defapt, unele imaginări ale canalului de plăți, au fost descrise încă de Satoshi. Eu ma voi axa mai mult pe specificația, care se numește Poon-Dryja payment channels(după părerea autorilor principali Lightning Network).&lt;/p&gt;
+
+&lt;h3 id=&quot;31-deschiderea-canalului&quot;&gt;3.1. Deschiderea canalului&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Alisa și Bob crează tranzacții, care depun resursele într-o adresă de depozit comun. Să presupunem că X bitcoins se transferă din portofelul Alisei, și Y - din portofelul lui Bob. Resursele din depozitul comun pot fi folosite doar prin semnarea împreună a cheilor private ale Alisei și Bob. (OP_CheckMultiSig).&lt;/li&gt;
+  &lt;li&gt;Primul truc, se evidențiază prin aceea că ei încă NU semnează și NU transmit tranzacția în Blockchain(dealtfel, Bob o poate minți pe Lisa și poate să-i înghețe rezursele pe veșnicie).)&lt;/li&gt;
+  &lt;li&gt;În loc de acestea, Alisa și Bob crează două noi tranzacții de retur a depozitului initial. Intrarea acestor tranzacții sunt resursele din depozitul comun(ieșirea tranzacției 0). Ieșiri ale tranzacțiilor sunt două: X se duce înapoi la adresa Alisei, Y - la adresa lui Bob. În realitate, toate acestea sunt un pic mai dificile, dar despre asta, un pic mai târziu.&lt;/li&gt;
+  &lt;li&gt;Mai departe, Bob, semnează tranzacția A1 și o transmite către Alisa. Alisa semnează tranzacția B1 și o trimite lui Bob.&lt;/li&gt;
+  &lt;li&gt;În acest moment, tranzacția de depunere a depozitului, se poate înscrie în Blockchain, nimeni nu minte. Dacă Bob va fi deacord să coopereze, Alisa oricând poate semna tranzacția A1, să o înscrie în Blockchain și să obțină depozitul acesteia înapoi.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;În acest moment ”problema depozitului comun” este rezolvată. Deschiderea canalului de plată poate ave loc fără a avea încredere în cealaltă persoană.&lt;/p&gt;
+&lt;blockquote&gt;
+☝ Un fapt interesant. Încă cu jumătate de an în urmă(înainte de a se introduce SegWit) semnarea tranzacțiilor neconfirmate(punctul 4) avea loc mult mai greu, din cauza problemei maleabilitatății(transaction malleability)
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;32-folosirea-canalului&quot;&gt;3.2 Folosirea canalului&lt;/h3&gt;
+&lt;p&gt;Plățile din interiourul canalului se realizează defapt prin re-rescrierea tranzacției A1 și B1 în noi tranzacții.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Alisa îl plătește pe Bob pentru o cafea, care costă C.&lt;/li&gt;
+  &lt;li&gt;Tot Alisa, este deacord că, la închiderea canalului de plată ea va lua înapoi, nu suma depusa la început X, ci X’ = (X - C).&lt;/li&gt;
+  &lt;li&gt;Iar Bob: Y’ = (Y + C).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Deasemenea, noile tranzacții A2 și B2 vor arăta la fel ca A1 și B1, doar că cu sume noi. Fiecare din părți, poate în orice moment să închidă canalul de plată, scriind ultima versiune a tranzacției în Blockchain.&lt;/p&gt;
+
+&lt;p&gt;Cum ne asigurăm că Alisa nu va scrie în Blockchain tranzacția A1  în loc de tranzacția A2? Pentru aceasta, exista încă un truc.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;De fiecare dată când Alisa și Bob crează noi tranzacții, ei aleg o cheie privată de unică folosință, de care au nevoie ca să poată lua depozitul înapoi(OP_CheckSig).&lt;/li&gt;
+  &lt;li&gt;La fiecare plată i, Alisa îi va arăta lui Bob cheia privată precedentă AK(i-1), și va crea o nouă cheie AKi pentru noua tranzacție. Bob nu va accepta plata făra cheia anterioară.&lt;/li&gt;
+  &lt;li&gt;Dacă Bob știe cheia, atunci acesta poate cheltui toți banii Alisei, doar dacă Alisa va decide să înscrie tranzacția greșită în Blockchain.&lt;/li&gt;
+  &lt;li&gt;În așa fel, Alisa întodeauna este interesată de a înscrie în Blockchain tranzacția corectă, adică utlima.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Modificare minoră&lt;/em&gt;
+Pentru ca Bob să aibă posibilitatea să dispute tranzacția cu Alisa și să obțină cheia acesteia, Bob are nevoie de timp. De aceea, Alisa, va obține depozitul ei nu în același timp, dar după câteva blocuri T(OP_CheckSequenceVerify). De exemplu, peste 48 blocuri, adică peste 8 ore.&lt;/p&gt;
+
+&lt;p&gt;Dacă Alisa semnează una din tranzacțiile ei(ele sunt semnate deja de Bob), și transmite această tranzacție în Blockchain, atunci pot avea loc două scenarii.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Alisa emite tranzacția finală =&amp;gt; Bob nu cunoaște utlima cheie a Alisei Aki. Aceasta este o închidere corectă a canalului, toți trebuie să primească banii lor înapoi. Alisa îi va primi peste ceva timp.&lt;/li&gt;
+  &lt;li&gt;Alisa încearcă să semneze tranzacția veche în loc de cea nouă, finală =&amp;gt; Alisa încearcă să-l mintă pe Bob. În acest caz, Bob cunoaște cheia lui Alisa și acesta poate să o folosească pentru a primi toată suma Alisei. Este clar că, Alisa nu este interesată în acest scenariu.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Așadar, ”problema ultimei tranzacții” este la fel - rezolvată și canalul de comunicare între două persoane este în regulă. Acum, deasemenea, devin evidente câteva avantaje și neajunsuri.&lt;/p&gt;
+
+&lt;p&gt;👍 &lt;strong&gt;Avanteje:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Plățile din interiorul canalului sunt instante și gratis, ele nu duc la solicitarea Blockchain-ului principal.&lt;/li&gt;
+  &lt;li&gt;Părțile nu sunt obligate să aibă încredere una în alta.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;👎 &lt;strong&gt;Neajunsuri&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Depozitele sunt blocate pe toată perioada existenții canalului.&lt;/li&gt;
+  &lt;li&gt;Fiecare dintre părți, trebuie periodic să se ivească online(cel puțin o dată-n T)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;👌 În realitate, ambele neajunsuri sunt necesare pentru canalele de plăți între două persoane, dar nu prea sunt importante pentru LN. Primul neajuns încetează să mai fie neajuns dacă un canal de plăți poate fi folosit pentru tranzacții cu alte persoane.
+Al doilea neajuns lipsește în LN, așa cum verificarea corectitudinei poate fi făcută de oricare utilizator al rețelei( dacă Vasile va observa țeapa Alisei, atunci acesta va împărți cu Bob valoarea confiscată.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-lightning-network&quot;&gt;4. Lightning Network&lt;/h2&gt;
+
+&lt;h3 id=&quot;41-canalul-de-plăți-printr-o-persoană-terță&quot;&gt;4.1. Canalul de plăți printr-o persoană terță&lt;/h3&gt;
+
+&lt;p&gt;Să presupunem acum că Alisa și Bob nu au un canal deschis între ei, dar ei, ambii au un canal deschis cu Victor. Alisa poate fără probleme să trimită bani lui Victor, iar Victor fără probleme poate trimite banii lui Bob.
+Dar, cum să fim siguri, că Victor, obținând banii, întradevăr îi va trimite mai departe lui Bob?&lt;/p&gt;
+
+&lt;p&gt;În realitate, ideea este foarte similară cu trucul anterior, doar că în loc de cheile de unică folosință se folosește un oarecare număr secret.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bob generează un număr secret S, hash-ul al acestei chei HS și transmite această informație Alisei. HS în acest caz poate fi folosit ca un bon de plată virtual.&lt;/li&gt;
+  &lt;li&gt;Alisa crează tranzacția AV, care transmite banii lui Victor, numai în cazul în care Victor va oferi numărul secret S. Pentru aceasta, Alisa folosește un script, care verifică egalitatea hash-ului oferit de numărul și valoarea HS(aici se folosește operația OP_SHA256 și OP_EqualVerify).&lt;/li&gt;
+  &lt;li&gt;Victor crează o tranzacție analog VB, care transmite banii lui Bob, doar în cazul în care Bob va prezenta numărul secret.&lt;/li&gt;
+  &lt;li&gt;Bob vede că poate primi bani de la Victor, și îi arată acestuia numărul secret S. Acum, Victor poate demonstra că acesta a transmis banii lui Bob.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Aici sunt câteva variante în care scenariile pot avea loc:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Înainte de toate, Victor nu are nici un sens să o mintă pe Alisa. El nu poate să nu transmită banii lui Bob, deoarece, dealtfel, Victor oricum nu va primi bani de la Alisa.&lt;/li&gt;
+  &lt;li&gt;Însă Bob, poate să decidă să-l mintă pe Victor și să nu-i dea acestuia numărul secret. Pe lângă asta, el poate închide canalul cu Victor și să înscrie în blockchain tranzacția VB. Însă, pentru primirea banilor, el oricum este nevoit să arate  numărul lui secret, și aici - Victor îl va recunoaște.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Aici există câteva nuanțe, legate de timpul în care Alisa, Bob și Victor pot rezolva conflictele. Dar, aceasta este o temă mult prea tehnică. Dacă sunteți interesați - Google it (Time-Locked Contracts or HTLCs).&lt;/p&gt;
+
+&lt;h2 id=&quot;42-rutarea&quot;&gt;4.2. Rutarea&lt;/h2&gt;
+
+&lt;p&gt;În practică, Alisa și Bob pot fi legați între ei nu prin cunoscutul lor comun - Victor, ci prin câțiva necunoscuți intermediari din întreaga lume. Problema căutării celui mai scurt drum în graf, în rețea, se numește problema rutării.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1600/1*933GpxVj8PzBVPMQGbDeng.png&quot; alt=&quot;&quot; /&gt;
+(Împărțirea geografică a nodurilor în rețeaua de test)
+Photo by: https://explorer.acinq.co/#/)&lt;/p&gt;
+
+&lt;p&gt;Problema rutării, în realitate este o ramură în care se fac cercetări active în acest moment. Alegerea drumului optim în graf depinde de mai mulți factori dinamici: numărul de noduri, topologia rețelei, capacitatea canalului de plăți, comisia nodurilor intermediare.&lt;/p&gt;
+
+&lt;p&gt;Ca să nu intrăm în detalii, căutarea drumului și transmiterea plăților în LN se realizează pe baza Onion Routing - tehnologia raspândirii informației în mod anonim, în rețelele peer-to-peer.  În acest fel, de exemplu, funcționează Tor.&lt;/p&gt;
+
+&lt;p&gt;Totul este descentralizat, tot traficul este criptat. Nimeni nu știe de la cine și către cine, vin și se duc banii. De aici, încă un avantaj.&lt;/p&gt;
+
+&lt;p&gt;👍 &lt;strong&gt;Avantaj&lt;/strong&gt;:
+Rețeaua LN este cu mult mai anonimă, decât însăși el - Bitcoin.
+În primul rând, persoanele care fac plăți între ei, sunt văzute doar de câțiva membri ai rețelei. În al doilea rând, chiar și între membrii rețelei, doar primul și ultimul știe exact, de la cine și către cine vin și se transmit banii.&lt;/p&gt;
+
+&lt;h3 id=&quot;43-comisioanele&quot;&gt;4.3. Comisioanele&lt;/h3&gt;
+&lt;p&gt;Rămân două întrebări evidente.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Întrebare numărul 1:&lt;/strong&gt; De ce intermediarii trebuie să verifice tranzacții străine?
+În primul rând deoarece ei însuși vor folosi mai ușor LN. În al doilea rând, deoarece ei vor primi din toată asta un comision foarte mic, dar totuși comision. În acest moment, rețeaua este întreținută în mare parte de entuziaști iar comisionul este aproape 0: 1 satoshi, sau 0.01 cent pentru fiecare intermediar.&lt;/p&gt;
+
+&lt;p&gt;👍 Capacitatea canalelor - nu este o resursă mai scumpă decât mărimea blocului. Deschiderea canelelor se face ușor și necostisitor. De aceea comisioanele în LN sunt cu mult mai mici decât comisioanele din Blockchain.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Întrebarea numărul 2:&lt;/strong&gt; Cum e cu comisionul la deschiderea/închiderea canalului?&lt;/p&gt;
+
+&lt;p&gt;Întradevăr, acest comision poate fi uneori și zeci de dolari. În acest fel, plățile vor fi mai profitabile dacă se vor deschide/închide canale mai puține. Aceasta motivează oamenii să deschidă canale cu depozite mari, și să folosească canalele în două direcții: nu doar pentru plățile care pleacă ci și pentru cele care vin. De exemplu: eu deschid un canal, fac o depunere de 1000$, și folosesc canalul dat doar pentru plățile de ieșire. Valoarea canalului va fi de 1000 dolari, din care undeva 20 de doloari se vor plăti pentru deschiderea/închiderea canalului. Adică, comisia totală va fi de 2%. Un pic mai bine decât cum e la Visa și Mastercard, dar evident mai mult decât aș fi dorit. Situația se schimbă drastic când eu încep să folosesc Lightning la maxim: făcând depozite mai mari și primind bani prin intermediul canalelor, ci nu doar cheltuindu-i. Atunci, depinzând de proporția intrare/ieșire a banilor, canalul poate fi deschis la infinit și comisioanele vor tinde spre zero.&lt;/p&gt;
+
+&lt;h3 id=&quot;44-critici&quot;&gt;4.4. Critici&lt;/h3&gt;
+&lt;p&gt;Pe internet se poate găsi o mulțime de critici legate de soluția    layer-ului 2 și de Lighting Network în general. Careva puncte întradevăr merită atenție, multe - trebuie deja uitate. Câteva exemple:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Folosirea LN va duce la centralizare: utilizatorii vor fi motivați să se conecteze la hub-uri mari iar aceste hub-uri vor controla tot traficul.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Un asemenea risc există, dar acesta este foarte mic. În primul rând, e foarte economic și foarte simplu de realizat un nou nod care va respinge hub-urile mari. În al doilea rând, algoritmii de rutare urmăresc balansarea traficului. În al treilea rând, la acest moment, asemenea problemă nu există.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Capacitatea mică a canaleleor va face ca LN să fie suprasolicită, comisioanele vor crește și cel mai probabil situația va fi la fel, ca și în Blockchainul de baza.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Încă o dată, îndată ce așa ceva se va întâmpla, persoanele vor fi motivate să deschidă noduri personale. În comparație cu mărimea blocului, numărul de noduri, este practic nelimitată.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;O rutare efectivă la un număr mare de noduri peer-to-peer este imposibilă. Mai ales ținând cont de dificultatea deschiderii a noi canale.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Până la o asemenea problemă este foarte și foarte departe iar cercetările în acest domeniu în mod activ au loc chiar în acest moment. Cu siguranță se vor lua ceva măsuri.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Canele sunt nevoie mereu să fie deschise și închise, comisioanele folosite pentru așa ceva vor fi mari iar folosirea LN nu se va merita.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Defapt, problema dată este deja din trecut, pe care, nu înțeleg de ce, încă o discută. Ceva timp în urmă, versiunile canalelor de plată întradevăr, erau doar într-o singură direcție, iar canalul putea să existe doar o perioadă scurtă de timp. Acum aceste probleme sunt rezolvate.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Pentru folosirea LN este nevoie să fii online.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;În comparație cu versiunile anterioare ale LN, utilizatorul nu este nevoit să se afle tot timpul online: alte noduri din rețea  vor verifica că doi deținători ale canalului de plată nu încearcă să se mintă unul pe altul. În mod cert, trebuie să fii online doar pentru trimiterea și primirea plăților, care fără nici o îndoială este un neajuns, dar de această dată, mult mai neimportant.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;LN - aceasta nu este sigur.&lt;/strong&gt;
+Plățile LN sunt un pic mai periculoase decât plățile făcute direct în Blockchain. Dar, doar întrun singur context: un atac cu succes de 51% asupra Blockchain-ului Bitcoin. Riscul dat este unul catastrofic de mic.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;5-ln-astăzi&quot;&gt;5. LN astăzi&lt;/h2&gt;
+
+&lt;p&gt;Lucrul cel mai important pe care trebuie să-l cunoașteți: 
+&lt;strong&gt;Lighthing&lt;/strong&gt; deja se folosește și funcționează în realiate.&lt;/p&gt;
+
+&lt;p&gt;Mai mult de o mie de noduri în rețeaua de testare bitcoin și mai mult de 200 de noduri(numărul crește în fiecare zi) în rețeaua de bază bitcoin(mainnet) deja verifică plăți.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Anyone want to help bug test new &lt;a href=&quot;https://twitter.com/Blockstream?ref_src=twsrc%5Etfw&quot;&gt;@Blockstream&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/LightningNetwork?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#LightningNetwork&lt;/a&gt; store? The Github repos should make it easy enough for even &lt;a href=&quot;https://twitter.com/coinbase?ref_src=twsrc%5Etfw&quot;&gt;@coinbase&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://twitter.com/BitPay?ref_src=twsrc%5Etfw&quot;&gt;@BitPay&lt;/a&gt; to integrate with the second layer. Cypherpunks do not whine they write code. Right &lt;a href=&quot;https://twitter.com/adam3us?ref_src=twsrc%5Etfw&quot;&gt;@adam3us&lt;/a&gt;? &lt;a href=&quot;https://twitter.com/hashtag/MYOTHERNODEISASATELLITE?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#MYOTHERNODEISASATELLITE&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/DONTTRUSTVERIFY?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#DONTTRUSTVERIFY&lt;/a&gt; &lt;a href=&quot;https://t.co/Il3YBvirYo&quot;&gt;pic.twitter.com/Il3YBvirYo&lt;/a&gt;&lt;/p&gt;&amp;mdash; Trace Mayer (@TraceMayer) &lt;a href=&quot;https://twitter.com/TraceMayer/status/953430172019101696?ref_src=twsrc%5Etfw&quot;&gt;January 17, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Ce ține de softuri - există trei implementări de bază, lnt de la Lightning Labs, c-lightning de la Blockstream, eclair de la ACINQ.&lt;/p&gt;
+
+&lt;p&gt;Aceste echipe, nu doar de un an lucrează împreună, pentru a dezvolta un standard comun de interacțiune a nodurilor: Lighthing Network Specifications(BOLTs). Și uite că chiar la sfârșitul anului 2017, au testat protocolul de plăți, împreună, și toate cele trei implementări au fost cu succes.&lt;/p&gt;
+
+&lt;p&gt;Să achiți cu bitcoini reali folosind LN, se poate doar la câteva magazine online. Dar, asta e doar cu câteva magazine mai multe decât acum o lună, iar acesta deja este succes.&lt;/p&gt;
+
+&lt;p&gt;Desigur, momentul general de transfer de la on-chain bitcoin la plăți off-chain este încă foarte departe. O muncă imensă urmează să o facă dezvoltatorii de portofele virtuale, nodurile de plată, bursele, magazinele-online, și, nu în ultimul rând - utilizatorii. Cel mai interesant în această istorie este că tranzacții mult mai rapide, anonime și gratis - sunt doar începutul! Urmează o mai multă anonimitate, swap-uri atomice, schimburi distribuite și mult, mult mai mult.&lt;/p&gt;
+
+&lt;p&gt;Viitorul arată interesant!&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">Articol tradus. Sursa originală</summary></entry><entry><title type="html">Macbook Upgrade. First Impressions</title><link href="http://localhost:4000/Macbook-upgrade-first-impresions/" rel="alternate" type="text/html" title="Macbook Upgrade. First Impressions" /><published>2018-01-11T00:00:00+02:00</published><updated>2018-01-11T00:00:00+02:00</updated><id>http://localhost:4000/Macbook-upgrade--first-impresions</id><content type="html" xml:base="http://localhost:4000/Macbook-upgrade-first-impresions/">&lt;p&gt;First of all, I will tell how I started using Apple ecosystem.&lt;/p&gt;
+
+&lt;p&gt;Back in 2013, when I was in the second year at the university, I was involved in an iOS internship. I can say, it was the first time I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
+I enjoyed using this system, and a few days after the internship started, I installed on my &lt;a href=&quot;https://www.asus.com/Laptops/N53SV/&quot;&gt;Asus&lt;/a&gt; notebook a Hackintosh version of Mavericks in order to use it at home, and practice iOS development. The Hackintosh system was running pretty well. The single problem I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy I was learning iOS development without paying money for an expensive Mac computer. 
 After the internship, I continued to use Hackintosh in order to do some projects at the university. So, the experience and the motivation to buy an Apple computer was growing.&lt;/p&gt;
 
-&lt;h2 id=&quot;about-old-macbook&quot;&gt;About old MacBook&lt;/h2&gt;
+&lt;h2 id=&quot;my-old-macbook&quot;&gt;My old MacBook&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;p&gt;About 3 years later, in December 2016, I bought the first Apple computer.
 It was a MacBook Pro 2015 version, 13-inch display, i7 3.1 GHz CPU, 16 Gb of ram, 256 Gb of SSD space. (To be honest, it’s a second computer, bought a few days later than the first one. &lt;a href=&quot;https://www.quora.com/Should-a-computer-science-student-get-a-13-or-15-inch-MacBook-Pro/answer/Alexandru-Ilie%C8%99?srid=SKYq&quot;&gt;Read&lt;/a&gt; why.&lt;/p&gt;
 
-&lt;p&gt;It was and it is a powerful computer, and it helped me to be more organized, more efficient in what I’m doing, and, why not - happier.&lt;/p&gt;
+&lt;p&gt;It was and it is a powerful computer, and it helped me be more organized, more efficient in what I’m doing, and, why not - happier.&lt;/p&gt;
 
-&lt;h2 id=&quot;about-new-macbook&quot;&gt;About new MacBook&lt;/h2&gt;
+&lt;h2 id=&quot;my-new-macbook&quot;&gt;My new MacBook&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;I did not have big reasons to upgrade my computer. It was not a burning desire, however, I created and advertise on a local advertising site 2 weeks ago. So, after two weeks, someone wanted to buy my toy. I was: brrrr…aaaa…I’m not ready… I need another MacBook to buy. I searched for a second hand, newer MacBook Pro, and found nothing interesting…
-For some moments I decided to keep my old computer, but…I found an interesting advertising a few hours ago. I was not a selling advertising, this is why it didn’t catch my attention when I searched for the first time. It was a “changing” advertising. The guy who owns that computer (MacBook Pro 2016 with touch bar, 13”, 16 Gb of ram, i7 3.3, 512 Gb SSD space) wished to change it with the same configuration of MacBook Pro 15” display. I got in touch with them, and we after a negotiation, he agreed to sell the computer. To be honest, with few hundred dollars more, I could buy the 15” inch MacBook Pro, which is more powerful because of the quad-core processor, and discrete GPU but it is not what I want. The 13” inch screen fits perfectly with my requirements. 
+&lt;p&gt;I did not have essential reasons to upgrade my computer. It was not a burning desire, however, I created and advertise on a local advertising site 2 weeks ago. So, after two weeks, someone wanted to buy my toy. I was like: brrrr…aaaa…I’m not ready… I guess I need to buy a new MacBook. I searched for a second hand, newer MacBook Pro, and found nothing interesting…
+For a moment I thought keeping my old computer, but…then I found an interesting advertisement. I was not a selling one, that’s why it didn’t catch my attention the first time. It was a “changing” advertisement. The guy who owned that computer (MacBook Pro 2016 with touch bar, 13”, 16 Gb of ram, i7 3.3, 512 Gb SSD space) wished to change it with the same configuration of MacBook Pro 15” display. I got in touch with him, and after a negotiation, he agreed to sell the computer. To be honest, it wasn’t the best deal, with a few hundred dollars, I could buy the 15” inch MacBook Pro, which is more powerful because of the quad-core processor, and discrete GPU but it is not what I wanted. The 13” inch screen fitted perfectly my requirements. 
 Yes, the performance is lower than his 15” brother, but I do not do any rendering or video gaming.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-makes-the-difference&quot;&gt;What makes the difference&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;I sow more opinions regarding the new MacBook Pro computers.
-Someones are saying that the upgrade is not worth it if you own a 2015 model. Others are saying that it worth but they hate some things, like touch bar, keyboard, performance(because of 32 GB of ram) and so one.
-I will write here my 50 cents regarding the difference which I’m experiencing right now.&lt;/p&gt;
+&lt;p&gt;I saw many opinions regarding the new MacBook Pro computers.
+Some people are saying the upgrade is not worth it if you own a 2015 model. Others are saying that it is worth but there are some things they hate, like the touch bar, keyboard, performance(because of 32 GB of ram) and so one.
+I will write here my 50 cents regarding the differences I’m experiencing right now.&lt;/p&gt;
 
 &lt;p&gt;I own the described new computer for 4 days. I did not expect to experience so many changes, but I am.&lt;/p&gt;
 
 &lt;p&gt;So, the things I love:&lt;/p&gt;
 
-&lt;h3 id=&quot;the-performance&quot;&gt;The performance.&lt;/h3&gt;
-&lt;p&gt;The performance is really great. I should do some proven experiments in order to write words, but I sow the improvements when I build/rebuild iOS applications. It takes considerably less time.&lt;/p&gt;
-&lt;h3 id=&quot;the-keyboard&quot;&gt;The keyboard.&lt;/h3&gt;
-&lt;p&gt;I really love the new keyboard. It is so lovely to touch and write on it. I am more accurate when I write( I am using &lt;a href=&quot;http://www.typingstudy.com/lesson/1/part/1&quot;&gt;QWERTY&lt;/a&gt; writing style, without looking at keyboard)&lt;/p&gt;
-&lt;h3 id=&quot;the-cooling-system&quot;&gt;The cooling system.&lt;/h3&gt;
-&lt;p&gt;With a new version of the processor and two cooling fan system, and also with some improvements in this part - the experience is awesome. At the building (iOS apps)), and performance requirements stuff, the old computer fan(only single) had up to 7000 rpm/minute. On a low-performance requirement tasks, it was at 1500/2000 rpm/minute.&lt;/p&gt;
+&lt;h3 id=&quot;the-performance&quot;&gt;The performance&lt;/h3&gt;
+&lt;p&gt;The performance is really great. I should do some more PC experiments, but I saw the improvements when I built/rebuilt iOS applications. It takes considerably less time.&lt;/p&gt;
+&lt;h3 id=&quot;the-keyboard&quot;&gt;The keyboard&lt;/h3&gt;
+&lt;p&gt;I really love the new keyboard. It is so lovely to touch it and to write. I am more accurate doing this( using &lt;a href=&quot;http://www.typingstudy.com/lesson/1/part/1&quot;&gt;QWERTY&lt;/a&gt; writing style, without looking at the keyboard)&lt;/p&gt;
+&lt;h3 id=&quot;the-cooling-system&quot;&gt;The cooling system&lt;/h3&gt;
 
-&lt;p&gt;On a new computer, the maxim value which I registered on fans rotation rate was 2000 rpm/minute and they even are not heard. And, the most interesting part, at low-performance requirement tasks, it has 0 amp/minutes.&lt;/p&gt;
+&lt;p&gt;With a new version of the processor and two cooling fans, plus some other improvements - the experience is awesome. While building iOS apps or other way stressing CPU tasks, the old computer’s fan had up to 7000 rpm/minute. On a low-performance tasks, it was at 1500/2000 rpm/minute.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/tzk14frcpxg0qpv/Screen%20Shot%202018-01-11%20at%2011.09.31.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;On the new computer, the maxim ratation rate I registered was 2000 rpm/minute and you can’t even hear them. The most interesting part, at low-performance tasks, it shows 0 rpm/minutes.&lt;/p&gt;
 
-&lt;p&gt;I really enjoy this improvement. I may say that I have some allergy on fan sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.dropbox.com/s/fgb567y720jijft/Screen%20Shot%202018-01-14%20at%2014.53.11.png?raw=1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I really enjoy this improvement. I may say I have some allergy on fan sound because I hate it so much( I had some experience in the past with some desktop computer, but this is another story).&lt;/p&gt;
 
 &lt;h3 id=&quot;the-battery&quot;&gt;The battery&lt;/h3&gt;
-&lt;p&gt;Because of the cooling system, I think(of course and other stuff) the battery has the power now for about - 7 hours. And this is at normal usages (builds and others). It is really enough for an entire workday.&lt;/p&gt;
+&lt;p&gt;Because of the cooling system, I think(of course and other stuff) the battery lasts for about - 7 hours. It is really enough for an entire workday.&lt;/p&gt;
 
 &lt;h3 id=&quot;touch-bar&quot;&gt;Touch bar&lt;/h3&gt;
-&lt;p&gt;Here is simple. I do not hate or love it. But, the Touch ID -  I found it very useful.&lt;/p&gt;
+&lt;p&gt;Here is really simple. I do not hate or love it. On the other hand, I find the Touch ID very useful.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;I think, in general, the upgrade worth. This is my own opinion,     and yes, for me it really worth. (I think again about cooling system)&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">In the beginning I will tell how I started to use Apple ecosystem.</summary></entry><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
+&lt;p&gt;I think, generally, the upgrade is worth it. Especially for me, when thinking again about the cooling system.&lt;/p&gt;</content><author><name>Alexandru Ilies</name></author><summary type="html">First of all, I will tell how I started using Apple ecosystem.</summary></entry><entry><title type="html">Getting up a personal blog using Jekyll.</title><link href="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/" rel="alternate" type="text/html" title="Getting up a personal blog using Jekyll." /><published>2018-01-08T00:00:00+02:00</published><updated>2018-01-08T00:00:00+02:00</updated><id>http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll</id><content type="html" xml:base="http://localhost:4000/Getting-up-a-personal-blog-using-Jekyll/">&lt;p&gt;In this post, I will provide a step by step tutorial regarding the process I used for getting up my blog. 
 In the past, I had a personal website, hosted on a paid hosting. I paid for the hosting services about 40$ / year + about 35$ / year for a personal domain.&lt;/p&gt;
 
 &lt;p&gt;Now, with GitHub pages, it is much easier and cheaper(actually it costs you 0$) to set up a personal site/blog. Yes, you will not have a custom domain name but it is not so important for me (and maybe for you) now. The only thing which matters is the content and the content delivery process.&lt;/p&gt;

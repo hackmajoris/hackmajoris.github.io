@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Java DTO mapping exmaple ☕️ – Hackmajoris – Programmer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Description
+Sometime you may need to use DTO’s(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST’full API. For instance: You have a User entity which has some fields: username, email, password, ID.
+You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed.
+For such a feature you need to have a DTO Entity where you exclude the password field from the base Entity. You need somehow to map all the attributes from base entity to DTO entity end vice-versa
+and it is nice if you’ll do this automatically without mapping the attributes manually.
+
+" />
+    <meta property="og:description" content="Description
+Sometime you may need to use DTO’s(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST’full API. For instance: You have a User entity which has some fields: username, email, password, ID.
+You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed.
+For such a feature you need to have a DTO Entity where you exclude the password field from the base Entity. You need somehow to map all the attributes from base entity to DTO entity end vice-versa
+and it is nice if you’ll do this automatically without mapping the attributes manually.
+
+" />
+    
+    <meta name="author" content="Hackmajoris" />
+
+    
+    <meta property="og:title" content="A Java DTO mapping exmaple ☕️" />
+    <meta property="twitter:title" content="A Java DTO mapping exmaple ☕️" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Hackmajoris - Programmer" href="/feed.xml" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="intro-header">    
+      <div class="container">
+        <div class="post-heading">
+            <h1>A Java DTO mapping exmaple ☕️</h1>
+            <span class="meta">Posted by <a href="/about"> Alexandru Ilies
+            </a> on May 22, 2018
+            <a href="/"> { Return to Blog }</a>
+            </span>
+        </div>
+            
+      </div>
+    </div>
+    
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+ <div class="space-extra-small">
+ </div>
+
+  <div class="entry">
+    <h2 id="description">Description</h2>
+<p>Sometime you may need to use DTO’s(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST’full API. For instance: You have a User entity which has some fields: username, email, password, ID.
+You have an API which performs some CRUD operations on this entity and you want to hide user password at the moment when GET(only) operation is performed.
+For such a feature you need to have a DTO Entity where you exclude the password field from the base Entity. You need somehow to map all the attributes from base entity to DTO entity end vice-versa
+and it is nice if you’ll do this automatically without mapping the attributes manually.</p>
+
+<p>Here is how we can achieve this using ModelMapping…</p>
+
+<h1 id="how-to-test">How to test</h1>
+
+<ul>
+  <li>
+    <p>Download <a href="https://github.com/hackmajoris/java-dto-mapping">repository</a></p>
+  </li>
+  <li>
+    <p>Navigate terminal to the project root folder.</p>
+  </li>
+  <li>
+    <p>Run command <code class="highlighter-rouge">mvn install</code></p>
+  </li>
+  <li>
+    <p>Run command <code class="highlighter-rouge">mvn spring-boot:run</code></p>
+  </li>
+</ul>
+
+<h2 id="project-structure">Project structure.</h2>
+
+<p><img src="https://www.dropbox.com/s/apjbmgaqnziyeh2/Screen%20Shot%202018-05-21%20at%2014.55.50.png?raw=1" alt="" /></p>
+
+<h2 id="user-model">User model</h2>
+
+<p>Here we have a simple User class with some attributes.</p>
+
+<p>public class User {</p>
+
+<p>private int id;
+private String name;
+private String email;
+private String password;</p>
+
+<p>public User() {}</p>
+
+<p>public int getId() {
+return id;
+}</p>
+
+<p>public void setId(int id) {
+this.id = id;
+}</p>
+
+<p>public String getName() {
+return name;
+}</p>
+
+<p>public void setName(String name) {
+this.name = name;
+}</p>
+
+<p>public String getEmail() {
+return email;
+}</p>
+
+<p>public void setEmail(String email) {
+this.email = email;
+}</p>
+
+<p>public String getPassword() {
+return password;
+}</p>
+
+<p>public void setPassword(String password) {
+this.password = password;
+}</p>
+
+<p>@Override
+public String toString() {
+return “User{“ +
+“id=” + id +
+“, name=’” + name + ‘'’ +
+“, email=’” + email + ‘'’ +
+“, password=’” + password + ‘'’ +
+‘}’;
+}
+}</p>
+
+<h2 id="user-service">User service</h2>
+
+<p>Here is a simple User service implementation. The database connection and data persistance is not the goal at this point.</p>
+
+<p>@Service
+public class UserService {</p>
+
+<p>public DTOEntity createUser(){
+User user = new User();
+user.setId(1);
+user.setName(“User number 1”);
+user.setEmail(“Email number 1”);
+user.setPassword(“Password number 1”);</p>
+
+<p>return new DtoUtils().convertToDto(user, new UserCreateDTO());
+}</p>
+
+<p>public DTOEntity readUser(){
+User user = new User();
+user.setId(1);
+user.setName(“User number 1”);
+user.setEmail(“Email number 1”);
+user.setPassword(“Password number 1”);</p>
+
+<p>return new DtoUtils().convertToDto(user, new UserReadDTO());
+}</p>
+
+<p>public DTOEntity updateUser(DTOEntity userDTO) {
+User user = (User) new DtoUtils().convertToEntity(new User(), userDTO);</p>
+
+<p>System.out.println(user.toString());</p>
+
+<p>return new DtoUtils().convertToDto(user, new UserUpdateDTO());
+}
+}</p>
+
+<h2 id="tdo-utils">TDO Utils</h2>
+
+<p>The important part here is this utility class:</p>
+
+<p>public class DtoUtils {</p>
+
+<p>public DTOEntity convertToDto(Object obj, DTOEntity mapper) {
+return new ModelMapper().map(obj, mapper.getClass());
+}</p>
+
+<p>public Object convertToEntity(Object obj, DTOEntity mapper) {
+return new ModelMapper().map(mapper, obj.getClass());
+}</p>
+
+<p>}</p>
+
+<p>As you can see, here we have two methods for in/out mapping. I tried to create them as generic is possible in order to user them for all entities.</p>
+
+<p>Now, the DTO’s entities.</p>
+
+<h2 id="userread-dto">UserRead DTO</h2>
+
+<p>public class UserReadDTO implements DTOEntity {</p>
+
+<p>private String name;
+private String email;</p>
+
+<p>public UserReadDTO(){}</p>
+
+<p>public String getName() {
+return name;
+}</p>
+
+<p>public void setName(String name) {
+this.name = name;
+}</p>
+
+<p>public String getEmail() {
+return email;
+}</p>
+
+<p>public void setEmail(String email) {
+this.email = email;
+}
+}</p>
+
+<p>Here we implemented DTOEntity interface:</p>
+
+<p>public interface DTOEntity {}</p>
+
+<p>in order to have a generic mapping. So all our DTO’s will implement this interface.</p>
+
+<p>!In this entity we excluded the password field.</p>
+
+<h2 id="the-user-controller">The User Controller</h2>
+
+<p>Now, that we have all needed models and helpers, our controller looks in this way:</p>
+
+<p>@RestController
+@RequestMapping(“api/”)
+public class UserController {</p>
+
+<p>private UserService updateService;</p>
+
+<p>@Autowired
+public UserController(UserService updateService){
+this.updateService = updateService;
+}</p>
+
+<p>@RequestMapping(value = “/create”, method = RequestMethod.POST)
+public DTOEntity createPost(@RequestBody UserCreateDTO userCreateDTO) {<br />
+return updateService.createUser();
+}</p>
+
+<p>@RequestMapping(value = “/list”, method = RequestMethod.GET)
+public DTOEntity readUser() {
+return updateService.readUser();
+}</p>
+
+<p>@RequestMapping(value = “/update”, method = RequestMethod.PATCH)
+public DTOEntity updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {</p>
+
+<p>return updateService.updateUser(userUpdateDTO);
+}</p>
+
+<p>}</p>
+
+<h2 id="see-also-the-test-cases">See also the test cases:</h2>
+
+<p>public class UserDtoUnitTest {</p>
+
+<p>@Test
+public void userEntityToUserDto() {</p>
+
+<p>// Given
+User user = new User();
+user.setId(1);
+user.setEmail(“user1@example.com”);
+user.setName(“user1”);
+user.setPassword(“user1Password”);</p>
+
+<p>// When
+UserCreateDTO userCreateDTO =  (UserCreateDTO) new DtoUtils().convertToDto(user, new UserCreateDTO());</p>
+
+<p>// Then
+assertEquals(user.getEmail(), userCreateDTO.getEmail());
+assertEquals(user.getName(), userCreateDTO.getName());
+assertEquals(user.getPassword(), userCreateDTO.getPassword());
+}</p>
+
+<p>@Test
+public void userDtoToUserEntity() {</p>
+
+<p>// Given
+UserCreateDTO userCreateDTO = new UserCreateDTO();
+userCreateDTO.setEmail(“user1@example.com”);
+userCreateDTO.setName(“user1”);
+userCreateDTO.setPassword(“user1Password”);</p>
+
+<p>// When
+User user =  (User) new DtoUtils().convertToEntity(new User(), userCreateDTO);</p>
+
+<p>// Then
+assertEquals(user.getEmail(), userCreateDTO.getEmail());
+assertEquals(user.getName(), userCreateDTO.getName());
+assertEquals(user.getPassword(), userCreateDTO.getPassword());
+}</p>
+
+<p>}</p>
+
+<h2 id="testing">Testing</h2>
+
+<h3 id="user-creation">User creation</h3>
+
+<p>curl -X POST \
+http://localhost:8080/api/create \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 76ac6fa4-41d1-481b-aa45-69b05096ebfb’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “userPassword”}’</p>
+
+<h3 id="user-update">User update</h3>
+
+<p>curl -X PATCH \
+http://localhost:8080/api/update \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 460a1683-d6b4-4544-9f5e-80dd6a645749’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’</p>
+
+<h3 id="user-read">User read</h3>
+
+<p>curl -X GET \
+http://localhost:8080/api/list \
+-H ‘Cache-Control: no-cache’ \
+-H ‘Content-Type: application/json’ \
+-H ‘Postman-Token: 24ff8d32-5357-411f-81f5-64dabcb2e4d1’ \
+-d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’</p>
+
+  </div>
+
+  <div>
+    Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/A-Java-DTO-mapping-example/">Facebook,</a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/A-Java-DTO-mapping-example/">Google Plus,</a>
+    <a href="https://twitter.com/intent/tweet?text=A Java DTO mapping exmaple ☕️&url=http://localhost:4000/A-Java-DTO-mapping-example/&via=&related=" >Twitter</a>
+</div>
+  
+  <div class="space-medium"></div>
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'http-hackmajoris-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+
+    </div>
+
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+            <div class="svg-icon">
+          
+<a href="mailto:hackmajoris@gmail.com"><i class="icon-envelope icon-2x"></i></a>
+
+
+<a href="https://github.com/hackmajoris"><i class="icon-github icon-2x"></i></a>
+
+<a href="https://www.linkedin.com/in/viplord"><i class="icon-linkedin-sign icon-2x"></i></a>
+
+
+<a href="https://www.twitter.com/hackmajoris"><i class="icon-twitter icon-2x"></i></a>
+<a href="http://stackoverflow.com/users/3432427/hackmajoris"><i class="icon-stackexchange icon-2x"></i></a>
+
+
+
+            </div>
+        </footer>
+      </div>
+    </div>
+
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-112315065-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/A-Java-DTO-mapping-example/',
+		  'title': 'A Java DTO mapping exmaple ☕️'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+  </body>
+</html>

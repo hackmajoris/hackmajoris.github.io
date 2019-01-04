@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VPN Personal în 3 minute 😱 – Hackmajoris – Programmer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="De ce?
+Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
+
+" />
+    <meta property="og:description" content="De ce?
+Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.
+
+" />
+    
+    <meta name="author" content="Hackmajoris" />
+
+    
+    <meta property="og:title" content="VPN Personal în 3 minute 😱" />
+    <meta property="twitter:title" content="VPN Personal în 3 minute 😱" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Hackmajoris - Programmer" href="/feed.xml" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="intro-header">    
+      <div class="container">
+        <div class="post-heading">
+            <h1>VPN Personal în 3 minute 😱</h1>
+            <span class="meta">Posted by <a href="/about"> Alexandru Ilies
+            </a> on April 20, 2018
+            <a href="/"> { Return to Blog }</a>
+            </span>
+        </div>
+            
+      </div>
+    </div>
+    
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+ <div class="space-extra-small">
+ </div>
+
+  <div class="entry">
+    <h2 id="de-ce">De ce?</h2>
+<p>Dacă ai ajuns să cauți informații despre VPN, cel mai probabil dorești să îți securizezi cât de cât prezenta ta pe Internet, fie că ai motive evidente sau pur și simplu ești un simplu utilizator de Internet. Oricare ar fi motivul - folosirea unui VPN este de neevitat, vedem imediat de ce.</p>
+
+<p>De câte ori ai folosit o rețea de Wireless, publică, fără nici o mică bănuială legată de riscuri sau consecințe?</p>
+
+<p>Răspuns: de fiecare dată(cel mai probabil).
+Cât de mici sau cât de mari pot fi riscurile folosirii unui Wireless public, depinde de acțiunile tale care le-ai făcut pe Internet, în timp ce foloseai acea rețea. Astfel de rețele sunt cele mai des vulnerabile. Sunt zeci, sau sute de utilizatori care au acces direct la acea rețea iar cafeneaua, ca proprietar al rețelei, de regulă, nu este interesată de securitate. De aceea, nu îți dorești să te trezești fără bani pe card, în cazul în care ai făcut o cumpărătură online în timp ce erai conectat la acea rețea.</p>
+
+<p>Pe lângă partea de securitate și anonimitate pe Internet, VPN-ul îți oferă acces la site-uri cenzurate pe teritoriul în care te afli(de exemplu Spotify, până acum 2 luni - Romania), access la magazinele de aplicații (AppStore, GooglePlay) din alte regiuni și alte posibile facilități de acest gen.</p>
+
+<h2 id="cum">Cum?</h2>
+
+<p>Există zeci de aplicații care oferă servicii VPN pentru mobile cât și pentru alte platforme. Cele mai evidente probleme pe care le oferă sunt: prețul, anonimitatea, lipsa controlului asupra propriului trafic. Singurul serviciu de acest gen, în care am încredere este <a href="https://www.tunnelbear.com/pricing">TunellBear</a>.  Sugerez să-l folosiți în cazul în care aveți nevoie de un VPN și nu vă aranjeză soluția propusă mai jos. Acest serviciu oferă 500MB gratis, lunar, iar pentru un trafic nelimitat - prețul este de 10 USD. Mai jost o să vedem cum putem obține așa ceva cu resurse mai puține.</p>
+
+<p>! Soluția de mai jos este pentru utilizatorii de rând. Nu necesită cunoștințe în nici un domeniu. Necesită doar dorința de a te proteja atunci când folosești Internet.</p>
+
+<h3 id="de-ce-avem-nevoie">De ce avem nevoie:</h3>
+
+<ul>
+  <li>Un cont pe <a href="https://www.digitalocean.com">DigitalOcean</a></li>
+  <li>Să pornim un Droplet pe <a href="https://www.digitalocean.com">DigitalOcean</a></li>
+  <li>Să configurăm VPN-ul pe acel Droplet.</li>
+  <li>Să configurăm device-urile pentru a folosi acel VPN.</li>
+</ul>
+
+<p>Să începem.</p>
+
+<h3 id="creare-cont-pe-digitalocean">Creare cont pe DigitalOcean.</h3>
+
+<p>Cel mai basic Droplet pe DigitalOcean - ne costă 5 USD/lună. Acesta are:</p>
+
+<ul>
+  <li>Memorie RAM: 1GB</li>
+  <li>Disk: 25GB SSD</li>
+  <li>Transfer: 1TB</li>
+  <li>CPU: 1 Core</li>
+</ul>
+
+<p>Ce ne interesează aici este capacitatea de transfer - 1 TB / lună este de cele mai multe ori îndeajuns pentru un utilizator mediu.</p>
+
+<p>Pentru a primi 10 USD credit la înregistrare, da-ți click <a href="https://m.do.co/c/6f4b7837cd02">aici</a>. Acesta vă va oferi 2 luni de acces gratuit, în cazul în care nu aveți încă cont.</p>
+
+<p>Mai departe….</p>
+
+<ol>
+  <li>
+    <p>Apăsăm butonul - Create
+<img src="https://www.dropbox.com/s/89pf6jpt80qegem/1.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Alegem creare Droplet nou
+<img src="https://www.dropbox.com/s/1s8oxsfx5iaq1ck/2.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Selectăm One-click apps 
+<img src="https://www.dropbox.com/s/tuz4apyy2dnum62/3.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Selectăm tipul
+<img src="https://www.dropbox.com/s/83ul7cctr7bjcw8/4.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Selectăm resursele
+<img src="https://www.dropbox.com/s/wxxc48xm0itv55z/5.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Selectăm locația<br />
+<img src="https://www.dropbox.com/s/q9jkwo36osl2jze/6.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Dăm un nume la host
+<img src="https://www.dropbox.com/s/xjoeztg9lf2gip4/7.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>Accesăm consola
+<img src="https://www.dropbox.com/s/o72r5v9dwxyb5nl/8.png?raw=1" alt="" /></p>
+  </li>
+  <li>
+    <p>După ce am schimbat parola de accesare a Droplet-ului, scrim  următoarea comandă:</p>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">CID</span><span class="o">=</span><span class="k">$(</span>docker run -d --restart<span class="o">=</span>always --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn<span class="k">)</span>
+</code></pre>    </div>
+    <p>Va trebui să așteptați pentru a se descărca toate dependențele.</p>
+  </li>
+</ol>
+
+<p>Consola o să arate undeva așa:
+<img src="https://www.dropbox.com/s/ftl6co5y5wjg3rx/9.png?raw=1" alt="" /></p>
+
+<ol>
+  <li>După, scriem în consolă comanda
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code> docker run -t -i -p 8080:8080 --volumes-from <span class="nv">$CID</span> jpetazzo/dockvpn serveconfig
+</code></pre>    </div>
+    <p>După executare, în consolă vom vedea o adresă, de genul: 0.0.0.0:8080 (La fiecare va fi diferită)</p>
+  </li>
+  <li>Mergem în Browser, și accesăm acea adresă.</li>
+</ol>
+
+<p>Accesând resursa, în mod normal, Browserul se va plânge din cauza securității. Ignorăm acea plângere, în așa se va descărca un fisier pe care-l vom folosi mai departe.</p>
+
+<p><img src="https://www.dropbox.com/s/vsxw4ur59qsqe90/10.png?raw=1" alt="" />
+<img src="https://www.dropbox.com/s/nokabrhe7q0sjh9/11.png?raw=1" alt="" /></p>
+
+<p>După descărcare, redenumim fișierul în așa fel încât acesta să aibă extensia .ovpn
+<img src="https://www.dropbox.com/s/4p1xny119pbs5je/12.png?raw=1" alt="" /></p>
+
+<ol>
+  <li>Descărcăm aplicația-client pentru platforma pe care o folosim. Sunt diferite aplicații de genul VPN-client prin care ne-am putea conecta la serverul de VPN creat mai sus. Vom folosi <a href="https://openvpn.net/index.php/open-source/downloads.html">OpenVPN</a>. Simplu de folosit și are și suport pentru toate platformele. Mai jos, o să vedem cum putem configura clientul pe macOS și iOS. Pe Windows, Linux, Android, etc - e aceeași procedură.</li>
+  <li>
+    <p><a href="https://openvpn.net/index.php/open-source/downloads.html">Descărcăm</a> clientul dacă nu am făcut-o și îi dăm fișierul de .ovpn descărcat anterior, după care ne conectăm.
+<img src="https://www.dropbox.com/s/yeoivmd8ldxdtki/13.png?raw=1" alt="" /></p>
+  </li>
+  <li>După o conexiune reușită, navigăm pe <a href="https://whatismyipaddress.com">whatismyipaddress.com</a> și convingem că VPN-ul își face treaba. 😊</li>
+</ol>
+
+<h3 id="configurare-vpn-client---ios">Configurare VPN client - iOS</h3>
+
+<ul>
+  <li>Instalăm <a href="https://itunes.apple.com/us/app/openvpn-connect/id590379981?mt=8">OpenVPN Connect</a></li>
+  <li>Deschidem aplicația, și introducem același adresă de IP:
+<img src="https://www.dropbox.com/s/wjb0akzuha2t3id/14.png?raw=1" alt="" /></li>
+  <li>Deschidem fișierul cu applicația OpenVPN
+<img src="https://www.dropbox.com/s/gwqfmzj8j3sz6x6/15.jpg?raw=1" alt="" /></li>
+  <li>Instalăm certificatul 
+<img src="https://www.dropbox.com/s/0knsibq6cajhsfc/16.jpg?raw=1" alt="" /></li>
+  <li>Ne conectăm
+<img src="https://www.dropbox.com/s/z5ckietmjora1pg/17.jpg?raw=1" alt="" /></li>
+  <li>Verificăm pe <a href="https://whatismyipaddress.com">whatismyipaddress.com</a></li>
+</ul>
+
+<h2 id="important">Important</h2>
+<p>După ce am configurat toate device-urile, ne întoarcem la consola Dropletului de pe DigitalOcean, și dăm un Ctrl/Cmd+c pentru a opri ultimul container pornit, în așa fel, nimeni nu va mai putea descărca fișierul(.ovpn) descărcat mai sus dacă va accesa IP-ul Droplet-ului.</p>
+
+<h2 id="cat-te-costă">Cat te costă?</h2>
+<p>Soluția dată poate fi hostată și pe un server local, dacă acesta există. Dacă nu - metoda descrisă mai sus te va costa 5 USD/lună(nu uita - primele 2 luni le ai gratuit dacă te-ai înregistrat folosind link-ul menționat mai sus).</p>
+
+<p>Cam asta este tot,</p>
+
+<p>May the security be with you. 😋</p>
+
+
+  </div>
+
+  <div>
+    Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/VPN-personal-in-3-minute/">Facebook,</a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/VPN-personal-in-3-minute/">Google Plus,</a>
+    <a href="https://twitter.com/intent/tweet?text=VPN Personal în 3 minute 😱&url=http://localhost:4000/VPN-personal-in-3-minute/&via=&related=" >Twitter</a>
+</div>
+  
+  <div class="space-medium"></div>
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'http-hackmajoris-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+
+    </div>
+
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+            <div class="svg-icon">
+          
+<a href="mailto:hackmajoris@gmail.com"><i class="icon-envelope icon-2x"></i></a>
+
+
+<a href="https://github.com/hackmajoris"><i class="icon-github icon-2x"></i></a>
+
+<a href="https://www.linkedin.com/in/viplord"><i class="icon-linkedin-sign icon-2x"></i></a>
+
+
+<a href="https://www.twitter.com/hackmajoris"><i class="icon-twitter icon-2x"></i></a>
+<a href="http://stackoverflow.com/users/3432427/hackmajoris"><i class="icon-stackexchange icon-2x"></i></a>
+
+
+
+            </div>
+        </footer>
+      </div>
+    </div>
+
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-112315065-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/VPN-personal-in-3-minute/',
+		  'title': 'VPN Personal în 3 minute 😱'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+  </body>
+</html>

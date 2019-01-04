@@ -1,12 +1,10 @@
 ---
 layout: post
-title: MacBook Upgrade. First Impressions 
+title: Macbook Upgrade. First Impressions 
 author: Alexandru Ilies
 ---
 
-
 First of all, I will tell how I started using Apple ecosystem.
-
 
 Back in 2013, when I was in the second year at the university, I was involved in an iOS internship. I can say, it was the first time I touched a macOS(it was OSX system at that time) system, running on a Mac mini computer. 
 I enjoyed using this system, and a few days after the internship started, I installed on my [Asus](https://www.asus.com/Laptops/N53SV/) notebook a Hackintosh version of Mavericks in order to use it at home, and practice iOS development. The Hackintosh system was running pretty well. The single problem I had, was the WiFi adapter, which was not supported and I had to plug in LAN cable every time. But of course, I was happy I was learning iOS development without paying money for an expensive Mac computer. 

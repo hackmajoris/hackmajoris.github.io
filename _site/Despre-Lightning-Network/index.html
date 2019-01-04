@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Despre Lightning Network – Hackmajoris – Programmer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Articol tradus. Sursa originală
+
+" />
+    <meta property="og:description" content="Articol tradus. Sursa originală
+
+" />
+    
+    <meta name="author" content="Hackmajoris" />
+
+    
+    <meta property="og:title" content="Despre Lightning Network" />
+    <meta property="twitter:title" content="Despre Lightning Network" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Hackmajoris - Programmer" href="/feed.xml" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+    
+    
+    <div class="intro-header">    
+      <div class="container">
+        <div class="post-heading">
+            <h1>Despre Lightning Network</h1>
+            <span class="meta">Posted by <a href="/about"> Alexandru Ilies
+            </a> on January 29, 2018
+            <a href="/"> { Return to Blog }</a>
+            </span>
+        </div>
+            
+      </div>
+    </div>
+    
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+ <div class="space-extra-small">
+ </div>
+
+  <div class="entry">
+    <p>Articol tradus. Sursa <a href="https://medium.com/@x0100/%EF%B8%8Flightning-network-7c618c9cd68">originală</a></p>
+
+<p>Lighting Network = LN</p>
+
+<p>În partea 0 vom vedea, de ce este nevoie de așa ceva. 
+În partea 1 vom explica cum se desfășoară toate plățile în rețeaua Bitcoin, Lightning Network și problemele care se regăsesc. În partea 2 vom introduce componentele de bază din care e construit LN. În partea 3, în sfârșit vom descrie în detaliu cum sunt procesate plățile în protocolul LN. În a 4 parte, în mod rapid vom vorbi despre criticile care se regăsesc și comisionale existente. În partea 5, vom face un mic sumar.</p>
+
+<p>! În mod conștient renunț/simplific unele momente tehnice. Încă nu sunt expert și pot să mă înșel în unele afirmări.</p>
+
+<h2 id="0-de-ce">0. De ce?</h2>
+<p><strong>Bitcoin Blockchain</strong> - are la bază o bază date descentralizată, în care se salvează toate tranzacțiile din rețeaua Bitcoin. Pâna aici, ”toate tranzacțiile” este o parte destul de fundamentală la acest protocol. Ca întreg sistem să fie întradevăr descentralizat, și totodată funcționeze fără vreo oarecare eroare, trebuie, ca toate miile de noduri din rețea să re-verifice și să salveze toate tranzacțiile. Acest lucru, în mod clar, nu duce la o scalare: Blockchain ocupă zeci de Gigabytes pe disk, minerii folosesc mai mult curent decât are nevoie unele țări, blocurile sunt suprasolicitate, comisioanele cresc, oamenii înjură și fac fork la Bitcoin. Din aceaste cauze, la moment, în mod activ se construiesc soluții alternative. Una dintre aceste soluții este Lightning Network.</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Q: When will the Lightning Network be rolled out?<br />A: The rollout has already begun. This is an iterative distributed learning process; it&#39;s unlikely there will be a single point in time at which we say LN is &quot;deployed&quot; because it will grow organically. Software is never finished.</p>&mdash; Jameson Lopp (@lopp) <a href="https://twitter.com/lopp/status/947808940255006726?ref_src=twsrc%5Etfw">January 1, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h3 id="1-ideea">1. Ideea</h3>
+<p>Idea de soluționare a problemei de la nivelului doi (second layer solution), la care se referă LN, sună foarte simplu:</p>
+<blockquote>
+În loc să se salveze și să se verifice toate tranzacțiile în Blokchain, vom realiza o mare parte din plăți în afara rețelei Blockchain, iar în Blockchain vom sincroniza din timp în timp balanțele și vom rezolva conflictele. De funționat toate acestea vor funcționa, ca deobicei cu ajutorul criptomagiei.
+</blockquote>
+
+<p>Sună bine, însă nu știm cum toate acestea funcționează.</p>
+<h3 id="11-canalul-de-plată">1.1. Canalul de plată</h3>
+<p>Să începem prin a simplifica viața a două persoane, Alisa și Bob, care foarte des se plătesc între ei. Se oferă următoarea schema:</p>
+
+<ol>
+  <li>Alisa și Bob trimit depozituri la adresa o adresă comună care se administrează cu ajutorul a două chei private.</li>
+  <li>Fiecare din ei, crează o tranzacție specială - Smart Contract(da, Bitcoin dispune de Smart-Contracts, despre asta în partea următoare). Această tranzacție este corectă, dar încă nu este scrisă în Blochain.</li>
+  <li>De la început, tranzacția conține informație conform căreia, Alisa și Bob pot lua înapoi depozitele lor.</li>
+  <li>Cand Alisa se achită cu Bob, printr-o înțelegere comună -updatează informația din aceste tranzacții. Alisa acceptă să primească mai puțină valoare din propriul depozit, iar Bob - mai multă. Defapt, aceste tranzacții reprezintă niste obligațiuni(IOU, I owe you)</li>
+  <li>În așa mod, ei pot schimba între ei sume nu foarte mari(în limitele depozitelor lor), măcar până la nesfârșit.</li>
+  <li>La un anumit moment, oricare din părți, poate să ceară să se achite pentru totdeauna. Atunci Lisa(sau Bob) pur și simplu înscriu tranzacția finală în Blockchain-ul principal și primesc suma depozitului împreună cu suma provenită din plățile care au fost făcute către acest depozit.</li>
+</ol>
+
+<p>Punctele 1-3 din această schemă se numesc deschiderea canalului de plătă/plăți(payment channel). Punctele 4 și 5 - folosirea canalului. Punctul 6 - închiderea canalului de plată/plăți.</p>
+
+<blockquote>
+👍 În blockchain se înscriu doar două tranzacții: tranzacția de depozitare, în care are loc deschiderea canalului de plată și tranzacția finală(închiderea canalului). Toate tranzacțiile interemediare dintre aceste două tranzacții nu se folosesc de Blockchain și nu sunt salvate în acesta, de aceea acestea sunt făcute fără nici un cost(comision) și sunt momentane.
+</blockquote>
+
+<h3 id="12-rețeaua-de-canale-de-plată">1.2. Rețeaua de canale de plată</h3>
+
+<p>Canalele de plăți între două persoane - nu este ceva foarte util. La urma urmei, cu marea majoritate a oamenilor noi nu facem tranzacții regulare. Dar…</p>
+<blockquote>
+💡 Cand canalele de plată formează o rețea, se ivește posibilitatea de a face plăți între fiecare utilizator al rețelei, către care există o legătură în graful acestei rețele(chiar dacă ei nu au legătură directă unul cu altul). Aceasta și este ideea de bază a Lighting Network.
+</blockquote>
+
+<p>Așa arată graful canalelor de plată, în momentul 22.01.2018: (https://lnmainnet.gaben.win).
+<img src="https://cdn-images-1.medium.com/max/1600/1*vYgP4rEOttWssox5l-LGig.png" alt="" /></p>
+
+<p>În principiu, analog protocolului TCP, unui om simplu îi este îndeajuns să aibă doar un singur canal deschis, ca acesta să poată să utilizeze tranzacții cu oricine. Desigur, este nevoie să se caute și segmentul cel mai optim între doi utilizatori, și mai trebuie cumva să se motiveze participanții rețelei ca aceștia să verifice tranzacțiile străine. Dar, sa începem cu problema de bază: problema încrederii.</p>
+
+<h3 id="13-problema-încrederii">1.3. Problema încrederii</h3>
+<p>Cum se întâmplă des în criptografie, sistema canalelor de plată este foarte simplu de imaginat, dacă toate parțile au încredere între ele. Nu este nevoie să îngrădim grădina cu depozite, chei private, tranzacții speciale. Se poate simplu de scris doar cui și cu cât este cineva dator.
+Următorul lucru de înțeles: cum putem realiza un canal de plăți fără a avea încredere între parți?
+Problemele de bază for fi trei.</p>
+
+<ol>
+  <li>Ambele depozite, ale Alisei și Bob se află întrun portofel virtual comun. Dacă Bob nu va fi deacord să semneze tranzacția, cum Alisa își va întoarce depozitul ei?</li>
+  <li>În procesul de calculare, sunt create multiple versiuni ale oblicațiunilor. Să presupunem că, practic, Alisa îl plătește pe Bob. Atunci, în versiunea finală a tranzacției, Bob va primi un depozit mai mare decât depozitul lui inițial iar Alisa - mai puțin. Dar Alisa poate înșela și poate înscrie singură în Blockchain prima versiune validă a tranzacției, ca și cum Bob niciodată nu a primit bani. Cu ce va rămâne Bob?</li>
+  <li>Dacă Alisa și Bob, transferă banii prin rețea folosind o a treia persoană - Victor, atunci cum ei pot fi siguri că Victor întradevăr va transmite banii și nu îi va lua lui?</li>
+</ol>
+
+<p>Să numim aceste probleme corespunzător:</p>
+
+<ul>
+  <li>problema depozitului comun</li>
+  <li>problema ultimei tranzacții</li>
+  <li>problema persoanei terțe</li>
+</ul>
+
+<h2 id="2-smart-contractszaqwa-p0o9azza">2. Smart-contractsz<code class="highlighter-rouge">~~aqwa</code>=-[p0o9az`~ZA;./”|</h2>
+<blockquote>
+  <p>≤
+Bitcoin are suport pentru un limbaj simplu al smart-contractelor - Script. În fiecare tranzacție Bitcoin există un câmp special, care conține un script scris în acest limbaj. Acest script verifică, după aplicarea a căror reguli, ieșirea tranzacției poate fi folosită.
+”Folosirea ieșirei tranzacției A” - este un mod mult mai corect tehnic spus ”folosirea banilor din adresa/portofelul K, unde aceștia au fost depuși cu ajutorul tranzacției A”</p>
+</blockquote>
+
+<blockquote>
+☝ În comparație, de exemplu, cu Ethereum, posibilitățile smart-contractelor Bitcoin sunt cu mult mai limitate. Este legat acest lucru de Script, și anume că acesta nu este destul pentru Turing. De exemplu, în acesta nu se poate folosi cicluri/recursivitate și nu se poate crea variabile(lipsa memoriei).
+</blockquote>
+
+<p>Să vedem cele mai importante operații ale acestui limbaj.</p>
+
+<h3 id="21-autorizația">2.1 Autorizația</h3>
+<p>Probail, partea cea mai standard a oricărei tranzacții - este verificarea semnăturii. Să presupunem că tranzacția A, transferă resurse la o oarecare adresă K. Ca să fie cheltuite resursele din K, trebuie să se demonstreze deținerea cheii(cheia privată). De acest lucru răspunde operația <strong>OP_CheckSig</strong>. Dar, după dorință, se poate verifica și ceva adaugător. De exemplu, se poate verifica, că persoana deține un număr secret, iar hash-ul este egal cu acel număr. Pentru aceasta, este nevoie de două operațiuni: <strong>OP_SHA256</strong>(citește hash-ul) și <strong>OP_EqualVerify</strong>(verifică egalitatea). De ce avem nevoie de toate acestea, va fi clar în partea 4.</p>
+
+<h3 id="22-cooperarea">2.2. Cooperarea</h3>
+<p>Un alt exemplu simplu de smart-contract la Bitcoin se bazează pe operația <strong>OP_CheckMultiSig</strong>. Aceasta permite să se folosească resursele doar prin semnarea câtorva chei predefinite. Pe acest principiu funționează așa spusele ”multiple signature wallets”. La fel ca și celula unei bănci, care este încuiată cu două chei, una aflându-se la angajatorul băncii iar alta la client.</p>
+<h3 id="23-perioadele">2.3. Perioadele</h3>
+<p>Bitcoin are suport și pentru operația <strong>OP_CheckSequesnceVerify</strong>, care permite folosirea resurselor doar peste un număr fix de blocuri. De exemplu, aceasta permite educarea oamenilor, care nu pot salva resursele. Blockchain este mai eficient decât oricare cont de economii: dacă utilizatorul a decis să înghețe suma acumulată pe o anumită perioadă, această sumă va fi înghețată garantat. Dar, pe lângă acest scenariu, <strong>OP_CheckSequenceVerify</strong>, și alte componente, în mod activ se folosesc pentru realizarea canalelor de plăți.</p>
+
+<h2 id="3-realizarea-canalului">3. Realizarea canalului</h2>
+<p>Acum, când toate blocurile de control sunt la locul lor, se poate descrie unele detalii ale funcționării canalului de plată.  Defapt, unele imaginări ale canalului de plăți, au fost descrise încă de Satoshi. Eu ma voi axa mai mult pe specificația, care se numește Poon-Dryja payment channels(după părerea autorilor principali Lightning Network).</p>
+
+<h3 id="31-deschiderea-canalului">3.1. Deschiderea canalului</h3>
+<ol>
+  <li>Alisa și Bob crează tranzacții, care depun resursele într-o adresă de depozit comun. Să presupunem că X bitcoins se transferă din portofelul Alisei, și Y - din portofelul lui Bob. Resursele din depozitul comun pot fi folosite doar prin semnarea împreună a cheilor private ale Alisei și Bob. (OP_CheckMultiSig).</li>
+  <li>Primul truc, se evidențiază prin aceea că ei încă NU semnează și NU transmit tranzacția în Blockchain(dealtfel, Bob o poate minți pe Lisa și poate să-i înghețe rezursele pe veșnicie).)</li>
+  <li>În loc de acestea, Alisa și Bob crează două noi tranzacții de retur a depozitului initial. Intrarea acestor tranzacții sunt resursele din depozitul comun(ieșirea tranzacției 0). Ieșiri ale tranzacțiilor sunt două: X se duce înapoi la adresa Alisei, Y - la adresa lui Bob. În realitate, toate acestea sunt un pic mai dificile, dar despre asta, un pic mai târziu.</li>
+  <li>Mai departe, Bob, semnează tranzacția A1 și o transmite către Alisa. Alisa semnează tranzacția B1 și o trimite lui Bob.</li>
+  <li>În acest moment, tranzacția de depunere a depozitului, se poate înscrie în Blockchain, nimeni nu minte. Dacă Bob va fi deacord să coopereze, Alisa oricând poate semna tranzacția A1, să o înscrie în Blockchain și să obțină depozitul acesteia înapoi.</li>
+</ol>
+
+<p>În acest moment ”problema depozitului comun” este rezolvată. Deschiderea canalului de plată poate ave loc fără a avea încredere în cealaltă persoană.</p>
+<blockquote>
+☝ Un fapt interesant. Încă cu jumătate de an în urmă(înainte de a se introduce SegWit) semnarea tranzacțiilor neconfirmate(punctul 4) avea loc mult mai greu, din cauza problemei maleabilitatății(transaction malleability)
+</blockquote>
+
+<h3 id="32-folosirea-canalului">3.2 Folosirea canalului</h3>
+<p>Plățile din interiourul canalului se realizează defapt prin re-rescrierea tranzacției A1 și B1 în noi tranzacții.</p>
+
+<ol>
+  <li>Alisa îl plătește pe Bob pentru o cafea, care costă C.</li>
+  <li>Tot Alisa, este deacord că, la închiderea canalului de plată ea va lua înapoi, nu suma depusa la început X, ci X’ = (X - C).</li>
+  <li>Iar Bob: Y’ = (Y + C).</li>
+</ol>
+
+<p>Deasemenea, noile tranzacții A2 și B2 vor arăta la fel ca A1 și B1, doar că cu sume noi. Fiecare din părți, poate în orice moment să închidă canalul de plată, scriind ultima versiune a tranzacției în Blockchain.</p>
+
+<p>Cum ne asigurăm că Alisa nu va scrie în Blockchain tranzacția A1  în loc de tranzacția A2? Pentru aceasta, exista încă un truc.</p>
+
+<ol>
+  <li>De fiecare dată când Alisa și Bob crează noi tranzacții, ei aleg o cheie privată de unică folosință, de care au nevoie ca să poată lua depozitul înapoi(OP_CheckSig).</li>
+  <li>La fiecare plată i, Alisa îi va arăta lui Bob cheia privată precedentă AK(i-1), și va crea o nouă cheie AKi pentru noua tranzacție. Bob nu va accepta plata făra cheia anterioară.</li>
+  <li>Dacă Bob știe cheia, atunci acesta poate cheltui toți banii Alisei, doar dacă Alisa va decide să înscrie tranzacția greșită în Blockchain.</li>
+  <li>În așa fel, Alisa întodeauna este interesată de a înscrie în Blockchain tranzacția corectă, adică utlima.</li>
+</ol>
+
+<p><em>Modificare minoră</em>
+Pentru ca Bob să aibă posibilitatea să dispute tranzacția cu Alisa și să obțină cheia acesteia, Bob are nevoie de timp. De aceea, Alisa, va obține depozitul ei nu în același timp, dar după câteva blocuri T(OP_CheckSequenceVerify). De exemplu, peste 48 blocuri, adică peste 8 ore.</p>
+
+<p>Dacă Alisa semnează una din tranzacțiile ei(ele sunt semnate deja de Bob), și transmite această tranzacție în Blockchain, atunci pot avea loc două scenarii.</p>
+
+<ol>
+  <li>Alisa emite tranzacția finală =&gt; Bob nu cunoaște utlima cheie a Alisei Aki. Aceasta este o închidere corectă a canalului, toți trebuie să primească banii lor înapoi. Alisa îi va primi peste ceva timp.</li>
+  <li>Alisa încearcă să semneze tranzacția veche în loc de cea nouă, finală =&gt; Alisa încearcă să-l mintă pe Bob. În acest caz, Bob cunoaște cheia lui Alisa și acesta poate să o folosească pentru a primi toată suma Alisei. Este clar că, Alisa nu este interesată în acest scenariu.</li>
+</ol>
+
+<p>Așadar, ”problema ultimei tranzacții” este la fel - rezolvată și canalul de comunicare între două persoane este în regulă. Acum, deasemenea, devin evidente câteva avantaje și neajunsuri.</p>
+
+<p>👍 <strong>Avanteje:</strong></p>
+
+<ol>
+  <li>Plățile din interiorul canalului sunt instante și gratis, ele nu duc la solicitarea Blockchain-ului principal.</li>
+  <li>Părțile nu sunt obligate să aibă încredere una în alta.</li>
+</ol>
+
+<p>👎 <strong>Neajunsuri</strong></p>
+
+<ol>
+  <li>Depozitele sunt blocate pe toată perioada existenții canalului.</li>
+  <li>Fiecare dintre părți, trebuie periodic să se ivească online(cel puțin o dată-n T)</li>
+</ol>
+
+<p>👌 În realitate, ambele neajunsuri sunt necesare pentru canalele de plăți între două persoane, dar nu prea sunt importante pentru LN. Primul neajuns încetează să mai fie neajuns dacă un canal de plăți poate fi folosit pentru tranzacții cu alte persoane.
+Al doilea neajuns lipsește în LN, așa cum verificarea corectitudinei poate fi făcută de oricare utilizator al rețelei( dacă Vasile va observa țeapa Alisei, atunci acesta va împărți cu Bob valoarea confiscată.</p>
+
+<h2 id="4-lightning-network">4. Lightning Network</h2>
+
+<h3 id="41-canalul-de-plăți-printr-o-persoană-terță">4.1. Canalul de plăți printr-o persoană terță</h3>
+
+<p>Să presupunem acum că Alisa și Bob nu au un canal deschis între ei, dar ei, ambii au un canal deschis cu Victor. Alisa poate fără probleme să trimită bani lui Victor, iar Victor fără probleme poate trimite banii lui Bob.
+Dar, cum să fim siguri, că Victor, obținând banii, întradevăr îi va trimite mai departe lui Bob?</p>
+
+<p>În realitate, ideea este foarte similară cu trucul anterior, doar că în loc de cheile de unică folosință se folosește un oarecare număr secret.</p>
+
+<ol>
+  <li>Bob generează un număr secret S, hash-ul al acestei chei HS și transmite această informație Alisei. HS în acest caz poate fi folosit ca un bon de plată virtual.</li>
+  <li>Alisa crează tranzacția AV, care transmite banii lui Victor, numai în cazul în care Victor va oferi numărul secret S. Pentru aceasta, Alisa folosește un script, care verifică egalitatea hash-ului oferit de numărul și valoarea HS(aici se folosește operația OP_SHA256 și OP_EqualVerify).</li>
+  <li>Victor crează o tranzacție analog VB, care transmite banii lui Bob, doar în cazul în care Bob va prezenta numărul secret.</li>
+  <li>Bob vede că poate primi bani de la Victor, și îi arată acestuia numărul secret S. Acum, Victor poate demonstra că acesta a transmis banii lui Bob.</li>
+</ol>
+
+<p>Aici sunt câteva variante în care scenariile pot avea loc:</p>
+
+<ol>
+  <li>Înainte de toate, Victor nu are nici un sens să o mintă pe Alisa. El nu poate să nu transmită banii lui Bob, deoarece, dealtfel, Victor oricum nu va primi bani de la Alisa.</li>
+  <li>Însă Bob, poate să decidă să-l mintă pe Victor și să nu-i dea acestuia numărul secret. Pe lângă asta, el poate închide canalul cu Victor și să înscrie în blockchain tranzacția VB. Însă, pentru primirea banilor, el oricum este nevoit să arate  numărul lui secret, și aici - Victor îl va recunoaște.</li>
+</ol>
+
+<p>Aici există câteva nuanțe, legate de timpul în care Alisa, Bob și Victor pot rezolva conflictele. Dar, aceasta este o temă mult prea tehnică. Dacă sunteți interesați - Google it (Time-Locked Contracts or HTLCs).</p>
+
+<h2 id="42-rutarea">4.2. Rutarea</h2>
+
+<p>În practică, Alisa și Bob pot fi legați între ei nu prin cunoscutul lor comun - Victor, ci prin câțiva necunoscuți intermediari din întreaga lume. Problema căutării celui mai scurt drum în graf, în rețea, se numește problema rutării.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*933GpxVj8PzBVPMQGbDeng.png" alt="" />
+(Împărțirea geografică a nodurilor în rețeaua de test)
+Photo by: https://explorer.acinq.co/#/)</p>
+
+<p>Problema rutării, în realitate este o ramură în care se fac cercetări active în acest moment. Alegerea drumului optim în graf depinde de mai mulți factori dinamici: numărul de noduri, topologia rețelei, capacitatea canalului de plăți, comisia nodurilor intermediare.</p>
+
+<p>Ca să nu intrăm în detalii, căutarea drumului și transmiterea plăților în LN se realizează pe baza Onion Routing - tehnologia raspândirii informației în mod anonim, în rețelele peer-to-peer.  În acest fel, de exemplu, funcționează Tor.</p>
+
+<p>Totul este descentralizat, tot traficul este criptat. Nimeni nu știe de la cine și către cine, vin și se duc banii. De aici, încă un avantaj.</p>
+
+<p>👍 <strong>Avantaj</strong>:
+Rețeaua LN este cu mult mai anonimă, decât însăși el - Bitcoin.
+În primul rând, persoanele care fac plăți între ei, sunt văzute doar de câțiva membri ai rețelei. În al doilea rând, chiar și între membrii rețelei, doar primul și ultimul știe exact, de la cine și către cine vin și se transmit banii.</p>
+
+<h3 id="43-comisioanele">4.3. Comisioanele</h3>
+<p>Rămân două întrebări evidente.</p>
+
+<p><strong>Întrebare numărul 1:</strong> De ce intermediarii trebuie să verifice tranzacții străine?
+În primul rând deoarece ei însuși vor folosi mai ușor LN. În al doilea rând, deoarece ei vor primi din toată asta un comision foarte mic, dar totuși comision. În acest moment, rețeaua este întreținută în mare parte de entuziaști iar comisionul este aproape 0: 1 satoshi, sau 0.01 cent pentru fiecare intermediar.</p>
+
+<p>👍 Capacitatea canalelor - nu este o resursă mai scumpă decât mărimea blocului. Deschiderea canelelor se face ușor și necostisitor. De aceea comisioanele în LN sunt cu mult mai mici decât comisioanele din Blockchain.</p>
+
+<p><strong>Întrebarea numărul 2:</strong> Cum e cu comisionul la deschiderea/închiderea canalului?</p>
+
+<p>Întradevăr, acest comision poate fi uneori și zeci de dolari. În acest fel, plățile vor fi mai profitabile dacă se vor deschide/închide canale mai puține. Aceasta motivează oamenii să deschidă canale cu depozite mari, și să folosească canalele în două direcții: nu doar pentru plățile care pleacă ci și pentru cele care vin. De exemplu: eu deschid un canal, fac o depunere de 1000$, și folosesc canalul dat doar pentru plățile de ieșire. Valoarea canalului va fi de 1000 dolari, din care undeva 20 de doloari se vor plăti pentru deschiderea/închiderea canalului. Adică, comisia totală va fi de 2%. Un pic mai bine decât cum e la Visa și Mastercard, dar evident mai mult decât aș fi dorit. Situația se schimbă drastic când eu încep să folosesc Lightning la maxim: făcând depozite mai mari și primind bani prin intermediul canalelor, ci nu doar cheltuindu-i. Atunci, depinzând de proporția intrare/ieșire a banilor, canalul poate fi deschis la infinit și comisioanele vor tinde spre zero.</p>
+
+<h3 id="44-critici">4.4. Critici</h3>
+<p>Pe internet se poate găsi o mulțime de critici legate de soluția    layer-ului 2 și de Lighting Network în general. Careva puncte întradevăr merită atenție, multe - trebuie deja uitate. Câteva exemple:</p>
+
+<ol>
+  <li><strong>Folosirea LN va duce la centralizare: utilizatorii vor fi motivați să se conecteze la hub-uri mari iar aceste hub-uri vor controla tot traficul.</strong></li>
+</ol>
+
+<p>Un asemenea risc există, dar acesta este foarte mic. În primul rând, e foarte economic și foarte simplu de realizat un nou nod care va respinge hub-urile mari. În al doilea rând, algoritmii de rutare urmăresc balansarea traficului. În al treilea rând, la acest moment, asemenea problemă nu există.</p>
+
+<ol>
+  <li><strong>Capacitatea mică a canaleleor va face ca LN să fie suprasolicită, comisioanele vor crește și cel mai probabil situația va fi la fel, ca și în Blockchainul de baza.</strong></li>
+</ol>
+
+<p>Încă o dată, îndată ce așa ceva se va întâmpla, persoanele vor fi motivate să deschidă noduri personale. În comparație cu mărimea blocului, numărul de noduri, este practic nelimitată.</p>
+
+<ol>
+  <li><strong>O rutare efectivă la un număr mare de noduri peer-to-peer este imposibilă. Mai ales ținând cont de dificultatea deschiderii a noi canale.</strong></li>
+</ol>
+
+<p>Până la o asemenea problemă este foarte și foarte departe iar cercetările în acest domeniu în mod activ au loc chiar în acest moment. Cu siguranță se vor lua ceva măsuri.</p>
+
+<ol>
+  <li><strong>Canele sunt nevoie mereu să fie deschise și închise, comisioanele folosite pentru așa ceva vor fi mari iar folosirea LN nu se va merita.</strong></li>
+</ol>
+
+<p>Defapt, problema dată este deja din trecut, pe care, nu înțeleg de ce, încă o discută. Ceva timp în urmă, versiunile canalelor de plată întradevăr, erau doar într-o singură direcție, iar canalul putea să existe doar o perioadă scurtă de timp. Acum aceste probleme sunt rezolvate.</p>
+
+<ol>
+  <li><strong>Pentru folosirea LN este nevoie să fii online.</strong></li>
+</ol>
+
+<p>În comparație cu versiunile anterioare ale LN, utilizatorul nu este nevoit să se afle tot timpul online: alte noduri din rețea  vor verifica că doi deținători ale canalului de plată nu încearcă să se mintă unul pe altul. În mod cert, trebuie să fii online doar pentru trimiterea și primirea plăților, care fără nici o îndoială este un neajuns, dar de această dată, mult mai neimportant.</p>
+
+<ol>
+  <li><strong>LN - aceasta nu este sigur.</strong>
+Plățile LN sunt un pic mai periculoase decât plățile făcute direct în Blockchain. Dar, doar întrun singur context: un atac cu succes de 51% asupra Blockchain-ului Bitcoin. Riscul dat este unul catastrofic de mic.</li>
+</ol>
+
+<h2 id="5-ln-astăzi">5. LN astăzi</h2>
+
+<p>Lucrul cel mai important pe care trebuie să-l cunoașteți: 
+<strong>Lighthing</strong> deja se folosește și funcționează în realiate.</p>
+
+<p>Mai mult de o mie de noduri în rețeaua de testare bitcoin și mai mult de 200 de noduri(numărul crește în fiecare zi) în rețeaua de bază bitcoin(mainnet) deja verifică plăți.</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Anyone want to help bug test new <a href="https://twitter.com/Blockstream?ref_src=twsrc%5Etfw">@Blockstream</a> <a href="https://twitter.com/hashtag/LightningNetwork?src=hash&amp;ref_src=twsrc%5Etfw">#LightningNetwork</a> store? The Github repos should make it easy enough for even <a href="https://twitter.com/coinbase?ref_src=twsrc%5Etfw">@coinbase</a> &amp; <a href="https://twitter.com/BitPay?ref_src=twsrc%5Etfw">@BitPay</a> to integrate with the second layer. Cypherpunks do not whine they write code. Right <a href="https://twitter.com/adam3us?ref_src=twsrc%5Etfw">@adam3us</a>? <a href="https://twitter.com/hashtag/MYOTHERNODEISASATELLITE?src=hash&amp;ref_src=twsrc%5Etfw">#MYOTHERNODEISASATELLITE</a> <a href="https://twitter.com/hashtag/DONTTRUSTVERIFY?src=hash&amp;ref_src=twsrc%5Etfw">#DONTTRUSTVERIFY</a> <a href="https://t.co/Il3YBvirYo">pic.twitter.com/Il3YBvirYo</a></p>&mdash; Trace Mayer (@TraceMayer) <a href="https://twitter.com/TraceMayer/status/953430172019101696?ref_src=twsrc%5Etfw">January 17, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Ce ține de softuri - există trei implementări de bază, lnt de la Lightning Labs, c-lightning de la Blockstream, eclair de la ACINQ.</p>
+
+<p>Aceste echipe, nu doar de un an lucrează împreună, pentru a dezvolta un standard comun de interacțiune a nodurilor: Lighthing Network Specifications(BOLTs). Și uite că chiar la sfârșitul anului 2017, au testat protocolul de plăți, împreună, și toate cele trei implementări au fost cu succes.</p>
+
+<p>Să achiți cu bitcoini reali folosind LN, se poate doar la câteva magazine online. Dar, asta e doar cu câteva magazine mai multe decât acum o lună, iar acesta deja este succes.</p>
+
+<p>Desigur, momentul general de transfer de la on-chain bitcoin la plăți off-chain este încă foarte departe. O muncă imensă urmează să o facă dezvoltatorii de portofele virtuale, nodurile de plată, bursele, magazinele-online, și, nu în ultimul rând - utilizatorii. Cel mai interesant în această istorie este că tranzacții mult mai rapide, anonime și gratis - sunt doar începutul! Urmează o mai multă anonimitate, swap-uri atomice, schimburi distribuite și mult, mult mai mult.</p>
+
+<p>Viitorul arată interesant!</p>
+
+
+  </div>
+
+  <div>
+    Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/Despre-Lightning-Network/">Facebook,</a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/Despre-Lightning-Network/">Google Plus,</a>
+    <a href="https://twitter.com/intent/tweet?text=Despre Lightning Network&url=http://localhost:4000/Despre-Lightning-Network/&via=&related=" >Twitter</a>
+</div>
+  
+  <div class="space-medium"></div>
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'http-hackmajoris-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+
+    </div>
+
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+            <div class="svg-icon">
+          
+<a href="mailto:hackmajoris@gmail.com"><i class="icon-envelope icon-2x"></i></a>
+
+
+<a href="https://github.com/hackmajoris"><i class="icon-github icon-2x"></i></a>
+
+<a href="https://www.linkedin.com/in/viplord"><i class="icon-linkedin-sign icon-2x"></i></a>
+
+
+<a href="https://www.twitter.com/hackmajoris"><i class="icon-twitter icon-2x"></i></a>
+<a href="http://stackoverflow.com/users/3432427/hackmajoris"><i class="icon-stackexchange icon-2x"></i></a>
+
+
+
+            </div>
+        </footer>
+      </div>
+    </div>
+
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-112315065-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/Despre-Lightning-Network/',
+		  'title': 'Despre Lightning Network'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+  </body>
+</html>

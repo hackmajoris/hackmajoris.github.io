@@ -1,32 +1,38 @@
 ---
 layout: page
-title: Projects
+title: 
 permalink: /projects/
 ---
 
-### [Project 1](https://github.com/tux4kids/tuxmania) 
-Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
+# Personal Projects
 
-***
+## Needs
+Needs is an iOS application with a very important purpose: to help people to find the best person who can help them.
 
-### [Project 2](https://github.com/AkshayAgarwal007/Moodly)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet urna eu dolor placerat varius. Vivamus eros augue, consequat id scelerisque nec, fringilla in est. Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
+Here is how it looks:
 
-Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
+![](https://www.dropbox.com/s/u4xtvo5iy1qx7u7/Needs.png?raw=1)
 
-***
+Application Stack
 
-## Other Projects
+  <a frameborder="0" data-theme="dark" data-layers="1,2,3,4" data-stack-embed="true" href="https://embed.stackshare.io/stacks/embed/c0ae2e86785eb3e05c4fef1577c489"></a>    <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
 
-### This Could Be Another Project Name
+## Refocus
+Refocus is an iOS and WatchOS applications which was designed with the purpose to improve the productivity. The key of this application is the simplicity.
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet urna eu dolor placerat varius. Vivamus eros augue, consequat id scelerisque nec, fringilla in est. Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet urna eu dolor placerat varius. Vivamus eros augue, consequat id scelerisque nec, fringilla in est. Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
-   
-### This Could Be Yet Another Project Name
+Here is how it looks:
 
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet urna eu dolor placerat varius. Vivamus eros augue, consequat id scelerisque nec, fringilla in est. Proin pellentesque malesuada mauris, quis aliquam augue vestibulum ac. Vestibulum ut feugiat nibh. Sed faucibus felis purus, sed convallis leo dictum vehicula.
+![](https://www.dropbox.com/s/zl0724be5dp073s/Artboard.png?raw=1)
+Application Stack
+  <a frameborder="0" data-theme="dark" data-layers="1,2,3,4" data-stack-embed="true" href="https://embed.stackshare.io/stacks/embed/6d0a22537bd40486970df7e28d879a"></a>    <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
 
+## Passcode Auth
 
+A simple programmatically View Controller which handles - Passcode, Face ID/Touch ID Authentication for iOS.
+
+![](https://www.dropbox.com/s/138qlolo0d7i8fr/AuthController.png?raw=1)
+
+[Source](https://github.com/hackmajoris/passcode-auth)
 ## Contact me
 
 [alex.ilies@zoho.com](mailto:alex.ilies@zoho.com)
