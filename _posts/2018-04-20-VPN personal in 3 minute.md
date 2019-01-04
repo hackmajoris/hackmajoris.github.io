@@ -85,7 +85,7 @@ După executare, în consolă vom vedea o adresă, de genul: 0.0.0.0:8080 (La fi
 
 11. Mergem în Browser, și accesăm acea adresă.
 
-Accesând resursa, în mod normal, Browserul se va plânge din cauza securității. Ignorăm acea plângere, în așa se va descărca un fisier pe care-l vom folosi mai departe.
+Accesând resursa, în mod normal, Browserul se va plânge din cauza securității. Ignorăm acea plângere - descarcam fisierul.
 
 ![](https://www.dropbox.com/s/vsxw4ur59qsqe90/10.png?raw=1)
 ![](https://www.dropbox.com/s/nokabrhe7q0sjh9/11.png?raw=1)

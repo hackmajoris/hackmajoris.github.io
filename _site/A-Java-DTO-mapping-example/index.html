@@ -90,260 +90,282 @@ and it is nice if you’ll do this automatically without mapping the attributes 
   </li>
 </ul>
 
-<h2 id="project-structure">Project structure.</h2>
+<h2 id="how-to-test-1">How to test</h2>
+
+<ul>
+  <li>
+    <p>Download <a href="https://github.com/hackmajoris/java-dto-mapping">repository</a></p>
+  </li>
+  <li>
+    <p>Navigate terminal to the project root folder.</p>
+  </li>
+  <li>
+    <p>Run command</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  mvn install
+</code></pre></div>
+<ul>
+  <li>Run command</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> mvn spring-boot:run
+</code></pre></div>
+
+<h3 id="project-structure">Project structure.</h3>
 
 <p><img src="https://www.dropbox.com/s/apjbmgaqnziyeh2/Screen%20Shot%202018-05-21%20at%2014.55.50.png?raw=1" alt="" /></p>
 
-<h2 id="user-model">User model</h2>
+<h3 id="user-model">User model</h3>
 
 <p>Here we have a simple User class with some attributes.</p>
 
-<p>public class User {</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
 
-<p>private int id;
-private String name;
-private String email;
-private String password;</p>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
 
-<p>public User() {}</p>
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">()</span> <span class="o">{}</span>
 
-<p>public int getId() {
-return id;
-}</p>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setId(int id) {
-this.id = id;
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public String getName() {
-return name;
-}</p>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setName(String name) {
-this.name = name;
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public String getEmail() {
-return email;
-}</p>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getEmail</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">email</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setEmail(String email) {
-this.email = email;
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public String getPassword() {
-return password;
-}</p>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPassword</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">password</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setPassword(String password) {
-this.password = password;
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassword</span><span class="o">(</span><span class="n">String</span> <span class="n">password</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>@Override
-public String toString() {
-return “User{“ +
-“id=” + id +
-“, name=’” + name + ‘'’ +
-“, email=’” + email + ‘'’ +
-“, password=’” + password + ‘'’ +
-‘}’;
-}
-}</p>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="s">"User{"</span> <span class="o">+</span>
+     <span class="s">"id="</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+     <span class="s">", name='"</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span>
+     <span class="s">", email='"</span> <span class="o">+</span> <span class="n">email</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span>
+     <span class="s">", password='"</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span>
+     <span class="sc">'}'</span><span class="o">;</span>
+     <span class="o">}</span>
+<span class="o">}</span>
 
-<h2 id="user-service">User service</h2>
+</code></pre></div>
+
+<h3 id="user-service">User service</h3>
 
 <p>Here is a simple User service implementation. The database connection and data persistance is not the goal at this point.</p>
 
-<p>@Service
-public class UserService {</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
 
-<p>public DTOEntity createUser(){
-User user = new User();
-user.setId(1);
-user.setName(“User number 1”);
-user.setEmail(“Email number 1”);
-user.setPassword(“Password number 1”);</p>
+   <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">createUser</span><span class="o">(){</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"User number 1"</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"Email number 1"</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"Password number 1"</span><span class="o">);</span>
 
-<p>return new DtoUtils().convertToDto(user, new UserCreateDTO());
-}</p>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">DtoUtils</span><span class="o">().</span><span class="na">convertToDto</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="k">new</span> <span class="n">UserCreateDTO</span><span class="o">());</span>
+   <span class="o">}</span>
 
-<p>public DTOEntity readUser(){
-User user = new User();
-user.setId(1);
-user.setName(“User number 1”);
-user.setEmail(“Email number 1”);
-user.setPassword(“Password number 1”);</p>
+   <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">readUser</span><span class="o">(){</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"User number 1"</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"Email number 1"</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"Password number 1"</span><span class="o">);</span>
 
-<p>return new DtoUtils().convertToDto(user, new UserReadDTO());
-}</p>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">DtoUtils</span><span class="o">().</span><span class="na">convertToDto</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="k">new</span> <span class="n">UserReadDTO</span><span class="o">());</span>
+   <span class="o">}</span>
 
-<p>public DTOEntity updateUser(DTOEntity userDTO) {
-User user = (User) new DtoUtils().convertToEntity(new User(), userDTO);</p>
+   <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">updateUser</span><span class="o">(</span><span class="n">DTOEntity</span> <span class="n">userDTO</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">User</span><span class="o">)</span> <span class="k">new</span> <span class="n">DtoUtils</span><span class="o">().</span><span class="na">convertToEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">(),</span> <span class="n">userDTO</span><span class="o">);</span>
 
-<p>System.out.println(user.toString());</p>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
 
-<p>return new DtoUtils().convertToDto(user, new UserUpdateDTO());
-}
-}</p>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">DtoUtils</span><span class="o">().</span><span class="na">convertToDto</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="k">new</span> <span class="n">UserUpdateDTO</span><span class="o">());</span>
+   <span class="o">}</span>
+<span class="o">}</span>
 
-<h2 id="tdo-utils">TDO Utils</h2>
+</code></pre></div>
+<h3 id="tdo-utils">TDO Utils</h3>
 
 <p>The important part here is this utility class:</p>
 
-<p>public class DtoUtils {</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DtoUtils</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">convertToDto</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">,</span> <span class="n">DTOEntity</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ModelMapper</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">obj</span><span class="o">,</span> <span class="n">mapper</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+   <span class="o">}</span>
 
-<p>public DTOEntity convertToDto(Object obj, DTOEntity mapper) {
-return new ModelMapper().map(obj, mapper.getClass());
-}</p>
+   <span class="kd">public</span> <span class="n">Object</span> <span class="nf">convertToEntity</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">,</span> <span class="n">DTOEntity</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ModelMapper</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">mapper</span><span class="o">,</span> <span class="n">obj</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+   <span class="o">}</span>
+<span class="o">}</span>
 
-<p>public Object convertToEntity(Object obj, DTOEntity mapper) {
-return new ModelMapper().map(mapper, obj.getClass());
-}</p>
-
-<p>}</p>
+</code></pre></div>
 
 <p>As you can see, here we have two methods for in/out mapping. I tried to create them as generic is possible in order to user them for all entities.</p>
 
 <p>Now, the DTO’s entities.</p>
 
-<h2 id="userread-dto">UserRead DTO</h2>
+<h3 id="userread-dto">UserRead DTO</h3>
 
-<p>public class UserReadDTO implements DTOEntity {</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserReadDTO</span> <span class="kd">implements</span> <span class="n">DTOEntity</span> <span class="o">{</span>
 
-<p>private String name;
-private String email;</p>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="o">;</span>
 
-<p>public UserReadDTO(){}</p>
+    <span class="kd">public</span> <span class="nf">UserReadDTO</span><span class="o">(){}</span>
 
-<p>public String getName() {
-return name;
-}</p>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setName(String name) {
-this.name = name;
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public String getEmail() {
-return email;
-}</p>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getEmail</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">email</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>public void setEmail(String email) {
-this.email = email;
-}
-}</p>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 
 <p>Here we implemented DTOEntity interface:</p>
 
-<p>public interface DTOEntity {}</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">DTOEntity</span> <span class="o">{}</span>
+</code></pre></div>
 
 <p>in order to have a generic mapping. So all our DTO’s will implement this interface.</p>
 
 <p>!In this entity we excluded the password field.</p>
 
-<h2 id="the-user-controller">The User Controller</h2>
+<h3 id="the-user-controller">The User Controller</h3>
 
 <p>Now, that we have all needed models and helpers, our controller looks in this way:</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"api/"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserController</span> <span class="o">{</span>
 
-<p>@RestController
-@RequestMapping(“api/”)
-public class UserController {</p>
+    <span class="kd">private</span> <span class="n">UserService</span> <span class="n">updateService</span><span class="o">;</span>
 
-<p>private UserService updateService;</p>
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="nf">UserController</span><span class="o">(</span><span class="n">UserService</span> <span class="n">updateService</span><span class="o">){</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">updateService</span> <span class="o">=</span> <span class="n">updateService</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<p>@Autowired
-public UserController(UserService updateService){
-this.updateService = updateService;
-}</p>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/create"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">createPost</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">UserCreateDTO</span> <span class="n">userCreateDTO</span><span class="o">)</span> <span class="o">{</span>  
+     <span class="k">return</span> <span class="n">updateService</span><span class="o">.</span><span class="na">createUser</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<p>@RequestMapping(value = “/create”, method = RequestMethod.POST)
-public DTOEntity createPost(@RequestBody UserCreateDTO userCreateDTO) {<br />
-return updateService.createUser();
-}</p>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/list"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">readUser</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">updateService</span><span class="o">.</span><span class="na">readUser</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<p>@RequestMapping(value = “/list”, method = RequestMethod.GET)
-public DTOEntity readUser() {
-return updateService.readUser();
-}</p>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/update"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">PATCH</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">DTOEntity</span> <span class="nf">updateUser</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">UserUpdateDTO</span> <span class="n">userUpdateDTO</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">updateService</span><span class="o">.</span><span class="na">updateUser</span><span class="o">(</span><span class="n">userUpdateDTO</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 
-<p>@RequestMapping(value = “/update”, method = RequestMethod.PATCH)
-public DTOEntity updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {</p>
+<h3 id="see-also-the-test-cases">See also the test cases:</h3>
 
-<p>return updateService.updateUser(userUpdateDTO);
-}</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDtoUnitTest</span> <span class="o">{</span>
 
-<p>}</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">userEntityToUserDto</span><span class="o">()</span> <span class="o">{</span>
 
-<h2 id="see-also-the-test-cases">See also the test cases:</h2>
+   <span class="c1">// Given</span>
+   <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+   <span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+   <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"user1@example.com"</span><span class="o">);</span>
+   <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"user1"</span><span class="o">);</span>
+   <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"user1Password"</span><span class="o">);</span>
 
-<p>public class UserDtoUnitTest {</p>
+   <span class="c1">// When</span>
+   <span class="n">UserCreateDTO</span> <span class="n">userCreateDTO</span> <span class="o">=</span>  <span class="o">(</span><span class="n">UserCreateDTO</span><span class="o">)</span> <span class="k">new</span> <span class="n">DtoUtils</span><span class="o">().</span><span class="na">convertToDto</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="k">new</span> <span class="n">UserCreateDTO</span><span class="o">());</span>
 
-<p>@Test
-public void userEntityToUserDto() {</p>
+   <span class="c1">// Then</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getEmail</span><span class="o">());</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getPassword</span><span class="o">());</span>
+  <span class="o">}</span>
 
-<p>// Given
-User user = new User();
-user.setId(1);
-user.setEmail(“user1@example.com”);
-user.setName(“user1”);
-user.setPassword(“user1Password”);</p>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">userDtoToUserEntity</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// Given</span>
+   <span class="n">UserCreateDTO</span> <span class="n">userCreateDTO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserCreateDTO</span><span class="o">();</span>
+   <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"user1@example.com"</span><span class="o">);</span>
+   <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"user1"</span><span class="o">);</span>
+   <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"user1Password"</span><span class="o">);</span>
 
-<p>// When
-UserCreateDTO userCreateDTO =  (UserCreateDTO) new DtoUtils().convertToDto(user, new UserCreateDTO());</p>
+   <span class="c1">// When</span>
+   <span class="n">User</span> <span class="n">user</span> <span class="o">=</span>  <span class="o">(</span><span class="n">User</span><span class="o">)</span> <span class="k">new</span> <span class="n">DtoUtils</span><span class="o">().</span><span class="na">convertToEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">);</span>
 
-<p>// Then
-assertEquals(user.getEmail(), userCreateDTO.getEmail());
-assertEquals(user.getName(), userCreateDTO.getName());
-assertEquals(user.getPassword(), userCreateDTO.getPassword());
-}</p>
+   <span class="c1">// Then</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getEmail</span><span class="o">());</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+   <span class="n">assertEquals</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span> <span class="n">userCreateDTO</span><span class="o">.</span><span class="na">getPassword</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 
-<p>@Test
-public void userDtoToUserEntity() {</p>
+<h3 id="testing">Testing</h3>
 
-<p>// Given
-UserCreateDTO userCreateDTO = new UserCreateDTO();
-userCreateDTO.setEmail(“user1@example.com”);
-userCreateDTO.setName(“user1”);
-userCreateDTO.setPassword(“user1Password”);</p>
+<h4 id="user-creation">User creation</h4>
 
-<p>// When
-User user =  (User) new DtoUtils().convertToEntity(new User(), userCreateDTO);</p>
-
-<p>// Then
-assertEquals(user.getEmail(), userCreateDTO.getEmail());
-assertEquals(user.getName(), userCreateDTO.getName());
-assertEquals(user.getPassword(), userCreateDTO.getPassword());
-}</p>
-
-<p>}</p>
-
-<h2 id="testing">Testing</h2>
-
-<h3 id="user-creation">User creation</h3>
-
-<p>curl -X POST \
-http://localhost:8080/api/create \
--H ‘Cache-Control: no-cache’ \
--H ‘Content-Type: application/json’ \
--H ‘Postman-Token: 76ac6fa4-41d1-481b-aa45-69b05096ebfb’ \
--d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “userPassword”}’</p>
-
-<h3 id="user-update">User update</h3>
-
-<p>curl -X PATCH \
-http://localhost:8080/api/update \
--H ‘Cache-Control: no-cache’ \
--H ‘Content-Type: application/json’ \
--H ‘Postman-Token: 460a1683-d6b4-4544-9f5e-80dd6a645749’ \
--d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> curl -X POST <span class="se">\</span>
+ http://localhost:8080/api/create <span class="se">\</span>
+ -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+ -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+ -d <span class="s1">'{"name":"User number 1","email":"Email number 2", "password": "userPassword"}'</span>
+</code></pre></div>
+<h4 id="user-update">User update</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> curl -X PATCH <span class="se">\</span>
+ http://localhost:8080/api/update <span class="se">\</span>
+ -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+ -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+ -d <span class="s1">'{"name":"User number 1","email":"Email number 2", "password": "pass"}'</span>
+</code></pre></div>
 
 <h3 id="user-read">User read</h3>
-
-<p>curl -X GET \
-http://localhost:8080/api/list \
--H ‘Cache-Control: no-cache’ \
--H ‘Content-Type: application/json’ \
--H ‘Postman-Token: 24ff8d32-5357-411f-81f5-64dabcb2e4d1’ \
--d ‘{“name”:”User number 1”,”email”:”Email number 2”, “password”: “pass”}’</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> curl -X GET <span class="se">\</span>
+ http://localhost:8080/api/list <span class="se">\</span>
+ -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+ -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+ -d <span class="s1">'{"name":"User number 1","email":"Email number 2", "password": "pass"}'</span>
+</code></pre></div>
 
   </div>
 
