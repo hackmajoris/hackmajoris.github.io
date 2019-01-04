@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Java DTO mapping exmaple ☕️
+title: A Java DTO mapping example ☕️
 author: Alexandru Ilies
 ---
 
