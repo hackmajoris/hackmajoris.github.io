@@ -14,6 +14,9 @@ Allows fast communication between foremans, error detection, and gives a complet
 
 ![](https://www.dropbox.com/s/szbkovepyhh97qv/Artboard.png?raw=1)
 
+Application Stack
+<a frameborder="0" data-theme="dark" data-layers="2,3,4,1" data-stack-embed="true" href="https://embed.stackshare.io/stacks/embed/9d490c66514a7554bd77b39942a758"/></a><script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
+
 #### Needs
 Needs is an iOS application with a very important purpose: to help people to find the best person who can help them.
 
