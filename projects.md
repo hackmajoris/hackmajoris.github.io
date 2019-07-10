@@ -3,6 +3,8 @@ layout: page
 title: ""
 permalink: /projects/
 
+---
+
 ### Personal Projects
 
 #### Digitale Prozesslandkarte
