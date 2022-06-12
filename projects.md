@@ -7,6 +7,12 @@ permalink: /projects/
 
 ### Personal Projects
 
+#### Pet Finder
+A mobile application, developed together with a friend which has the purpose to report a lost pet, which you may find on the streets.
+It has a lot of functionalities such as: reporting pet, show nearby reported pets on maps, localization, chat, authorisation and other.
+![](images/pr:pet-finder.png)
+
+
 #### Digitale Prozesslandkarte
 Web and mobile complete solution implemented for the production lines of automotive company for the centralization and management of the assembly lines.
 
