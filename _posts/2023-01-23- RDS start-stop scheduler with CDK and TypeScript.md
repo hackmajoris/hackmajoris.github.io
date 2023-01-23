@@ -44,8 +44,8 @@ Here is the CDK stack:
           code: lambda.Code.fromAsset("./lib/assets/functions/start-stop-rds-lambda"),
           handler: "index.handler",
           environment: {
-            "tag": "passbrains",
-            "info": "Shared function for starting RDS instances"
+            "tag": "some-tag",
+            "info": "Shared function for starting-stopping RDS instances"
           }
         });
 
