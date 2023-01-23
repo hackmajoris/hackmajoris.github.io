@@ -86,5 +86,83 @@ Here is the CDK stack:
       }
     }
 
+```
+  
+  
+  Here is the Lambda function
+  
+  ```typescript
+  import { Handler } from 'aws-lambda';
+import * as AWS from 'aws-sdk';
 
+const rds = new AWS.RDS();
+
+enum InstanceStatus {
+    STOPPED = 'stopped',
+    AVAILABLE = 'available',
+}
+
+export const handler: Handler = async () => {
+  try {
+    const instances = await rds.describeDBInstances().promise();
+    console.log('Found instances: ', instances.DBInstances);
+
+    if (instances.DBInstances) {
+      for (const instance of instances.DBInstances) {
+        const identifier = instance.DBInstanceIdentifier!;
+        const instanceStatus = instance.DBInstanceStatus!;
+
+        console.log(`${identifier} status: `, instanceStatus);
+
+        if (instanceStatus === InstanceStatus.STOPPED) {
+          console.log(`Starting DB Instance with identifier:  ${identifier}`);
+          await rds.startDBInstance({ DBInstanceIdentifier: identifier }).promise();
+        } else {
+          console.log(`Stopping  DB Instance with identifier:  ${identifier}`);
+          await rds.stopDBInstance({ DBInstanceIdentifier: identifier }).promise();
+        }
+      }
+    }
+
+    const describeClusters = await rds.describeDBClusters().promise();
+    console.log('Found clusters: ', describeClusters.DBClusters);
+
+    if (describeClusters.DBClusters) {
+      for (const cluster of describeClusters.DBClusters) {
+        const identifier = cluster.DBClusterIdentifier!;
+        const instanceStatus = cluster.Status!;
+
+        console.log(`${cluster.DBClusterIdentifier} status: `, cluster.Status);
+
+        if (cluster.Status === InstanceStatus.STOPPED) {
+          console.log(`Starting DB Cluster with identifier:  ${identifier}`);
+          await rds.startDBCluster({ DBClusterIdentifier: identifier }).promise();
+        } else {
+          console.log(`Stopping  DB Cluster with identifier:  ${identifier}`);
+          await rds.stopDBCluster({ DBClusterIdentifier: identifier }).promise();
+        }
+      }
+    }
+
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ success: true }),
+      isBase64Encoded: false,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ error: error }),
+      isBase64Encoded: false,
+    };
+  }
+};
   ```
+  
