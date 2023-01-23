@@ -5,14 +5,16 @@ author: Alexandru Ilies
 ---
 
 ## Description
-Originally written [here](https://hackmajoris.medium.com/a-generic-dtos-mapping-in-java-11d649b8a486)
+
 
 Creating a schedule for your Amazon RDS instances and clusters can help you save money on running costs, and also ensure that your database is only running when it's needed.
 It applies mostly on not-prod environments, where you have multiple RDS instances and the cost of running them becomes a problem.
 
 There are several ways to schedule your RDS instances, such as using the AWS Management Console, the AWS Command Line Interface (CLI), or a third-party tool. However, one of the most effective ways to schedule your RDS instances is by using AWS Lambda and CloudWatch Events.
 
-In this post, we will demonstrate how to create an AWS Lambda function using the AWS Cloud Development Kit (CDK) and TypeScript that starts and stops your RDS instances and clusters based on a schedule defined in CloudWatch Events.
+In the above example, everything is created via CDK stack in TypeScript. The Lambda will stop all the instances and clusters which will be found in the AWS account and the region specified in the CDK config. The RDS instances and clusters could be filtered using the the DescribeDBInstances/DescribeDBClusters API in order to apply the scheduler on a specific instance/cluster.
+
+
 First, we need to create an IAM role that has the necessary permissions to interact with the RDS service. We can do this using the CDK by creating a new IAM role and attaching a policy that grants access to the RDS service.
 Next, we will create a Lambda function using the CDK. In the function, we will use the AWS SDK for JavaScript in Node.js to interact with the RDS service. We will use the describeDBInstances and describeDBClusters methods to get a list of all available RDS instances and clusters, and then we will use the startDBInstance, startDBCluster, stopDBInstance methods to start or stop the instances and clusters.
 After that, we need to create a CloudWatch Event that triggers the Lambda function. We can do this by creating a new CloudWatch Event and defining a schedule for when the event should trigger. For example, we can set the event to trigger every day at 7 am, except on weekends.
