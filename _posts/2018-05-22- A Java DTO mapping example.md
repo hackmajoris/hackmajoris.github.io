@@ -4,7 +4,6 @@ title: A Java DTO mapping example ☕️
 author: Alexandru Ilies
 ---
 
-## Description
 Originally written [here](https://hackmajoris.medium.com/a-generic-dtos-mapping-in-java-11d649b8a486)
 
 Sometime you may need to use DTO's(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST'full API. For instance: You have a User entity which has some fields: username, email, password, ID.
