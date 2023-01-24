@@ -4,8 +4,6 @@ title: Amazon RDS Start-Stop Scheduler with CDK and TypeScript
 author: Alexandru Ilies
 ---
 
-## Description
-
 
 Creating a schedule for your Amazon RDS instances and clusters can help you save money on running costs, and also ensure that your database is only running when it's needed.
 It applies mostly on not-prod environments, where you have multiple RDS instances and the cost of running them becomes a problem.
