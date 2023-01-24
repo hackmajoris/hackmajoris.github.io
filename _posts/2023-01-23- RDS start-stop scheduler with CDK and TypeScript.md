@@ -67,10 +67,10 @@ Here is the CDK stack:
         // Create the CloudWatch Event rule for starting RDS every day at 7 AM
         const startRdsInstancesRule = new events.Rule(this, 'psb-start-rds-instances-rule', {
           schedule: events.Schedule.cron({
-            minute: '0',
-            hour: '7',
-            day: '1-5',
-            month: '*'
+              minute: '0',
+              hour: '7',
+              month: '*',
+              weekDay: 'MON-FR'
           }),
         });
         startRdsInstancesRule.addTarget(new aws_events_targets.LambdaFunction(startRdsInstancesLambda));
@@ -80,8 +80,8 @@ Here is the CDK stack:
           schedule: events.Schedule.cron({
             minute: '0',
             hour: '18',
-            day: '1-5',
-            month: '*'
+            month: '*',
+            weekDay: 'MON-FR'
           }),
         });
         stopRdsInstancesRule.addTarget(new aws_events_targets.LambdaFunction(startRdsInstancesLambda));
