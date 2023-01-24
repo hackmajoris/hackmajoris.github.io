@@ -70,7 +70,7 @@ Here is the CDK stack:
               minute: '0',
               hour: '7',
               month: '*',
-              weekDay: 'MON-FR'
+              weekDay: 'MON-FRI'
           }),
         });
         startRdsInstancesRule.addTarget(new aws_events_targets.LambdaFunction(startRdsInstancesLambda));
@@ -81,7 +81,7 @@ Here is the CDK stack:
             minute: '0',
             hour: '18',
             month: '*',
-            weekDay: 'MON-FR'
+            weekDay: 'MON-FRI'
           }),
         });
         stopRdsInstancesRule.addTarget(new aws_events_targets.LambdaFunction(startRdsInstancesLambda));
