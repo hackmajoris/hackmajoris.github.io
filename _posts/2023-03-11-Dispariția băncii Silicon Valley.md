@@ -205,5 +205,4 @@ fost considerată prea mică. Este o rușine. Reglementarea nu este o panaceu de
 reglementar care să se potrivească riscurilor zilei pare potrivit și este unul pentru care factorii de decizie americani pot fi acum nevoiți să se
 grăbească.
 
-Vă mulțumim pentru că ați citit! Dacă ați găsit această piesă utilă, apăsați butonul "Apreciez". Mai mult decât atât, dacă nu sunteți deja un abonat
 plătit, vă rugăm să vă înscrieți pentru conținut săptămânal despre sectorul financiar și o arhivă voluminoasă de peste 100 de numere anterioare.
