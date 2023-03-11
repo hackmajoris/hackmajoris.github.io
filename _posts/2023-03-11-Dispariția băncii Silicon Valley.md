@@ -4,11 +4,11 @@ title: Dispariția băncii Silicon Valley
 author: Alexandru Ilies
 ---
 
-Sursa tradusa. Sursa ![originala](https://www.netinterest.co/p/the-demise-of-silicon-valley-bank)
+Sursa tradusa. Sursa [originala](https://www.netinterest.co/p/the-demise-of-silicon-valley-bank)
 
-"Colapsul rapid al celei de-a 16-a celei mai mari bănci din America"
+# "Colapsul rapid al celei de-a 16-a celei mai mari bănci din America"
 
-"Când nu lucrezi, ce faci pentru a reduce stresul?"
+## Când nu lucrezi, ce faci pentru a reduce stresul?"
 
 Acesta a fost ultima întrebare la care Greg Becker, CEO al Silicon Valley Bank, a răspuns la o conferință de investitori în această săptămână.
 "Ciclismul este sfatul meu", a răspuns el. "Locuind în nordul Californiei și fiind pe peninsulă. Cred că este cea mai bună ciclism de biciclete din
