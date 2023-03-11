@@ -6,6 +6,9 @@ author: Alexandru Ilies
 
 Sursa tradusa. Sursa [originala](https://www.netinterest.co/p/the-demise-of-silicon-valley-bank)
 
+Un articol ce merită tradus și răspândit în cât mai multe limbi, pentru a înțelege cum funcționează sistemul bancar.
+
+
 # "Colapsul rapid al celei de-a 16-a celei mai mari bănci din America"
 
 ## Când nu lucrezi, ce faci pentru a reduce stresul?"
