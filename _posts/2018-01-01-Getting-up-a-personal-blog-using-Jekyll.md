@@ -113,5 +113,3 @@ Recently, I discovered [AI writer](https://ia.net/writer/). It is available only
 
 ### [Grammarly](https://app.grammarly.com)
 I am terrible at English. 
-
-
