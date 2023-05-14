@@ -61,7 +61,7 @@ const config = {
       // Replace with your project's social card
       image: 'https://avatars.githubusercontent.com/u/3758212?v=4',
       navbar: {
-        title: 'Hackmahoris\'s Blog',
+        title: 'Hackmajoris\'s notes',
         logo: {
           alt: 'My Site Logo',
           src: 'https://avatars.githubusercontent.com/u/3758212?v=4',
