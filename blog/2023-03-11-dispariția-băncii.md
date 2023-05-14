@@ -14,7 +14,7 @@ Un articol ce merită tradus și răspândit în cât mai multe limbi, pentru a 
 ## Când nu lucrezi, ce faci pentru a reduce stresul?"
 
 Acesta a fost ultima întrebare la care Greg Becker, CEO al Silicon Valley Bank, a răspuns la o conferință de investitori în această săptămână.
-"Ciclismul este sfatul meu", a răspuns el. "Locuind în nordul Californiei și fiind pe peninsulă. Cred că este cea mai bună ciclism de biciclete din
+"Ciclismu, este sfatul meu", a răspuns el. "Locuind în nordul Californiei și fiind pe peninsulă. Cred că este cea mai bună zonă cu pistă de biciclete din
 lume, punct."
 La trei zile după aceasta, banca lui Becker se află în administrare judiciară.
 <!--truncate-->
@@ -205,5 +205,4 @@ fost considerată prea mică. Este o rușine. Reglementarea nu este o panaceu de
 reglementar care să se potrivească riscurilor zilei pare potrivit și este unul pentru care factorii de decizie americani pot fi acum nevoiți să se
 grăbească.
 
-Vă mulțumim pentru că ați citit! Dacă ați găsit această piesă utilă, apăsați butonul "Apreciez". Mai mult decât atât, dacă nu sunteți deja un abonat
 plătit, vă rugăm să vă înscrieți pentru conținut săptămânal despre sectorul financiar și o arhivă voluminoasă de peste 100 de numere anterioare.
