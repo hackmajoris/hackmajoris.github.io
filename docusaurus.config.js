@@ -74,6 +74,12 @@ const config = {
         additionalLanguages: ['java'],
         darkTheme: darkCodeTheme,
       },
+      
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+    },
     }),
 };
 
