@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhackmajoris_blog=self.webpackChunkhackmajoris_blog||[]).push([[72],{917:o=>{o.exports=JSON.parse('{"permalink":"/tags/howto","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
