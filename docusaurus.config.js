@@ -59,12 +59,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'https://avatars.githubusercontent.com/u/3758212?v=4',
+      image: 'img/IMG_6991-removebg-preview.png',
       navbar: {
         title: 'Hackmajoris\'s notes',
         logo: {
           alt: 'My Site Logo',
-          src: 'https://avatars.githubusercontent.com/u/3758212?v=4',
+          src: 'img/IMG_6991-removebg-preview.png',
         },
         items: [
         ],
