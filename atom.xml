@@ -8,7 +8,7 @@
     <subtitle>Hackmajoris's blog Blog</subtitle>
     <icon>https://hackmajoris.github.io/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[The enemy of developer]]></title>
+        <title type="html"><![CDATA[🚀 The enemy of developer]]></title>
         <id>https://hackmajoris.github.io/2023/06/17/developer-enemy</id>
         <link href="https://hackmajoris.github.io/2023/06/17/developer-enemy"/>
         <updated>2023-06-17T00:00:00.000Z</updated>
@@ -19,7 +19,7 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Dispariția băncii Silicon Valley]]></title>
+        <title type="html"><![CDATA[🚀 Dispariția băncii Silicon Valley]]></title>
         <id>https://hackmajoris.github.io/2023/03/11/dispariția-băncii</id>
         <link href="https://hackmajoris.github.io/2023/03/11/dispariția-băncii"/>
         <updated>2023-03-11T00:00:00.000Z</updated>
@@ -134,7 +134,7 @@ grăbească.</p><p>plătit, vă rugăm să vă înscrieți pentru conținut săp
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Amazon RDS Start-Stop Scheduler with CDK and TypeScript]]></title>
+        <title type="html"><![CDATA[🚀 Amazon RDS Start-Stop Scheduler with CDK and TypeScript]]></title>
         <id>https://hackmajoris.github.io/2023/01/23/rds-start-stop-scheduler</id>
         <link href="https://hackmajoris.github.io/2023/01/23/rds-start-stop-scheduler"/>
         <updated>2023-01-23T00:00:00.000Z</updated>
@@ -150,7 +150,7 @@ In summary, using AWS Lambda and CloudWatch Events to schedule your RDS instance
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Enjoy the process]]></title>
+        <title type="html"><![CDATA[🚀 Enjoy the process]]></title>
         <id>https://hackmajoris.github.io/2022/01/21/enjoy-the-process</id>
         <link href="https://hackmajoris.github.io/2022/01/21/enjoy-the-process"/>
         <updated>2022-01-21T00:00:00.000Z</updated>
@@ -161,9 +161,9 @@ In summary, using AWS Lambda and CloudWatch Events to schedule your RDS instance
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[A Java DTO mapping example ☕️]]></title>
-        <id>https://hackmajoris.github.io/A Java DTO mapping example ☕️</id>
-        <link href="https://hackmajoris.github.io/A Java DTO mapping example ☕️"/>
+        <title type="html"><![CDATA[🚀 A Java DTO mapping example️]]></title>
+        <id>https://hackmajoris.github.io/A Java DTO mapping example️</id>
+        <link href="https://hackmajoris.github.io/A Java DTO mapping example️"/>
         <updated>2018-05-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Originally written here]]></summary>
         <content type="html"><![CDATA[<p>Originally written <a href="https://hackmajoris.medium.com/a-generic-dtos-mapping-in-java-11d649b8a486" target="_blank" rel="noopener noreferrer">here</a></p><p>Sometimes you may need to use DTO's(Data Transfer Objects) in your application in order to hide some entity data(usually) in your REST'full API. For instance: You have a User entity which has some fields: username, email, password, ID.
@@ -177,7 +177,7 @@ and it is nice if you'll do this automatically without mapping the attributes ma
         <category label="howto" term="howto"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[VPN Personal în 3 minute 😱]]></title>
+        <title type="html"><![CDATA[🚀 VPN Personal în 3 minute]]></title>
         <id>https://hackmajoris.github.io/2018/04/20/vpn-personal-in-3-minute</id>
         <link href="https://hackmajoris.github.io/2018/04/20/vpn-personal-in-3-minute"/>
         <updated>2018-04-20T00:00:00.000Z</updated>
@@ -205,7 +205,7 @@ Cât de mici sau cât de mari pot fi riscurile folosirii unui Wireless public, d
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Despre Lightning Network]]></title>
+        <title type="html"><![CDATA[🚀 Despre Lightning Network]]></title>
         <id>https://hackmajoris.github.io/2018/01/29/despre-lightning-network</id>
         <link href="https://hackmajoris.github.io/2018/01/29/despre-lightning-network"/>
         <updated>2018-01-29T00:00:00.000Z</updated>
@@ -232,7 +232,7 @@ Plățile LN sunt un pic mai periculoase decât plățile făcute direct în Blo
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Macbook Upgrade. First Impressions]]></title>
+        <title type="html"><![CDATA[🚀 Macbook Upgrade. First Impressions]]></title>
         <id>https://hackmajoris.github.io/2018/01/11/macbook-upgrade-first-impresions</id>
         <link href="https://hackmajoris.github.io/2018/01/11/macbook-upgrade-first-impresions"/>
         <updated>2018-01-11T00:00:00.000Z</updated>
