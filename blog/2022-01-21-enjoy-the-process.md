@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Enjoy the process
+title: 🚀 Enjoy the process
 author: Alexandru Ilies
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dispariția băncii Silicon Valley
+title: 🚀 Dispariția băncii Silicon Valley
 author: Alexandru Ilies
 ---
 

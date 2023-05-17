@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The enemy of developer
+title: 🚀 The enemy of developer
 author: Alexandru Ilies
 ---
 

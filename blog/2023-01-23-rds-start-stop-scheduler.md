@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Amazon RDS Start-Stop Scheduler with CDK and TypeScript
+title: 🚀 Amazon RDS Start-Stop Scheduler with CDK and TypeScript
 author: Alexandru Ilies
 ---
 

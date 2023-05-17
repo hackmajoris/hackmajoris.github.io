@@ -1,6 +1,6 @@
 ---
-slug: A Java DTO mapping example ☕️
-title: A Java DTO mapping example ☕️
+slug: A Java DTO mapping example️
+title: 🚀 A Java DTO mapping example️
 layout: post
 author: Alexandru Ilies
 tags: [java, howto]

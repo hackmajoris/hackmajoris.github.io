@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Macbook Upgrade. First Impressions 
+title: 🚀 Macbook Upgrade. First Impressions 
 author: Alexandru Ilies
 ---
 
