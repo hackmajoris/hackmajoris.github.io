@@ -1,0 +1,64 @@
+.toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: #2a2b2f;
+  padding: 0 5px;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+
+  .is-light & {
+    background-color: #d0d0d8;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.icon-moon {
+  color: #c8c8ff;
+
+  .is-light & {
+    color: #888;
+  }
+}
+
+.icon-sun {
+  color: #555;
+
+  .is-light & {
+    color: #f5c518;
+  }
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .is-light & {
+    transform: translateX(24px);
+  }
+}

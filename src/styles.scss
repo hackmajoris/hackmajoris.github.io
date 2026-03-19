@@ -1,0 +1,51 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Dark theme (default) */
+:root {
+  --bg-main: #1a1b1e;
+  --bg-sidebar: #16171a;
+  --text-primary: #f0f0f0;
+  --text-body: #cccccc;
+  --text-secondary: #999999;
+  --text-accent: #7aaa7a;
+  --border-color: #2e2f33;
+}
+
+/* Light theme */
+:root[data-theme='light'] {
+  --bg-main: #ffffff;
+  --bg-sidebar: #f8f8f8;
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-secondary: #555555;
+  --text-accent: #555555;
+  --border-color: #e0e0e0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
