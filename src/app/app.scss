@@ -6,6 +6,7 @@
   margin: 0 auto;
   background: var(--bg-main);
   position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 
   app-sidebar {
     border-right: 1px solid var(--border-color);
@@ -21,7 +22,7 @@
   }
 
   .fixed-actions {
-    position: fixed;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     z-index: 100;
@@ -32,7 +33,7 @@
   }
 
   .download-btn {
-    position: fixed;
+    position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
     z-index: 100;
@@ -49,7 +50,9 @@
     color: var(--text-primary);
     background: var(--bg-sidebar);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transition: background 0.2s, box-shadow 0.2s;
+    transition:
+      background 0.2s,
+      box-shadow 0.2s;
 
     &:hover {
       background: var(--border-color);
