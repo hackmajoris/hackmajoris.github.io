@@ -42,3 +42,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+/cv-latex/cv.aux
+/cv-latex/cv.log
+/cv-latex/cv.out
+/cv-latex/cv.pdf
