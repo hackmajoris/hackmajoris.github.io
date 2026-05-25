@@ -8,7 +8,7 @@ export class CvDataService {
   readonly cv: CvData = {
     firstName: 'ALEXANDRU',
     lastName: 'ILIES',
-    title: 'senior software engineer · cloud architect',
+    title: 'senior software engineer · cloud architect · forward deployment engineer',
     photo: 'assets/profile.jpg',
     cvPdf: 'assets/cv.pdf',
     contact: {
@@ -19,7 +19,7 @@ export class CvDataService {
     },
     quote: "You miss 100% of the shots you don't take.",
     profile:
-      "Senior Software Engineer and AWS-certified Cloud Architect with 11 years of experience designing and delivering production systems at scale. I specialize in building event-driven, serverless architectures on AWS and leading teams through complex full-stack projects — from infrastructure to deployment.\n\nAcross 5+ projects I've grown from junior developer to technical lead, mentoring teams of up to 10, architecting platforms serving 35,000+ users, and owning the full cloud infrastructure lifecycle. I hold 4 AWS certifications including Security Specialty and DevOps Professional.\n\nI care about writing clean, well-tested code, automating everything that can be automated, and solving hard problems that make a real difference.",
+      "Senior Software Engineer and AWS-certified Cloud Architect with 11 years of experience designing and delivering production systems at scale. I specialize in building event-driven, serverless architectures on AWS, leading teams through complex full-stack projects — from infrastructure to deployment — and working as a forward deployment engineer close to customers and real-world delivery.\n\nAcross 5+ projects I've grown from junior developer to technical lead, mentoring teams of up to 10, architecting platforms serving 35,000+ users, and owning the full cloud infrastructure lifecycle. I hold 4 AWS certifications including Security Specialty and DevOps Professional.\n\nI care about writing clean, well-tested code, automating everything that can be automated, and solving hard problems that make a real difference.",
     workExperience: [
       {
         title: 'Lead Software Engineer',
@@ -32,6 +32,7 @@ export class CvDataService {
           'Implemented event-driven, serverless architectures that improved system scalability and reduced operational costs through continuous optimization.',
           'Established CI/CD pipelines with GitHub Actions and GitLab CI, enabling multiple deployments per day with zero-downtime releases.',
           'Defined and enforced security best practices across all projects — WAF, IAM policies, secrets management — aligned with AWS Security Specialty certification.',
+          'Acted as a forward deployment engineer by partnering closely with stakeholders to translate customer needs into reliable production delivery and rapid iteration.',
         ],
         sideProjects: [
           {
@@ -115,7 +116,7 @@ export class CvDataService {
       },
       {
         category: 'Architecture & Leadership',
-        items: ['Event-Driven Architecture', 'Serverless', 'Microservices', 'Technical Mentoring', 'System Design'],
+        items: ['Event-Driven Architecture', 'Serverless', 'Microservices', 'Technical Mentoring', 'System Design', 'Forward Deployment'],
       },
     ],
     certifications: [

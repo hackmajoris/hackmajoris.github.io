@@ -60,6 +60,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": ["mac-mini-admin.tail7ba75c.ts.net"]
+          },
           "configurations": {
             "production": {
               "buildTarget": "cv-app:build:production"
