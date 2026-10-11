@@ -22,6 +22,12 @@
       "logo": "logos/brokersync.svg"
     },
     {
+      "name": "Watchlist",
+      "description": "Add companies to a watchlist and track their price, charts, and financial data in one place.",
+      "url": "https://watchlist.dot-core.com/",
+      "logo": "logos/watchlist.svg"
+    },
+    {
       "name": "MeterSync",
       "description": "Private, open-source desktop app for tracking electricity, gas, water, and custom utility meters, with charts and an encrypted local database. Nothing goes to the cloud.",
       "url": "https://hackmajoris.github.io/meter-sync/",
