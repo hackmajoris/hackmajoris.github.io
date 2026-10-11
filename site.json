@@ -1,0 +1,43 @@
+{
+  "title": "Hackmajoris's Projects",
+  "github": "https://github.com/hackmajoris",
+  "email": "contact@hackmajoris.dev",
+  "apps": [
+    {
+      "name": "AppRec",
+      "description": "Mac menu bar app that records one app's audio plus your microphone, transcribes it on your Mac, writes a summary, and names the file after what was said.",
+      "url": "https://apprec.hackmajoris.dev/",
+      "logo": "logos/apprec.svg"
+    },
+    {
+      "name": "Sharefly",
+      "description": "Share an HTML, Markdown file or any file, from your terminal as a link. Works locally with zero setup, or publicly through a Cloudflare Tunnel, with optional password protection.",
+      "url": "https://sharefly.hackmajoris.dev/",
+      "logo": "logos/sharefly.svg"
+    },
+    {
+      "name": "BrokerSync",
+      "description": "Aggregates statements from a few supported brokers used in Romania and turns them into statistics: positions, P&L, dividends, and performance per broker.",
+      "url": "https://brokersync.dot-core.com/overview",
+      "logo": "logos/brokersync.svg"
+    },
+    {
+      "name": "MeterSync",
+      "description": "Private, open-source desktop app for tracking electricity, gas, water, and custom utility meters, with charts and an encrypted local database. Nothing goes to the cloud.",
+      "url": "https://hackmajoris.github.io/meter-sync/",
+      "logo": "logos/metersync.svg"
+    },
+    {
+      "name": "AnalyzeMe",
+      "description": "Upload blood test results, track biomarkers over time, and spot trends before they matter. Imports lab PDFs and CSVs. Private and local-first.",
+      "url": "https://hackmajoris.github.io/analyze-me/",
+      "logo": "logos/analyzeme.svg"
+    },
+    {
+      "name": "go-finance",
+      "description": "Small Go library for real-time and historical stock, crypto, and currency prices from Yahoo Finance, with parallel quote and FX-rate fetching.",
+      "url": "https://github.com/hackmajoris/go-finance",
+      "logo": "logos/go-finance.svg"
+    }
+  ]
+}
