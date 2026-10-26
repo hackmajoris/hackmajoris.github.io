@@ -28,6 +28,12 @@
       "logo": "logos/watchlist.svg"
     },
     {
+      "name": "Wealth Me",
+      "description": "Self-hosted net worth tracker. Log savings, stocks, crypto, assets, and debts once a month, compare returns against the S&P 500, Nasdaq, and VWCE, and plan early retirement. One SQLite file on your machine, optionally encrypted.",
+      "url": "https://wealth-me.hackmajoris.dev/",
+      "logo": "logos/wealthme.svg"
+    },
+    {
       "name": "MeterSync",
       "description": "Private, open-source desktop app for tracking electricity, gas, water, and custom utility meters, with charts and an encrypted local database. Nothing goes to the cloud.",
       "url": "https://hackmajoris.github.io/meter-sync/",
