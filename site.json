@@ -30,7 +30,7 @@
     {
       "name": "Wealth Me",
       "description": "Self-hosted net worth tracker. Log savings, stocks, crypto, assets, and debts once a month, compare returns against the S&P 500, Nasdaq, and VWCE, and plan early retirement. One SQLite file on your machine, optionally encrypted.",
-      "url": "https://wealth-me.hackmajoris.dev/",
+      "url": "https://hackmajoris.dev/wealth-me/",
       "logo": "logos/wealthme.svg"
     },
     {
